@@ -21,7 +21,7 @@ const Newarrivals = ({style,over,leave}:Props) => {
     w="100%"
     h="400px"
     m="auto"
-   
+    bgColor="white"
   >
     <VStack w="20%" h="90%">
       <Text textAlign="left" fontWeight="bold">NEW ARRIVALS</Text>

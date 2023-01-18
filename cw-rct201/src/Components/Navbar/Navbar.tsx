@@ -34,11 +34,11 @@ const Navbar = () => {
       <GiHamburgerMenu style={{width:"100%",height:"100%"}}/>
       </Box>
       </Show>
-      <Box h="60%" w={{base:"30%",sm:"10%",lg:"15%"}} >
+      <Box h="60%" w={{base:"30%",sm:"10%",lg:"10%"}} >
         <Image w="90%" h="100%" src="https://images.dailyobjects.com/marche/icons/logo_named.png?tr=cm-pad_resize,v-2,w-135,h-27,dpr-1"/>
       </Box>
       <Show above="901px">
-      <HStack justifyContent="space-between" fontWeight="bold" h="auto" w="60%" >
+      <HStack fontSize="14px" justifyContent="space-between" fontWeight="bold" h="auto" w="70%" >
         <Box  h="90px" pt="32px"  onMouseOver={()=>setstyle({display:"flex"})} onMouseLeave={()=>setstyle({display:"none"})} _hover={{color:"#20a87e"}}>
            <Link style={{textDecoration:"none"}}>NEW ARRIVALS</Link>
            

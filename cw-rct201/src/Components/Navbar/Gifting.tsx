@@ -4,7 +4,7 @@ import {Box,HStack,Image,Link,VStack,Text,List,ListItem} from "@chakra-ui/react"
 interface Props{
     style:Display,
     over:()=>void,
-    leave:()=>void
+    leave:()=>void,
 }
 const Gifting = ({style,over,leave}:Props) => {
   return (
@@ -18,7 +18,7 @@ const Gifting = ({style,over,leave}:Props) => {
     w="100%"
     h="400px"
     m="auto"
-   
+    bgColor="white"
   >
    
     <HStack w="70%" h="90%" borderRight="1px solid #999">
@@ -33,12 +33,12 @@ const Gifting = ({style,over,leave}:Props) => {
      </List>
     </VStack>
     <VStack w="25%" h="90%" borderRight="1px solid #999">
-    <Text fontSize="17px" textAlign="left" fontWeight="bold">HOLIDAY GIFTING BUNDLES</Text>
+    <Text fontSize="14px" textAlign="left" fontWeight="bold">HOLIDAY GIFTING BUNDLES</Text>
       <Text fontSize="17px" textAlign="left" fontWeight="bold">E-GIFT CARDS</Text>
       
     </VStack>
     <VStack w="25%" h="90%" >
-      <Text fontSize="17px" textAlign="left" fontWeight="bold">GIFTS BY BUDGET</Text>
+      <Text fontSize="14px" textAlign="left" fontWeight="bold">GIFTS BY BUDGET</Text>
       <List fontSize="17px" textAlign="left" spacing={2}>
       <ListItem><Link>Gifts Under 500</Link> </ListItem>
        <ListItem><Link>Gifts Under 1000</Link></ListItem>
@@ -49,7 +49,7 @@ const Gifting = ({style,over,leave}:Props) => {
      </List>
     </VStack>
     <VStack w="25%" h="90%" >
-      <Text fontSize="17px" textAlign="left" fontWeight="bold">GIFTS BY PERSONAS</Text>
+      <Text fontSize="14px" textAlign="left" fontWeight="bold">GIFTS BY PERSONAS</Text>
       <List fontSize="17px" textAlign="left" spacing={2}>
       <ListItem><Link>Gifts For The Techie</Link> </ListItem>
        <ListItem><Link>Gifts For The Organiser</Link></ListItem>
