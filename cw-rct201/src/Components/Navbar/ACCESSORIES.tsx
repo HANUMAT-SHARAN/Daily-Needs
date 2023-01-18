@@ -19,7 +19,7 @@ const ACCESSORIES = ({style,over,leave}:Props) => {
     w="100%"
     h="400px"
     m="auto"
-   
+    bgColor="white"
   >
    
     <HStack w="70%" h="90%" borderRight="1px solid #999">
