@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
+import "../Homepage.css"
 import {
   Box,
   IconButton,
   useBreakpointValue,
-  Stack,
-  Heading,
   Text,
-  Container,
+  GridItem,
+  Grid,
+  Image,
 } from '@chakra-ui/react';
 // Here we have used react-icons package for the icons
 import { BiLeftArrowAlt, BiRightArrowAlt } from 'react-icons/bi';
@@ -15,16 +16,17 @@ import Slider from 'react-slick';
 
 // Settings for the slider
 const settings = {
-  dots: true,
+  dots: false,
   arrows: false,
-  fade: true,
+  fade: false,
   infinite: true,
   autoplay: true,
-  speed: 500,
+  speed: 1500,
   autoplaySpeed: 5000,
-  slidesToShow: 1,
-  slidesToScroll: 1,
+  
 };
+
+
 
 export default function ProductCategory() {
   // As we have used custom buttons, we need a reference variable to
@@ -33,41 +35,42 @@ export default function ProductCategory() {
 
   // These are the breakpoints which changes the position of the
   // buttons as the screen size changes
-  const top = useBreakpointValue({ base: '90%', md: '50%' }) 
-  const side = useBreakpointValue({ base: '30%', md: '40px' }) 
+  const top = useBreakpointValue({ base: '50%', md: '52%', sm: "30%"}) 
+  const side = useBreakpointValue({ base: '0%', md: '3%', sm:"3%"}) 
 
   // This list contains all the data for carousels
   // This can be static or loaded from a server
   const cards = [
     {
-      title: 'Design Projects 1',
-      text:
-        "The project board is an exclusive resource for contract work. It's perfect for freelancers, agencies, and moonlighters.",
-      image:
-        'https://images.dailyobjects.com/marche/assets/images/other/cases-ups.jpg?tr=cm-pad_crop,v-2,w-875,dpr-1',
+      title: 'Cases',
+      title2: 'Bags',
+      title3: 'Laptop sleves',
+      title4: 'Tote Bags',
+      image:'https://images.dailyobjects.com/marche/assets/images/other/cases-ups.jpg?tr=cm-pad_crop,v-2,w-875,dpr-1',
+      image2:'https://images.dailyobjects.com/marche/assets/images/other/backpack-ups.jpg?tr=cm-pad_crop,v-2,w-875,dpr-1',
+      image3:'https://images.dailyobjects.com/marche/assets/images/other/laptop-sleeve-ups.jpg?tr=cm-pad_crop,v-2,w-875,dpr-1',
+      image4:'https://images.dailyobjects.com/marche/assets/images/other/tote-ups.jpg?tr=cm-pad_crop,v-2,w-875,dpr-1',
     },
     {
-      title: 'Design Projects 2',
-      text:
-        "The project board is an exclusive resource for contract work. It's perfect for freelancers, agencies, and moonlighters.",
-      image:
-        'https://images.unsplash.com/photo-1438183972690-6d4658e3290e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2274&q=80',
+      title: 'Crosbody bag',
+      title2: 'Bagpack',
+      title3: 'Desk Mat',
+      title4: 'Watch Band',
+      image:'https://images.dailyobjects.com/marche/assets/images/other/crossbody-ups.jpg?tr=cm-pad_crop,v-2,w-875,dpr-1',
+      image2:'https://images.dailyobjects.com/marche/assets/images/other/backpack-ups.jpg?tr=cm-pad_crop,v-2,w-875,dpr-1',
+      image3:'https://images.dailyobjects.com/marche/assets/images/other/deskmat-ups.jpg?tr=cm-pad_crop,v-2,w-875,dpr-1',
+      image4:'https://images.dailyobjects.com/marche/assets/images/other/watchbands-ups.jpg?tr=cm-pad_crop,v-2,w-875,dpr-1',
     },
-    {
-      title: 'Design Projects 3',
-      text:
-        "The project board is an exclusive resource for contract work. It's perfect for freelancers, agencies, and moonlighters.",
-      image:
-        'https://images.unsplash.com/photo-1507237998874-b4d52d1dd655?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDR8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=900&q=60',
-    },
+
   ];
 
   return (
-    <Box
+    <Box padding={"2%"}
       position={'relative'}
-      height={'600px'}
+      height={'20%'}
       width={'full'}
-      overflow={'hidden'}>
+      backgroundColor="#ffffff"
+      overflow={"hidden"}>
       {/* CSS files for react-slick */}
       <link
         rel="stylesheet"
@@ -85,6 +88,7 @@ export default function ProductCategory() {
         aria-label="left-arrow"
         variant="ghost"
         position="absolute"
+        color={"grey"}
         left={side}
         top={top}
         transform={'translate(0%, -50%)'}
@@ -96,6 +100,7 @@ export default function ProductCategory() {
       <IconButton
         aria-label="right-arrow"
         variant="ghost"
+        color={"grey"}
         position="absolute"
         right={side}
         top={top}
@@ -105,34 +110,31 @@ export default function ProductCategory() {
         <BiRightArrowAlt size="40px" />
       </IconButton>
       {/* Slider */}
-      <Slider {...settings} ref={(slider) => setSlider(slider)}>
+      <Text className='heading' fontSize={{ base: '8px', md: '10px', lg: '20px' }} >SHOP CATEGORIES</Text>
+      <Slider {...settings} ref={(slider) => setSlider(slider)}  >
+        
         {cards.map((card, index) => (
-          <Box
-            key={index}
-            height={'6xl'}
-            position="relative"
-            backgroundPosition="center"
-            backgroundRepeat="no-repeat"
-            backgroundSize="cover"
-            backgroundImage={`url(${card.image})`}>
-            {/* This is the block you need to change, to customize the caption */}
-            <Container size="container.lg" height="600px" position="relative">
-              <Stack
-                spacing={6}
-                w={'full'}
-                maxW={'lg'}
-                position="absolute"
-                top="50%"
-                transform="translate(0, -50%)">
-                <Heading fontSize={{ base: '3xl', md: '4xl', lg: '5xl' }}>
-                  {card.title}
-                </Heading>
-                <Text fontSize={{ base: 'md', lg: 'lg' }} color="GrayText">
-                  {card.text}
-                </Text>
-              </Stack>
-            </Container>
-          </Box>
+          <Grid    width="100%" key={index} >
+            <GridItem display={"flex"} justifyContent="space-evenly"  >
+              <Box >
+                  <Image src={card.image} w={[50,100, 200]}  alt={card.title} onClick={()=>console.log("1")}/>
+                  <Text color={"black"} fontSize={{ base: '10px', md: '10px', lg: '15px' }}>{card.title}</Text>
+              </Box>
+              <Box>
+                  <Image src={card.image2} w={[50,100, 200]} alt={card.title} onClick={()=>console.log("1")} />
+                  <Text color={"black"} fontSize={{ base: '10px', md: '10px', lg: '15px' }}>{card.title2}</Text>
+              </Box>
+              <Box>
+                 <Image src={card.image3} w={[50,100, 200]} alt={card.title} onClick={()=>console.log("1")}/>
+                 <Text color={"black"} fontSize={{ base: '10px', md: '10px', lg: '15px' }}>{card.title3}</Text>
+              </Box>
+              <Box>
+                 <Image src={card.image4} w={[50,100, 200]} alt={card.title} onClick={()=>console.log("1")}/>
+                  <Text color={"black"} fontSize={{ base: '10px', md: '10px', lg: '15px' }}>{card.title4}</Text>
+              </Box>
+            </GridItem>          
+          </Grid>
+          
         ))}
       </Slider>
     </Box>

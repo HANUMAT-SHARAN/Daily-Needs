@@ -1,4 +1,83 @@
+
 .front-flex-img{
     width: 100%;
     
 }
+.heading{
+    color:black;
+    margin-bottom: 20px;
+    text-align: center;
+}
+.collection_heading{
+    color:black;
+    text-align: center;
+    padding: 10px;
+    
+}
+
+.collection-component{
+    background-color: white;
+    
+}
+
+
+/* css for collection cards */
+.collection_grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.2rem;
+  }
+
+  
+    /* Custom, iPhone Retina */
+    @media only screen and (max-width: 319px) {
+        .collection_grid {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.2rem;
+          }
+      }
+
+  /* Custom, iPhone Retina */
+  @media only screen and (min-width: 320px) {
+    .collection_grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.2rem;
+      }
+  }
+  
+  /* Extra Small Devices, Phones */
+  @media only screen and (min-width: 480px) {
+    .collection_grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.2rem;
+      }
+  }
+  
+  /* Small Devices, Tablets */
+  @media only screen and (min-width: 768px) {
+    .collection_grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.2rem;
+      }
+  }
+  
+  /* Medium Devices, Desktops */
+  @media only screen and (min-width: 992px) {
+    .collection_grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.2rem;
+      }
+  }
+  
+  /* Large Devices, Wide Screens */
+  @media only screen and (min-width: 1200px) {
+    .collection_grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.2rem;
+      }
+  }
+
+  .card-text{
+    color: black;
+    text-align: start;
+
+  }

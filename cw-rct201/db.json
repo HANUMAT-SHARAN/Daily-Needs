@@ -1,0 +1,12 @@
+{
+  "users": [
+    {
+      "name": "SUDHIR",
+      "lastname": "NANDANE",
+      "email": "nandanesudhir1@gmail.com",
+      "password": "Sudhir@1234",
+      "cart": [],
+      "id": 1
+    }
+  ]
+}
