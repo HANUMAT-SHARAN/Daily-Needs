@@ -1,4 +1,5 @@
 import React from 'react'
+
 import ProductCategory from './category/CoroselCategory'
 import "./Homepage.css"
 const Homepage = () => {
@@ -10,7 +11,7 @@ const Homepage = () => {
         <div>
             <img className='front-flex-img' src="https://images.dailyobjects.com/marche/assets/images/other/backpack-desktops.jpg?tr=cm-pad_crop,v-2,w-1351,dpr-1" alt="" />
         </div>
-   
+  
     </div>
   )
 }
