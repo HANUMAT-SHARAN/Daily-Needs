@@ -51,7 +51,6 @@ export default function Signup() {
   console.log(data)
 
   const sendData = async () => {
-
    data.cart=[]
     await axios.post(`http://localhost:4040/users`, data);
     setData(user);

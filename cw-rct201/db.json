@@ -7,6 +7,14 @@
       "password": "Sudhir@1234",
       "cart": [],
       "id": 1
+    },
+    {
+      "name": "Shubham",
+      "lastname": "Kumar",
+      "email": "W@gmail.com",
+      "password": "Sonu@123",
+      "cart": [],
+      "id": 2
     }
   ]
 }
