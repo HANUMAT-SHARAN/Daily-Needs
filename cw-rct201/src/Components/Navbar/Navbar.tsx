@@ -1,5 +1,5 @@
 import React,{useState} from 'react'
-import {Box,HStack,Image,Link,Menu,MenuList,MenuItem,MenuButton,Show,useDisclosure,Drawer,DrawerBody,DrawerContent,DrawerOverlay,DrawerHeader} from "@chakra-ui/react"
+import {Box,HStack,Image,Menu,MenuList,MenuItem,MenuButton,Show,useDisclosure,Drawer,DrawerBody,DrawerContent,DrawerOverlay,DrawerHeader} from "@chakra-ui/react"
 import { BiSearch } from 'react-icons/bi';
 import {BsFillPersonFill } from 'react-icons/bs';
 import {BsBagCheckFill } from 'react-icons/bs';
@@ -11,6 +11,9 @@ import Bags from './Bags';
 import Office from './Office';
 import Collection from './Collection';
 import Gifting from './Gifting';
+import { Link } from 'react-router-dom';
+
+
 export interface Display{
   display: string
 }
@@ -40,28 +43,28 @@ const Navbar = () => {
       <Show above="901px">
       <HStack fontSize="14px" justifyContent="space-between" fontWeight="bold" h="auto" w="70%" >
         <Box  h="90px" pt="32px"  onMouseOver={()=>setstyle({display:"flex"})} onMouseLeave={()=>setstyle({display:"none"})} _hover={{color:"#20a87e"}}>
-           <Link style={{textDecoration:"none"}}>NEW ARRIVALS</Link>
+           <Link to="">NEW ARRIVALS</Link>
            
            </Box>
 
         <Box h="90px" pt="32px" onMouseOver={()=>setstyle1({display:"flex"})} onMouseLeave={()=>setstyle1({display:"none"})}  _hover={{color:"#20a87e"}}>
-          <Link style={{textDecoration:"none"}}>CASES & SLEEVES </Link>
+          <Link to="">CASES & SLEEVES </Link>
           </Box>
         <Box h="90px" pt="32px" onMouseOver={()=>setstyle2({display:"flex"})} onMouseLeave={()=>setstyle2({display:"none"})} _hover={{color:"#20a87e"}}>
-          <Link style={{textDecoration:"none"}}>ACCESSORIES</Link>
+          <Link to="">ACCESSORIES</Link>
           </Box>
         <Box h="90px" pt="32px" cursor="pointer" color="#eb8f7f">SALE</Box>
         <Box h="90px" pt="32px" onMouseOver={()=>setstyle3({display:"flex"})} onMouseLeave={()=>setstyle3({display:"none"})}  _hover={{color:"#20a87e"}}>
-          <Link style={{textDecoration:"none"}}>BAGS & WALLETS</Link>
+          <Link to="">BAGS & WALLETS</Link>
           </Box>
         <Box h="90px" pt="32px" onMouseOver={()=>setstyle4({display:"flex"})} onMouseLeave={()=>setstyle4({display:"none"})}  _hover={{color:"#20a87e"}}>
-         <Link style={{textDecoration:"none"}}> HOME OFFICE</Link>
+         <Link to=""> HOME OFFICE</Link>
           </Box>
         <Box h="90px" pt="32px" onMouseOver={()=>setstyle5({display:"flex"})} onMouseLeave={()=>setstyle5({display:"none"})}  _hover={{color:"#20a87e"}}>
-         <Link style={{textDecoration:"none"}}>COLLECTIONS</Link>
+         <Link to="">COLLECTIONS</Link>
           </Box>
         <Box h="90px" pt="32px" onMouseOver={()=>setstyle6({display:"flex"})} onMouseLeave={()=>setstyle6({display:"none"})} _hover={{color:"#20a87e"}}>
-          <Link style={{textDecoration:"none"}}> GIFTING</Link>
+          <Link to=""> GIFTING</Link>
           </Box>
       </HStack>
       </Show>
@@ -72,10 +75,10 @@ const Navbar = () => {
   <BsFillPersonFill size="30px"/>
   </MenuButton>
   <MenuList>
-    <MenuItem>My Account</MenuItem>
-    <MenuItem>Orders</MenuItem>
-    <MenuItem>Address</MenuItem>
-    <MenuItem>Logout</MenuItem>
+  <Link to="/signup"><MenuItem> SignUp</MenuItem></Link>
+    {/* <MenuItem>Orders</MenuItem>
+    <MenuItem>Address</MenuItem> */}
+    <Link to="/login"><MenuItem> Login</MenuItem></Link>
     
   </MenuList>
 </Menu>
@@ -98,14 +101,14 @@ const Navbar = () => {
         <DrawerContent h="500px" mt="90px">
           <DrawerHeader borderBottomWidth='1px'>Categories</DrawerHeader>
           <DrawerBody >
-           <Box p="10px" borderBottom="1px solid teal"><Link textDecoration={"none"}> NEW ARRIVALS</Link></Box>
-           <Box p="10px" borderBottom="1px solid teal"><Link textDecoration={"none"}>CASES & SLEEVES</Link> </Box>
-           <Box p="10px" borderBottom="1px solid teal"><Link textDecoration={"none"}> ACCESSORIES</Link></Box>
-           <Box p="10px" borderBottom="1px solid teal"><Link textDecoration={"none"}> SALE</Link></Box>
-           <Box p="10px" borderBottom="1px solid teal"><Link textDecoration={"none"}>BAGS & WALLETS</Link> </Box>
-           <Box p="10px" borderBottom="1px solid teal"><Link textDecoration={"none"}>HOME OFFICE</Link> </Box>
-           <Box p="10px" borderBottom="1px solid teal"><Link textDecoration={"none"}>COLLECTIONS</Link> </Box>
-           <Box p="10px" borderBottom="1px solid teal"><Link textDecoration={"none"}>GIFTING</Link> </Box>
+           <Box p="10px" borderBottom="1px solid teal"><Link to="" > NEW ARRIVALS</Link></Box>
+           <Box p="10px" borderBottom="1px solid teal"><Link to="" >CASES & SLEEVES</Link> </Box>
+           <Box p="10px" borderBottom="1px solid teal"><Link to="" > ACCESSORIES</Link></Box>
+           <Box p="10px" borderBottom="1px solid teal"><Link to="" > SALE</Link></Box>
+           <Box p="10px" borderBottom="1px solid teal"><Link  to="">BAGS & WALLETS</Link> </Box>
+           <Box p="10px" borderBottom="1px solid teal"><Link to="" >HOME OFFICE</Link> </Box>
+           <Box p="10px" borderBottom="1px solid teal"><Link  to="">COLLECTIONS</Link> </Box>
+           <Box p="10px" borderBottom="1px solid teal"><Link  to="">GIFTING</Link> </Box>
           </DrawerBody>
         </DrawerContent>
       </Drawer>
