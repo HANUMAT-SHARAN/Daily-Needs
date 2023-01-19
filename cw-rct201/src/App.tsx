@@ -3,6 +3,7 @@ import React from 'react';
 import './App.css';
 import Footer from './Components/Footer/Footer';
 import Navbar from './Components/Navbar/Navbar';
+import MobileProducts from './Pages/MobileProducts';
 
 
 
@@ -13,6 +14,7 @@ function App() {
     <div className="App">
 <Navbar/>
       <AllRoutes/> 
+      <MobileProducts/>
      {/* <Footer/> */}
 
     </div>
