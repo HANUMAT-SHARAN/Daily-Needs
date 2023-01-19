@@ -4,6 +4,7 @@ import Homepage from '../Components/Homepage/Homepage'
 import Signup from '../Pages/Signup'
 import NotFound from '../Pages/NotFound'
 import Login from '../Pages/Login'
+import SearchPage from '../Pages/SearchPage'
 
 const AllRoutes = () => {
   return (
@@ -13,6 +14,7 @@ const AllRoutes = () => {
         <Route element={<Signup/>} path="/signup"/>
         <Route element={<NotFound/>} path="*"/>
         <Route element={<Login/>} path="/login"/>
+        <Route element={<SearchPage/>} path="/search" />
         
 
       </Routes>

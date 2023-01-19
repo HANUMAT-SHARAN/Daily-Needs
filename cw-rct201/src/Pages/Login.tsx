@@ -6,14 +6,20 @@ import {
   FormLabel,
   Heading,
   Input,
+  InputGroup,
+  InputRightElement,
   Stack,
   useColorModeValue,
 } from "@chakra-ui/react";
+import { store } from "../Redux/store";
+import { useDispatch, useSelector } from "react-redux";
 import React from "react";
 
-
 import { userobj } from "./Signup";
-
+import { loginApi } from "../api/LoginApi";
+import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
+import { getUsersData,setCurrentUser } from "../Redux/auth/authAction";
+import { useNavigate } from "react-router-dom";
 
 type loginuser = {
   password: string;
@@ -25,16 +31,41 @@ const initlogindata = {
   password: "",
 };
 export default function Login(): JSX.Element {
+  const { loginUsersData } = useSelector((store: any) => store.authManager);
+  console.log(loginUsersData);
 
 
-    const {loginWithRedirect} = useAuth0()
-    
+  const [showPassword, setShowPassword] = React.useState<boolean>(false);
+
   const [userLoginData, setUserLoginData] =
     React.useState<loginuser>(initlogindata);
 
+  const dispatch:any = useDispatch();
+
+  const { loginWithRedirect } = useAuth0();
+
+ 
+  const nav=useNavigate()
+  React.useEffect(() => {
+    dispatch(getUsersData())
+  }, []);
+
   const checkUser = () => {
-    console.log(userLoginData);
+    for (let i = 0; i <= loginUsersData.length - 1; i++) {
+      if (
+        userLoginData.email === loginUsersData[i].email &&
+        userLoginData.password === loginUsersData[i].password
+      ) {
+        alert("login Succesffule");
+        nav('/')
+        dispatch(setCurrentUser(loginUsersData[i]))
+        setUserLoginData(initlogindata);
+        return;
+      }
+    }
+    alert("SomeThing Is wrong");
     setUserLoginData(initlogindata);
+    return;
   };
 
   return (
@@ -60,7 +91,7 @@ export default function Login(): JSX.Element {
         <FormControl id="email" isRequired>
           <FormLabel>Email address</FormLabel>
           <Input
-          value={userLoginData.email}
+            value={userLoginData.email}
             onChange={(e) =>
               setUserLoginData({ ...userLoginData, email: e.target.value })
             }
@@ -72,14 +103,25 @@ export default function Login(): JSX.Element {
         </FormControl>
         <FormControl id="password" isRequired>
           <FormLabel>Password</FormLabel>
-          <Input
-            value={userLoginData.password}
-            onChange={(e) =>
-              setUserLoginData({ ...userLoginData, password: e.target.value })
-            }
-            name="password"
-            type="password"
-          />
+          <InputGroup>
+            <Input
+              value={userLoginData.password}
+              onChange={(e) =>
+                setUserLoginData({ ...userLoginData, password: e.target.value })
+              }
+              name="password"
+              type={showPassword ? "text" : "password"}
+            />
+
+            <InputRightElement h={"full"}>
+              <Button
+                variant={"ghost"}
+                onClick={() => setShowPassword((showPassword) => !showPassword)}
+              >
+                {showPassword ? <ViewIcon /> : <ViewOffIcon />}
+              </Button>
+            </InputRightElement>
+          </InputGroup>
         </FormControl>
         <Stack spacing={6}>
           <Button
@@ -92,7 +134,7 @@ export default function Login(): JSX.Element {
           >
             Submit
           </Button>
-          <Button onClick={()=>loginWithRedirect()}>Login with google</Button>
+          <Button onClick={() => loginWithRedirect()}>Login with google</Button>
         </Stack>
       </Stack>
     </Flex>
