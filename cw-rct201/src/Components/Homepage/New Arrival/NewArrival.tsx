@@ -116,19 +116,19 @@ export default function NewArrival() {
         {cards.map((card, index) => (
           <Grid    width="100%" key={index} >
             <GridItem display={"flex"} justifyContent="space-evenly"  >
-              <Box >
+              <Box className="grow_img" >
                   <Image src={card.image} w={[50,100, 200]}  alt={card.title} onClick={()=>console.log("1")}/>
                   <Text color={"black"} fontSize={{ base: '10px', md: '10px', lg: '15px' }}>{card.title}</Text>
               </Box>
-              <Box>
+              <Box className="grow_img">
                   <Image src={card.image2} w={[50,100, 200]} alt={card.title} onClick={()=>console.log("1")} />
                   <Text color={"black"} fontSize={{ base: '10px', md: '10px', lg: '15px' }}>{card.title2}</Text>
               </Box>
-              <Box>
+              <Box className="grow_img">
                  <Image src={card.image3} w={[50,100, 200]} alt={card.title} onClick={()=>console.log("1")}/>
                  <Text color={"black"} fontSize={{ base: '10px', md: '10px', lg: '15px' }}>{card.title3}</Text>
               </Box>
-              <Box>
+              <Box className="grow_img">
                  <Image src={card.image4} w={[50,100, 200]} alt={card.title} onClick={()=>console.log("1")}/>
                   <Text color={"black"} fontSize={{ base: '10px', md: '10px', lg: '15px' }}>{card.title4}</Text>
               </Box>

@@ -1,7 +1,6 @@
 {
   "users": [
     {
-
       "name": "Hanumat ",
       "lastname": "Sharan",
       "email": "deotadayal27@gmail.com",
@@ -24,6 +23,14 @@
       "password": "Abhishek@12",
       "cart": [],
       "id": 3
+    },
+    {
+      "name": "sudhir",
+      "lastname": "nandane",
+      "email": "nandanesudhir1@gmail.com",
+      "password": "SUDHIR@12345",
+      "cart": [],
+      "id": 4
     }
   ],
   "products": [
