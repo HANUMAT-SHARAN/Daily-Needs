@@ -1,6 +1,7 @@
 import React from 'react'
 
 export type CardProps={
+    id:number,
     image1:string
     image2?:string
     image3?:string
@@ -12,16 +13,15 @@ export type CardProps={
    
 }
 
-const Card:React.FC<CardProps>= ({image1,description,catogery,cost,Rating}) => {
+const Card:React.FC<CardProps>= ({image1,description,catogery,cost,Rating,id}) => {
   return (
-        <div>
+        <div key={id}>
          <img src={image1} alt={catogery}/>
           <p>{description}</p>
           <p>{catogery}</p>
           <p>{Rating}</p>
           <h1>{cost}</h1>
        </div>
-
   )
 }
 

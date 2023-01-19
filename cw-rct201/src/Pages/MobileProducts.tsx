@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 
 import { Button, Select } from "@chakra-ui/react";
 import Card from "../Components/MobileProducts/Card";
+import { Link } from "react-router-dom";
 export interface Data {
   image1: string;
   image2: string;
@@ -10,7 +11,7 @@ export interface Data {
   image4?: string;
   cost: number;
   description: string;
-  id?: number;
+  id: number;
   Rating: number;
   catogery: string;
 }
@@ -46,13 +47,16 @@ const MobileProducts = () => {
       <div>
         {Iphone.map((el) => {
           return (
-            <Card
-              image1={el.image1}
-              description={el.description}
-              catogery={el.catogery}
-              cost={el.cost}
-              Rating={el.Rating}
-            />
+            <Link to={`/product/${el.id}`}>
+              <Card  key={el.id}
+                id={el.id}
+                image1={el.image1}
+                description={el.description}
+                catogery={el.catogery}
+                cost={el.cost}
+                Rating={el.Rating}
+              />
+            </Link>
           );
         })}
       </div>
