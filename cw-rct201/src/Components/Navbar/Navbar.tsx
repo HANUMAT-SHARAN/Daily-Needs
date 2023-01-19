@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 
 import {
@@ -53,6 +54,8 @@ import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 export interface Display {
   display: string;
+
+
 }
 const Navbar = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -72,6 +75,7 @@ const Navbar = () => {
   const [style6, setstyle6] = useState({ display: "none" });
   return (
     <>
+
       <HStack
         alignItems="center"
         justifyContent="space-between"
@@ -232,6 +236,10 @@ const Navbar = () => {
           {/* My Address Drawer Here */}
         <Box onClick={()=>nav('/search')}>  <BiSearch size={"30px"} /></Box>
         </HStack>
+
+    
+    
+   
       </HStack>
 
       <Newarrivals
@@ -273,6 +281,7 @@ const Navbar = () => {
       <Drawer placement={"left"} onClose={onClose} isOpen={isOpen}>
         <DrawerOverlay />
         <DrawerContent h="500px" mt="90px">
+
           <DrawerHeader borderBottomWidth="1px">Categories</DrawerHeader>
           <DrawerBody>
             <Box p="10px" borderBottom="1px solid teal">
@@ -299,6 +308,7 @@ const Navbar = () => {
             <Box p="10px" borderBottom="1px solid teal">
               <Link textDecoration={"none"}>GIFTING</Link>{" "}
             </Box>
+
           </DrawerBody>
         </DrawerContent>
       </Drawer>

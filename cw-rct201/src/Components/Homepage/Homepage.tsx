@@ -2,6 +2,7 @@ import { Image, Text } from '@chakra-ui/react'
 import React from 'react'
 import ProductCategory from './category/CoroselCategory'
 import "./Homepage.css"
+import NewArrival from './New Arrival/NewArrival'
 import Collection from './studiocollection/Collection'
 const Homepage = () => {
   return (
@@ -19,7 +20,12 @@ const Homepage = () => {
      <div>
       <Collection/>
      </div>
-    
+     <div>
+      <Image className='front-flex-img'  src='https://images.dailyobjects.com/marche/assets/images/other/messenger-bags-desktops.jpg?tr=cm-pad_crop,v-2,w-1351,dpr-1' />
+     </div>
+     <div>
+      <NewArrival/>
+     </div>
     </div>
   )
 }
