@@ -20,7 +20,7 @@ type loginuser = {
   email: string;
 };
 
-const initlogindata = {
+const initlogindata = { 
   email: "",
   password: "",
 };
