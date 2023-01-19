@@ -3,6 +3,9 @@
   height: 40vmin;
   pointer-events: none;
 }
+body{
+  background-image: url("https://www.shutterstock.com/image-photo/white-plain-paper-background-260nw-319747373.jpg");
+}
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
