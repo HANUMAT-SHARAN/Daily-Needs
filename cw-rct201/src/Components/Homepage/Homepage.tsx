@@ -1,12 +1,14 @@
-import { Image, Text } from '@chakra-ui/react'
+import { Image, Text ,Box, Flex} from '@chakra-ui/react'
 import React from 'react'
 import ProductCategory from './category/CoroselCategory'
+import Collection2 from './Collections/Collection2'
 import "./Homepage.css"
 import NewArrival from './New Arrival/NewArrival'
+import Story from './our Story/Story'
 import Collection from './studiocollection/Collection'
 const Homepage = () => {
   return (
-    <div>
+    <div >
         <div>
             <img className='front-flex-img' src="https://images.dailyobjects.com/marche/assets/images/other/republicsale-home-page-desktop.png?tr=cm-pad_resize,v-2,w-1351,dpr-1" alt="" />
         </div>
@@ -26,6 +28,10 @@ const Homepage = () => {
      <div>
       <NewArrival/>
      </div>
+     <div>
+      <Collection2/>
+     </div>
+     <Story/>
     </div>
   )
 }
