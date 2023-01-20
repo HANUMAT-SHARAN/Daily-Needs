@@ -89,11 +89,11 @@ const Navbar = () => {
             <GiHamburgerMenu style={{ width: "100%", height: "100%" }} />
           </Box>
         </Show>
-        <Box h="60%" w={{ base: "30%", sm: "10%", lg: "10%" }}>
+        <Box h="100%" w={{ base: "30%", sm: "10%", lg: "10%" }}>
           <Image
-            w="90%"
+            w="100%"
             h="100%"
-            src="https://images.dailyobjects.com/marche/icons/logo_named.png?tr=cm-pad_resize,v-2,w-135,h-27,dpr-1"
+            src="https://i.ibb.co/GvD6M4H/Daily-Needs-modified.png"
           />
         </Box>
         <Show above="901px">
