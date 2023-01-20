@@ -59,7 +59,7 @@ const Footer = () => {
       <Text w="50%" fontSize="17px" textAlign="left" fontWeight="bold">NETWORK</Text>
       <List fontSize="17px" textAlign="left" spacing={2}>
       <ListItem><Link>Contact Us</Link> </ListItem>
-       <ListItem><Link>Corporate Gifting</Link></ListItem>
+      <ListItem><Link>Corporate Gifting</Link></ListItem>
        
        
        
