@@ -1,17 +1,19 @@
 import React from "react";
 
 import "./App.css";
-import Footer from "./Components/Footer/Footer";
-import Navbar from "./Components/Navbar/Navbar";
+// import Footer from "./Components/Footer/Footer";
+// import Navbar from "./Components/Navbar/Navbar";
+// import AllRoutes from "./Routes/AllRoutes";
+import Checkout from "./Pages/Checkout";
 
-import AllRoutes from "./Routes/AllRoutes";
 
 function App() {
   return (
     <div className="App">
-      <Navbar />
+      {/* <Navbar />
       <AllRoutes />
-      {<Footer />}
+      {<Footer />} */}
+      <Checkout/>
     </div>
   );
 }
