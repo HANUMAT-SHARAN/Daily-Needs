@@ -1,10 +1,12 @@
+import { Link } from "react-router-dom";
 import React from "react";
 
 import "./App.css";
-// import Footer from "./Components/Footer/Footer";
-// import Navbar from "./Components/Navbar/Navbar";
-// import AllRoutes from "./Routes/AllRoutes";
+import Footer from "./Components/Footer/Footer";
+import Navbar from "./Components/Navbar/Navbar";
+import AllRoutes from "./Routes/AllRoutes";
 import Checkout from "./Pages/Checkout";
+// import SingleProduct from "./Pages/SingleProduct";
 
 
 function App() {
@@ -14,6 +16,7 @@ function App() {
       <AllRoutes />
       {<Footer />} */}
       <Checkout/>
+      {/* <Link to="/mobileproducts">mobile</Link> */}
     </div>
   );
 }

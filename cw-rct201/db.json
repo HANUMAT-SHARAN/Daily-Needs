@@ -1,7 +1,6 @@
 {
   "users": [
     {
-
       "name": "Hanumat ",
       "lastname": "Sharan",
       "email": "deotadayal27@gmail.com",
@@ -24,6 +23,36 @@
       "password": "Abhishek@12",
       "cart": [],
       "id": 3
+    },
+    {
+      "name": "Shubham",
+      "lastname": "Kumar",
+      "email": "Q@gmail.com",
+      "password": "Sonu@123",
+      "cart": [
+        {
+          "0": {
+            "0": {},
+            "image1": "https://images.dailyobjects.com/marche/product-images/1101/dailyobjects-red-striped-checks-stride-2-0-case-cover-for-iphone-11-images/DailyObjects-Red-Striped-Checks-Stride-2-0-Case-Cover-For-iPhone-11.png?tr=cm-pad_resize,v-2,w-640,h-519,dpr-1",
+            "cost": 999,
+            "name": "iphone11"
+          },
+          "image1": "https://images.dailyobjects.com/marche/product-images/1101/dailyobjects-symbolic-zebra-stride-2-0-case-cover-for-iphone-13-images/DailyObjects-Symbolic-Zebra-Stride-2-0-Case-Cover-For-iPhone-13.png?tr=cm-pad_resize,v-2,w-640,h-519,dpr-1",
+          "cost": 1199,
+          "name": "iphone13"
+        },
+        {
+          "image1": "https://images.dailyobjects.com/marche/product-images/1101/dailyobjects-symbolic-zebra-stride-2-0-case-cover-for-iphone-13-images/DailyObjects-Symbolic-Zebra-Stride-2-0-Case-Cover-For-iPhone-13.png?tr=cm-pad_resize,v-2,w-640,h-519,dpr-1",
+          "cost": 1199,
+          "name": "iphone13"
+        },
+        {
+          "image1": "https://images.dailyobjects.com/marche/product-images/1101/dailyobjects-lavender-flekt-silicone-case-cover-for-iphone-14-pro-max-images/DailyObjects-Lavender-Flekt-Silicone-Case-Cover-For-iPhone-14-Pro-Max.png?tr=cm-pad_resize,v-2,w-640,h-519,dpr-1",
+          "cost": 1799,
+          "name": "iphone14promax"
+        }
+      ],
+      "id": 4
     }
   ],
   "products": [

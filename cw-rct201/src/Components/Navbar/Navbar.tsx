@@ -1,14 +1,14 @@
 
 import React, { useState } from "react";
-
+// import { Link } from "react-router-dom";
 import {
   Box,
   HStack,
   Image,
-Link,
   Menu,
   MenuList,
   MenuItem,
+  Link,
   MenuButton,
   Show,
   useDisclosure,
@@ -75,7 +75,6 @@ const Navbar = () => {
   const [style6, setstyle6] = useState({ display: "none" });
   return (
     <>
-
       <HStack
         alignItems="center"
         justifyContent="space-between"

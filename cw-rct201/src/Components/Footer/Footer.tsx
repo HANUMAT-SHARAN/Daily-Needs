@@ -3,7 +3,7 @@ import {Box,HStack,Image,Text,Input,Button,VStack,Link,ListItem,List} from "@cha
 const Footer = () => {
   return (
     <>
-    
+    <Link></Link>
     <Box bgColor="#f7f7f7" w="100%"  h="300px" pt="20px">
         <Box h="30%">
          <Text fontWeight={"600"} color="#202020" fontSize={"25px"} textAlign='center'>FEATURED IN</Text> 
