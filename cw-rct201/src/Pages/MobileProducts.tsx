@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import "../Components/MobileProducts/Card.css";
-import { Button, Select } from "@chakra-ui/react";
+import { Button,Image  } from "@chakra-ui/react";
 import Card from "../Components/MobileProducts/Card";
 import { Link } from "react-router-dom";
 export interface Data {
@@ -33,23 +33,38 @@ const MobileProducts = () => {
   //pricesorting  ratingsorting goodUI 
   return (
     <div>
-      <Select
-        className="props"
-        placeholder="catogery"
-        onChange={(e) => setcategory(e.target.value)}
-      >
-        <option value="Apple">Apple</option>
-        <option value="samsung">samsung</option>
-        <option value="OnePlus">OnePlus</option>
-        <option value="Oppo" >Oppo</option>
-        <option value="Motorola">Motorola</option>
-        <option value="iPad">iPad</option>
-      </Select>
-      <div style={{display:"flex",justifyContent:"end"}}>
+      <div className="Display">
+        <div  id="photo" onClick={()=>setcategory("Apple")}>
+        <Image   src="https://images.dailyobjects.com/marche/product-images/1101/dailyobjects-vulcan-case-cover-for-iphone-13-images/DailyObjects-Prima-Case-Cover-For-iPhone-13.png?tr=cm-pad_resize,v-2,w-640,h-519,dpr-1" alt="apple"/>
+        <center id="contact">Apple</center>
+        </div>
+        <div  id="photo"  onClick={()=>setcategory("samsung")}>
+        <Image src="https://images.dailyobjects.com/marche/product-images/1101/dailyobjects-3-of-cups-glass-case-cover-for-samsung-galaxy-a33-images/DailyObjects-3-Of-Cups-Glass-Case-Cover-For-Samsung-Galaxy-A33.png?tr=cm-pad_resize,v-2,w-640,h-519,dpr-1" alt="samsung"/>
+        <center id="contact">Samsung</center>
+        </div>
+        <div  id="photo"  onClick={()=>setcategory("OnePlus")}>
+        <Image src="https://images.dailyobjects.com/marche/product-images/1701/dailyobjects-commando-series-black-clear-case-cover-for-oneplus-nord-images/DailyObjects-Commando-Series-Black-Clear-Case-Cover-For-OnePlus-Nord-view.png?tr=cm-pad_resize,v-2,w-640,h-519,dpr-1" alt="Oneplus" />
+         <center id="contact">Oneplus</center>
+        </div>
+        <div  id="photo"  onClick={()=>setcategory("Oppo")}>
+        <Image src="https://images.dailyobjects.com/marche/product-images/1102/dailyobjects-terracotta-red-snapon-envelope-sleeve-for-ipad-pro-11-2021-images/DailyObjects-Terracotta-Red-SnapOn-Envelope-Sleeve-For-iPad-Pro-11-2021-vw.png?tr=cm-pad_resize,v-2,w-640,h-519,dpr-1" alt="Oppo"/>
+       <center id="contact">Oppo</center>
+        </div>
+        <div  id="photo"  onClick={()=>setcategory("Motorola")}>
+        <Image src="https://images.dailyobjects.com/marche/product-images/1102/dailyobjects-attitude-flipstand-tri-fold-case-for-ipad-mini-6-images/DailyObjects-Attitude-FlipStand-Tri-Fold-Case-for-iPad-Mini-6-2.png?tr=cm-pad_resize,v-2,w-640,h-519,dpr-1" alt="Motorola"/>
+      <center id="contact">Motorla</center>
+        </div>
+        <div  id="photo"  onClick={()=>setcategory("Google")}>
+        <Image  src="https://images.dailyobjects.com/marche/product-images/1102/dailyobjects-space-blue-snapon-envelope-sleeve-for-ipad-pro-11-2021-images/DailyObjects-Space-Blue-SnapOn-Envelope-Sleeve-For-iPad-Pro-11-2021-vw.png?tr=cm-pad_resize,v-2,w-640,h-519,dpr-1" alt="Goggle"/>
+         <center id="contact">Goggle</center>
+        </div>
+</div>
+      
+      {/* <div style={{display:"flex",justifyContent:"end"}}>
       <p>Sort according to Rating</p>
       <Button onClick={() => setrating("asc")}>increasing Order</Button>
       <Button onClick={() => setrating("desc")}>Descending Order</Button>
-      </div>
+      </div> */}
       <div className="matter" >
         {Iphone.map((el) => {
           return (
