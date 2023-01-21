@@ -179,6 +179,64 @@
   .border_img:hover{
   box-shadow: 0 0 0 10px #000000;
   transition: .5s ease;
+  height: 300px;
+  }
+
+  .laptop_grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.2rem;
+    align-items: center;
+    align-content: center;
+    
+  }
+
+  
+    /* Custom, iPhone Retina */
+    @media only screen and (max-width: 319px) {
+        .laptop_grid {
+            grid-template-columns: repeat(1, 1fr);
+            gap: 1.2rem;
+          }
+      }
+
+  /* Custom, iPhone Retina */
+  @media only screen and (min-width: 320px) {
+    .laptop_grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.2rem;
+      }
+  }
+  
+  /* Extra Small Devices, Phones */
+  @media only screen and (min-width: 480px) {
+    .laptop_grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.2rem;
+      }
+  }
+  
+  /* Small Devices, Tablets */
+  @media only screen and (min-width: 768px) {
+    .laptop_grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.2rem;
+      }
+  }
+  
+  /* Medium Devices, Desktops */
+  @media only screen and (min-width: 992px) {
+    .laptop_grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1.2rem;
+      }
+  }
+  
+  /* Large Devices, Wide Screens */
+  @media only screen and (min-width: 1200px) {
+    .laptop_grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1.2rem;
+      }
   }
   
   
