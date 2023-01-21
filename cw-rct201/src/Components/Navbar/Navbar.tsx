@@ -279,28 +279,28 @@ const Navbar = () => {
           <DrawerHeader borderBottomWidth="1px">Categories</DrawerHeader>
           <DrawerBody>
             <Box p="10px" borderBottom="1px solid teal">
-              <Link textDecoration={"none"}> NEW ARRIVALS</Link>
+              <Link > NEW ARRIVALS</Link>
             </Box>
             <Box p="10px" borderBottom="1px solid teal">
-              <Link textDecoration={"none"}>CASES & SLEEVES</Link>{" "}
+              <Link >CASES & SLEEVES</Link>{" "}
             </Box>
             <Box p="10px" borderBottom="1px solid teal">
-              <Link textDecoration={"none"}> ACCESSORIES</Link>
+              <Link > ACCESSORIES</Link>
             </Box>
             <Box p="10px" borderBottom="1px solid teal">
-              <Link textDecoration={"none"}> SALE</Link>
+              <Link > SALE</Link>
             </Box>
             <Box p="10px" borderBottom="1px solid teal">
-              <Link textDecoration={"none"}>BAGS & WALLETS</Link>{" "}
+              <Link >BAGS & WALLETS</Link>{" "}
             </Box>
             <Box p="10px" borderBottom="1px solid teal">
-              <Link textDecoration={"none"}>HOME OFFICE</Link>{" "}
+              <Link >HOME OFFICE</Link>{" "}
             </Box>
             <Box p="10px" borderBottom="1px solid teal">
-              <Link textDecoration={"none"}>COLLECTIONS</Link>{" "}
+              <Link >COLLECTIONS</Link>{" "}
             </Box>
             <Box p="10px" borderBottom="1px solid teal">
-              <Link textDecoration={"none"}>GIFTING</Link>{" "}
+              <Link >GIFTING</Link>{" "}
             </Box>
           </DrawerBody>
         </DrawerContent>
