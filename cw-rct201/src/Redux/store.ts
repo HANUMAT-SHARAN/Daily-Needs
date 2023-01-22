@@ -18,7 +18,7 @@ declare global {
 const rootReducer=combineReducers({
     authManager:authReducer,
 
-    productsManager:productReducer
+    productsManager:productReducer,
 
     CatManager:categoryreducer
 

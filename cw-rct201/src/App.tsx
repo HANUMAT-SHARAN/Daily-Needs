@@ -18,12 +18,11 @@ function App() {
       <Navbar />
       <AllRoutes />
       <ToastContainer/>
-      {/* {<Footer />} */}
+       <Footer />
       
 
-       <Navbar /> 
-      <AllRoutes />
-     <Footer /> 
+      
+    
     
 
      
