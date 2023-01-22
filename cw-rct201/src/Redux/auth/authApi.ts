@@ -7,7 +7,8 @@ export type userobj = {
     lastname: string;
     email: string;
     password: string;
-    cart?:[]
+    cart?:[];
+    datasets?:string[]
   };
   
 

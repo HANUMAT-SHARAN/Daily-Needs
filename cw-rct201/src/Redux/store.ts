@@ -2,6 +2,7 @@ import { legacy_createStore, compose, applyMiddleware,combineReducers } from "re
 
 import thunk  from "redux-thunk";
 import {authReducer} from "../Redux/auth/authReducer"
+import { productReducer } from "./admin/adminReducer";
 declare global {
     interface Window {
       __REDUX_DEVTOOLS_EXTENSION_COMPOSE__?: typeof compose;
@@ -9,9 +10,14 @@ declare global {
 }
 
 const rootReducer=combineReducers({
-    authManager:authReducer
+    authManager:authReducer,
+    productsManager:productReducer
 })
 
 const composeEnhancer = window['__REDUX_DEVTOOLS_EXTENSION_COMPOSE__'] as typeof compose || compose;
 
 export const store =legacy_createStore(rootReducer,composeEnhancer(applyMiddleware(thunk)))
+
+
+export type STORE=ReturnType<typeof store.getState>
+

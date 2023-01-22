@@ -48,7 +48,7 @@ import Gifting from "./Gifting";
 import { Modal } from "flowbite";
 import UserInfo from "../UserInfo";
 
-import { store } from "../../Redux/store";
+import { STORE, store } from "../../Redux/store";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 export interface Display {
@@ -58,7 +58,7 @@ const Navbar = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   const nav = useNavigate();
-  const { isAuth } = useSelector((store: any) => store.authManager);
+  const { isAuth } = useSelector((store: STORE) => store.authManager);
 
   const [myAccountOpen, setMyAccountOpen] = React.useState<boolean>(false);
   const cancelRef = React.useRef<any>();
@@ -191,20 +191,22 @@ const Navbar = () => {
                   </Button>
                   <MenuItem>Orders</MenuItem>
                   <MenuItem>Address</MenuItem>
+                  <Button onClick={()=>nav('/admin')}>Admin</Button>
                 </>
               )}
               {!isAuth ? (
                 <>
                   {" "}
-                  <MenuItem>
+                 <MenuList>
                     <Button onClick={() => nav("/signup")}>Signup</Button>
-                  </MenuItem>{" "}
+                  {" "}
                
-                    <MenuItem>
+                   
                       {" "}
                       <Button onClick={() => nav("/login")}>Login</Button>
-                    </MenuItem>
-             
+                      <Button onClick={()=>nav('/admin')}>Admin</Button>
+                    
+                      </MenuList>
                 </>
               ) : null}
             </MenuList>
