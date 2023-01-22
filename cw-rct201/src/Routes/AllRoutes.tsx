@@ -7,6 +7,7 @@ import Login from "../Pages/Login";
 import SearchPage from "../Pages/SearchPage";
 import SingleProduct from "../Pages/SingleProduct";
 import MobileProducts from "../Pages/MobileProducts";
+import Cart from "../Components/Cart/Cart";
 
 const AllRoutes = () => {
   return (
@@ -19,6 +20,7 @@ const AllRoutes = () => {
         <Route element={<SearchPage />} path="/search" />
         <Route element={<MobileProducts />} path="/mobileproducts" />
         <Route element={<SingleProduct />} path="/product/:id" />
+        <Route element={<Cart />} path="/cart" />
       </Routes>
     </div>
   );
