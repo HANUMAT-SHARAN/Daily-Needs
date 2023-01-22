@@ -82,7 +82,7 @@ export default function SingleProduct() {
 
   const getdata = async () => {
     try {
-      let r = await fetch(`https://test-api-9m2w.onrender.com/iphone/${id}`);
+      let r = await fetch(`http://localhost:4040/products/${id}`);
       let d = await r.json();
       setdata(d);
     } catch (error) {

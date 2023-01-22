@@ -164,6 +164,7 @@
       "description": "Green Hybrid Clear Case Cover for iPhone 13",
       "name": "Apple",
       "catogery": "iphone13",
+      "category":"cases",
       "id": 12
     },
     {
@@ -175,6 +176,7 @@
       "description": "Blue Hybrid Clear Case Cover for iPhone 13",
       "name": "Apple",
       "catogery": "iphone13",
+      "category":"cases",
       "id": 13
     },
     {
@@ -186,6 +188,7 @@
       "description": "Stride 2.0 Clear Case Cover For iPhone 13",
       "name": "Apple",
       "catogery": "iphone13",
+      "category":"cases",
       "id": 14
     },
     {
@@ -208,6 +211,7 @@
       "description": "Nimbus Phone Case Cover For iPhone 14",
       "name": "Apple",
       "catogery": "iphone14",
+      "category":"cases",
       "id": 16
     },
     {
@@ -241,6 +245,7 @@
       "description": "Vulcan Case Cover For iPhone 14",
       "name": "Apple",
       "catogery": "iphone14",
+      "category":"cases",
       "id": 19
     },
     {
@@ -263,6 +268,7 @@
       "description": "MagSafe Flekt Silicone Case Cover For iPhone 14 Pro Max",
       "name": "Apple",
       "catogery": "iphone14promax",
+      "category":"cases",
       "id": 21
     },
     {
@@ -285,6 +291,7 @@
       "description": "Jet Ranger Stride 2.0 Case Cover For iPhone 14 Pro Max",
       "name": "Apple",
       "catogery": "iphone14promax",
+      "category":"cases",
       "id": 23
     },
     {
@@ -307,6 +314,7 @@
       "description": "Down The Street Stride 2.0 Case Cover For iPhone 14 Pro Max",
       "name": "Apple",
       "catogery": "iphone14promax",
+      "category":"cases",
       "id": 25
     },
     {
@@ -318,6 +326,7 @@
       "description": "Tested Stride 2.0 Case Cover For iPhone 14 Pro Max",
       "name": "Apple",
       "catogery": "iphone14promax",
+      "category":"cases",
       "id": 26
     },
     {
@@ -327,6 +336,7 @@
       "image4": "https://lmsin.net/cdn-cgi/image/h=1125,w=1125,q=60,fit=cover/https://aaeff43fe32172cbcecc-ae2a4e9a8cbc330ede5588dedf56886e.lmsin.net/lifestyle/1000011537544-Pink-1000011537544_04-2100.jpg",
       "cost": 1679,
       "description": "GINGER Women Mesh Panelled Knit Slip-On Casual Shoes",
+      "category":"shoes",
       "id": 1
     },
     {
@@ -336,6 +346,7 @@
       "image4": "https://lmsin.net/cdn-cgi/image/h=1125,w=1125,q=60,fit=cover/https://aaeff43fe32172cbcecc-ae2a4e9a8cbc330ede5588dedf56886e.lmsin.net/lifestyle/1000008434445-1000008434444-09122020_04-2100.jpg",
       "cost": 440,
       "description": "GINGER Women Solid Zip-Closure Wallet",
+      "category":"wallet",
       "id": 2
     },
     {
@@ -345,6 +356,7 @@
       "image4": "https://lmsin.net/cdn-cgi/image/h=1125,w=1125,q=60,fit=cover/https://aaeff43fe32172cbcecc-ae2a4e9a8cbc330ede5588dedf56886e.lmsin.net/lifestyle/1000011984986-1000011984985_04-2100.jpg",
       "cost": 801,
       "description": "BAGGIT Men Textured Bi-Fold Wallet",
+      "category":"wallet",
       "id": 3
     },
     {
@@ -354,6 +366,7 @@
       "image4": "https://lmsin.net/cdn-cgi/image/h=1125,w=1125,q=60,fit=cover/https://aaeff43fe32172cbcecc-ae2a4e9a8cbc330ede5588dedf56886e.lmsin.net/lifestyle/1000011967009-Grey-Grey-1000011967009_04-2100.jpg",
       "cost": 2299,
       "description": "CODE Women Embellished Slip-On Loafers",
+      "category":"shoes",
       "id": 4
     },
     {
@@ -363,6 +376,7 @@
       "image4": "https://lmsin.net/cdn-cgi/image/h=1125,w=1125,q=60,fit=cover/https://aaeff43fe32172cbcecc-ae2a4e9a8cbc330ede5588dedf56886e.lmsin.net/lifestyle/1000011967009-Grey-Grey-1000011967009_04-2100.jpg",
       "cost": 2299,
       "description": "CODE Women Embellished Slip-On Loafers",
+      "category":"shoes",
       "id": 5
     },
     {
@@ -381,6 +395,7 @@
       "image4": "https://lmsin.net/cdn-cgi/image/h=1125,w=1125,q=60,fit=cover/https://aaeff43fe32172cbcecc-ae2a4e9a8cbc330ede5588dedf56886e.lmsin.net/lifestyle/1000011830657-Blue-1000011830657_04-2100.jpg",
       "cost": 4199,
       "description": "SKECHERS Women Textured Slip-On Walking Shoes",
+      "category":"shoes",
       "id": 7
     },
     {
@@ -408,6 +423,7 @@
       "image4": "https://lmsin.net/cdn-cgi/image/h=1125,w=1125,q=60,fit=cover/https://aaeff43fe32172cbcecc-ae2a4e9a8cbc330ede5588dedf56886e.lmsin.net/lifestyle/1000011493850-1000011493849_04-2100.jpg",
       "cost": 2999,
       "description": "ELLE Women Textured Tote Bag",
+      "category":"tote bag",
       "id": 10
     },
     {
@@ -417,6 +433,7 @@
       "image4": "https://lmsin.net/cdn-cgi/image/h=1125,w=1125,q=60,fit=cover/https://aaeff43fe32172cbcecc-ae2a4e9a8cbc330ede5588dedf56886e.lmsin.net/lifestyle/1000011217137-BLACK-1000011217137_03-2100.jpg",
       "cost": 3599,
       "description": "PUMA Women Textured Running Shoes",
+      "category":"shoes",
       "id": 11
     },
     {
@@ -426,6 +443,7 @@
       "image4": "https://lmsin.net/cdn-cgi/image/h=1125,w=1125,q=60,fit=cover/https://aaeff43fe32172cbcecc-ae2a4e9a8cbc330ede5588dedf56886e.lmsin.net/lifestyle/1000011537544-Blue-1000011537544_04-2100.jpg",
       "cost": 1679,
       "description": "GINGER Women Mesh Panelled Knit Slip-On Casual Shoes",
+      "category":"shoes",
       "id": 12
     },
     {
@@ -435,6 +453,7 @@
       "image4": "https://lmsin.net/cdn-cgi/image/h=1125,w=1125,q=60,fit=cover/https://aaeff43fe32172cbcecc-ae2a4e9a8cbc330ede5588dedf56886e.lmsin.net/lifestyle/1000011044789-1000011044786_04-2100.jpg",
       "cost": 2249,
       "description": "CODE Women Solid Laptop Bag",
+      "category":"tote bag",
       "id": 13
     },
     {
@@ -444,6 +463,7 @@
       "image4": "https://lmsin.net/cdn-cgi/image/h=1125,w=1125,q=60,fit=cover/https://aaeff43fe32172cbcecc-ae2a4e9a8cbc330ede5588dedf56886e.lmsin.net/lifestyle/1000011961935-1000011961934_04-2100.jpg",
       "cost": 2079,
       "description": "CAPRESE Women Solid Laptop Bag",
+      "category":"tote bag",
       "id": 14
     },
     {
@@ -489,6 +509,7 @@
       "image4": "https://lmsin.net/cdn-cgi/image/h=1125,w=1125,q=60,fit=cover/https://aaeff43fe32172cbcecc-ae2a4e9a8cbc330ede5588dedf56886e.lmsin.net/lifestyle/1000010933845-Grey-1000010933845_04-2100.jpg",
       "cost": 720,
       "description": "MELANGE Women Solid Flat Sandals",
+      "category":"shoes",
       "id": 19
     },
     {
@@ -498,6 +519,7 @@
       "image4": "https://lmsin.net/cdn-cgi/image/h=1125,w=1125,q=60,fit=cover/https://aaeff43fe32172cbcecc-ae2a4e9a8cbc330ede5588dedf56886e.lmsin.net/lifestyle/1000010685106-Brown-1000010685106_04-2100.jpg",
       "cost": 2148,
       "description": "CATWALK Women Solid Lace-Up Combat Boots",
+      "category":"shoes",
       "id": 20
     },
     {
@@ -507,6 +529,7 @@
       "image4": "https://lmsin.net/cdn-cgi/image/h=1125,w=1125,q=60,fit=cover/https://aaeff43fe32172cbcecc-ae2a4e9a8cbc330ede5588dedf56886e.lmsin.net/lifestyle/1000008954582-1000008954581_04-2100.jpg",
       "cost": 2640,
       "description": "SKY BAGS Unisex Printed Zip-Closure Laptop Backpack",
+      "category":"bag",
       "id": 21
     },
     {
@@ -808,6 +831,66 @@
       "Rating": 3.8,
       "name": "Dell gaming",
       "id": 46
+    },
+    {
+      "image1": "https://images.dailyobjects.com/marche/product-images/1204/langoor-idyll-tote-images/White-Idyll-Tote.png?tr=cm-pad_resize,v-2,w-683,h-573,dpr-1",
+      "image2": "https://m.media-amazon.com/images/I/61nawdTwbuL._SX679_.jpg",
+      "cost": 15999,
+      "description": "Idyll is an extra large Tote to keep up with the overpacker in you",
+      "category": "tote bag",
+      "Rating": 3.8,
+      "name": "Langoor Idyll Tote",
+      "id": 47
+    },
+    {
+      "image1": "https://images.dailyobjects.com/marche/product-images/1204/all-navy-all-time-tote-images/All-Navy-All-Time-Tote.png?tr=cm-pad_resize,v-2,w-683,h-573,dpr-1",
+      "image2": "https://images.dailyobjects.com/marche/product-images/1204/all-navy-all-time-tote-images/All-Navy-All-Time-Tote-9t.jpg?tr=cm-pad_crop,v-2,w-683,h-573,dpr-1",
+      "cost": 24999,
+      "description": "All Navy All Time Tote",
+      "category": "tote bag",
+      "Rating": 3.8,
+      "name": "All Navy All Time Tote",
+      "id": 48
+    },
+    {
+      "image1": "https://images.dailyobjects.com/marche/product-images/1201/all-beige-pedal-daypack-images/All-Beige-Pedal-Daypack-vw.png?tr=cm-pad_resize,v-2,w-683,h-573,dpr-1",
+      "image2": "https://images.dailyobjects.com/marche/product-images/1201/all-beige-pedal-daypack-images/All-Beige-Pedal-Daypack-vw.png?tr=cm-pad_resize,v-2,w-683,h-573,dpr-1",
+      "cost": 24999,
+      "description": "All Beige Pedal Daypack",
+      "category": "bag",
+      "Rating": 3.8,
+      "name": "All Beige Pedal Daypack",
+      "id": 49
+    },
+    {
+      "image1": "https://images.dailyobjects.com/marche/product-images/1801/grey-pull-tab-nylon-weave-apple-watchband-42-44-45-49mm-images/Grey-Pull-Tab-Nylon-Weave-Apple-WatchBand.png?tr=cm-pad_resize,v-2,w-683,h-573,dpr-1",
+      "image2": "https://images.dailyobjects.com/marche/product-images/1801/grey-pull-tab-nylon-weave-apple-watchband-42-44-45-49mm-images/Grey-Pull-Tab-Nylon-Weave-Apple-WatchBand.png?tr=cm-pad_resize,v-2,w-683,h-573,dpr-1",
+      "cost": 24999,
+      "description": "Grey Pull Tab Nylon Weave Apple WatchBand (42/44/45/49mm)",
+      "category": "watchband",
+      "Rating": 3.8,
+      "name": "Nylon Weave Apple WatchBand",
+      "id": 50
+    },
+    {
+      "image1": "https://images.dailyobjects.com/marche/product-images/1801/blue-plunge-apple-watchband-42-44-45-49mm-images/Blue-Plunge-Apple-WatchBand.png?tr=cm-pad_resize,v-2,w-537,h-573,dpr-1",
+      "image2": "https://images.dailyobjects.com/marche/product-images/1801/blue-plunge-apple-watchband-42-44-45-49mm-images/Blue-Plunge-Apple-WatchBand.png?tr=cm-pad_resize,v-2,w-537,h-573,dpr-1",
+      "cost": 6999,
+      "description": "Blue Plunge Apple WatchBand ",
+      "category": "watchband",
+      "Rating": 3.8,
+      "name": "Blue Plunge Apple WatchBand ",
+      "id": 51
+    },
+    {
+      "image1": "https://images.dailyobjects.com/marche/product-images/1801/pink-plunge-apple-watchband-42-44-45-49mm-images/Pink-Plunge-Apple-WatchBand.png?tr=cm-pad_resize,v-2,w-537,h-573,dpr-1",
+      "image2": "https://images.dailyobjects.com/marche/product-images/1801/pink-plunge-apple-watchband-42-44-45-49mm-images/Pink-Plunge-Apple-WatchBand.png?tr=cm-pad_resize,v-2,w-537,h-573,dpr-1",
+      "cost": 5999,
+      "description": "Pink Plunge Apple WatchBand ",
+      "category": "watchband",
+      "Rating": 3.8,
+      "name": "Pink Plunge Apple WatchBand ",
+      "id": 51
     }
   ]
 }

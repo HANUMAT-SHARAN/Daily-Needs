@@ -60,6 +60,8 @@ const Navbar = () => {
   const nav = useNavigate();
   const { isAuth } = useSelector((store: any) => store.authManager);
 
+  const navigate=useNavigate()
+  
   const [myAccountOpen, setMyAccountOpen] = React.useState<boolean>(false);
   const cancelRef = React.useRef<any>();
 
@@ -70,6 +72,8 @@ const Navbar = () => {
   const [style4, setstyle4] = useState({ display: "none" });
   const [style5, setstyle5] = useState({ display: "none" });
   const [style6, setstyle6] = useState({ display: "none" });
+  
+
   return (
     <>
       <HStack
@@ -90,7 +94,8 @@ const Navbar = () => {
           </Box>
         </Show>
         <Box h="100%" w={{ base: "30%", sm: "10%", lg: "10%" }}>
-          <Image
+          
+          <Image onClick={()=>navigate("/")}
             w="100%"
             h="100%"
             src="https://i.ibb.co/GvD6M4H/Daily-Needs-modified.png"
