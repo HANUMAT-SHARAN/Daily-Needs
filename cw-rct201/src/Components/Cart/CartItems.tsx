@@ -1,24 +1,24 @@
 import React, { useState } from 'react'
 import {Heading,Stack,Text,Divider,Button,Box,HStack,Image} from "@chakra-ui/react"
 import { Card, CardBody, CardFooter } from '@chakra-ui/react'
-interface cartItems{
+// interface cartItems{
     // Image1:string,
     // name:string,
     // cost: string
-    handletotal:(temp:number)=>void
-}
+    // handletotal:(temp:number)=>void
+// }
 
 
 
-const CartItems = (handletotal:cartItems) => {
+const CartItems = () => {
   const [count,setcount] = useState<number>(1)
 
-const handledelete = async ()=>{
-    let res = await fetch(`http://localhost:4040/users/${currentuser.id}`,{
+// const handledelete = async ()=>{
+//     let res = await fetch(`http://localhost:4040/users/${currentuser.id}`,{
       
-    })
+//     })
 
-}
+// }
   
   return (
     <Card h="auto" >
@@ -43,7 +43,7 @@ const handledelete = async ()=>{
           Remove
         </Button>
         <HStack>
-        <Button isDisabled={count===1}  bgColor='#3182ce' w="10px" color="white" onClick={handletotal(count)} variant='ghost' colorScheme='blue'>-</Button>
+        <Button isDisabled={count===1}  bgColor='#3182ce' w="10px" color="white" onClick={()=>setcount(count-1)} variant='ghost' colorScheme='blue'>-</Button>
         <Box>{count}</Box>
         <Button bgColor='#3182ce' w="10px" color="white" onClick={()=>setcount(count+1)} variant='ghost' colorScheme='blue'>+</Button>
         </HStack>
