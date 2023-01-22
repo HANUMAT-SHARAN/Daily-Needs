@@ -11,6 +11,7 @@ const Gifting = ({style,over,leave}:Props) => {
     <>
     <HStack
     p='10px'
+    zIndex={1}
     onMouseOver={over} onMouseLeave={leave}
    style={style}
     shadow="md"
