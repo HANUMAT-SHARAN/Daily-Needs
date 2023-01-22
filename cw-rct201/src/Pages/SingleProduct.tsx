@@ -24,7 +24,8 @@ import {
   IconButton,
 } from "@chakra-ui/react";
 import { useParams } from "react-router-dom";
-
+import { useDispatch } from "react-redux";
+import { getUsersData } from "../Redux/auth/authAction";
 const settings = {
   dots: true,
   arrows: true,
@@ -72,6 +73,8 @@ export default function SingleProduct() {
 // console.log(71,currentUser)
   const [data, setdata] = useState<prod>(obj);
   const [userData,setUserData]=useState([])
+ const dispatch:any = useDispatch()
+
   const {
     image1,
     image2,
@@ -120,7 +123,7 @@ export default function SingleProduct() {
       method:"PATCH",
       body : JSON.stringify({
         cart:[...userData,
-          {image1,cost,name,quantity:1}
+          {image1,cost,name,quantity:1,orderId: Date.now()}
         ]
       }),
       headers:{
@@ -132,8 +135,12 @@ export default function SingleProduct() {
     } catch (error) {
       console.log(error)
     }
-  }
+    setTimeout(()=>{
+      dispatch(getUsersData())
 
+    },1500)
+  }
+  
   return (
     <>
       <Container maxW={"7xl"}>
@@ -469,4 +476,8 @@ export default function SingleProduct() {
       </Container>
     </>
   );
+}
+
+function dispatch(arg0: (dispatch: any) => Promise<void>) {
+  throw new Error("Function not implemented.");
 }

@@ -1,36 +1,14 @@
 {
   "users": [
     {
-      "name": "Hanumat ",
-      "lastname": "Sharan",
-      "email": "deotadayal27@gmail.com",
-      "password": "Hanumat@12",
-      "cart": [],
-      "id": 1
-    },
-    {
-      "name": "Shivam",
-      "lastname": "Sharan",
-      "email": "deotadayal27@gmail.com",
-      "password": "Hanumat@123",
-      "cart": [],
-      "id": 2
-    },
-    {
-      "name": "Abhishek ",
+      "name": "Abhishek",
       "lastname": "Pal",
-      "email": "abhishek@gmail.com",
-      "password": "Abhishek@12",
-      "cart": [],
-      "id": 3
-    },
-    {
-      "name": "sudhir",
-      "lastname": "nandane",
-      "email": "nandanesudhir1@gmail.com",
-      "password": "SUDHIR@12345",
-      "cart": [],
-      "id": 4
+      "email": "palabhi017@gmail.com",
+      "password": "abhi@123",
+      "cart": [
+        
+      ],
+      "id": 1
     }
   ],
   "products": [
@@ -320,7 +298,6 @@
       "catogery": "iphone14promax",
       "id": 26
     },
-   
     {
       "image1": "https://m.media-amazon.com/images/I/71TPda7cwUL._SX679_.jpg",
       "image2": "https://m.media-amazon.com/images/I/71yCKaQXv+L._SX679_.jpg",
@@ -485,7 +462,7 @@
       "cost": 45999,
       "description": "Lenovo MIni Slim 1 Ryzen 3 3250U 15.6 (39.62cm) FHD Laptop (8GB/512GB SSD/Win 11/Office 2021",
       "category": "lenovo",
-      "Rating": 5.0,
+      "Rating": 5,
       "name": "lenovo MINi",
       "id": 35
     },
@@ -497,7 +474,7 @@
       "cost": 36999,
       "description": "Lenovo IdeaPad Slim 1 Ryzen 3 3250U 15.6 (39.62cm) FHD Laptop (8GB/512GB SSD/Win 11/Office 2021",
       "category": "lenovo",
-      "Rating": 5.0,
+      "Rating": 5,
       "name": "lenovo iPad",
       "id": 36
     },
@@ -509,7 +486,7 @@
       "cost": 13999,
       "description": "HP 15s,11th Gen Intel Core i3-1115G4 8GB RAM/512GB SSD 15.6-inch(39.6 cm) Micro-Edge Anti-Glare FHD Laptop/Alexa Built-in/Win 11/Intel UHD Graphics/Dual Speakers/ MS Office 2021/1.69 Kg, 15s-fq2673TU",
       "category": "hp",
-      "Rating": 3.0,
+      "Rating": 3,
       "name": "HP 15s",
       "id": 37
     },

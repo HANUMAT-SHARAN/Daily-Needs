@@ -107,11 +107,12 @@ const Navbar = () => {
             <Box
               h="90px"
               pt="32px"
+              color="#eb8f7f"
               onMouseOver={() => setstyle({ display: "flex" })}
               onMouseLeave={() => setstyle({ display: "none" })}
               _hover={{ color: "#20a87e" }}
             >
-              <Link to={""}  >NEW ARRIVALS</Link>
+              <Link to={"/laptopproductpage"}  >LAPTOPS</Link>
             </Box>
 
             <Box
@@ -126,13 +127,14 @@ const Navbar = () => {
             <Box
               h="90px"
               pt="32px"
+              color="#eb8f7f"
               onMouseOver={() => setstyle2({ display: "flex" })}
               onMouseLeave={() => setstyle2({ display: "none" })}
               _hover={{ color: "#20a87e" }}
             >
-              <Link to={""} >ACCESSORIES</Link>
+              <Link to={"/mobileproducts"} >MOBILES</Link>
             </Box>
-            <Box h="90px" pt="32px" cursor="pointer" color="#eb8f7f">
+            <Box h="90px" pt="32px" cursor="pointer" >
               SALE
             </Box>
             <Box

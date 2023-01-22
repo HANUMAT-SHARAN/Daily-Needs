@@ -4,10 +4,14 @@ import {Box,Grid,HStack,Button,Text,VStack} from "@chakra-ui/react"
 import CartItems from './CartItems'
 import { BsBagCheckFill } from "react-icons/bs";
 import {BiLockAlt} from "react-icons/bi"
-
+import { Link } from 'react-router-dom';
 const Cart = () => {
   const [cartdata,setcartdata] = useState([])
   const {currentUser}=useSelector((store:any)=>store.authManager)
+  const {totalPrice}=useSelector((store:any)=>store.authManager)
+  
+  console.log(totalPrice)
+  
   const getUserData = async () => {
     try {
       let r = await fetch(`http://localhost:4040/users/${currentUser.id}`);
@@ -37,8 +41,8 @@ const Cart = () => {
             
         </Grid>
         <VStack borderRadius={"5px"} boxShadow="rgba(0, 0, 0, 0.24) 0px 3px 8px" border="1px solid #161636" gap="20px" h="200px"   w="30%">
-            <Text color="#161636" fontWeight={"bold"} fontSize="20px" mt="10%">Total price :- {"    "} </Text>
-            <Button  bgColor="#161636" w="70%" color="white"><BiLockAlt size="20px" />CHECKOUT</Button>
+            <Text color="#161636" fontWeight={"bold"} fontSize="20px" mt="10%">Total price :- {"    "}{totalPrice} </Text>
+           <Link to={"/checkout"}><Button  bgColor="#161636" w="70%" color="white"><BiLockAlt size="20px" />CHECKOUT</Button></Link> 
         </VStack>
         </HStack>
         
