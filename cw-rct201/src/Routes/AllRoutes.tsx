@@ -7,8 +7,11 @@ import Login from "../Pages/Login";
 import SearchPage from "../Pages/SearchPage";
 import SingleProduct from "../Pages/SingleProduct";
 import MobileProducts from "../Pages/MobileProducts";
+
+import Cart from "../Components/Cart/Cart";
 import LaptopProductPage from "../Pages/LaptopProductpage";
 import HomeProductPage from "../Pages/Homeproductpage";
+
 
 const AllRoutes = () => {
  
@@ -22,8 +25,11 @@ const AllRoutes = () => {
         <Route element={<SearchPage />} path="/search" />
         <Route element={<MobileProducts />} path="/mobileproducts" />
         <Route element={<SingleProduct />} path="/product/:id" />
+
+        <Route element={<Cart />} path="/cart" />
         <Route element={<LaptopProductPage/>} path="/laptopproductpage"></Route>
         <Route element={<HomeProductPage/>} path="/homeproductpage"></Route>
+
       </Routes>
     </div>
   );
