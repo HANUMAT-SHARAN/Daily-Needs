@@ -16,6 +16,7 @@ const Newarrivals = ({style,over,leave}:Props) => {
     p='10px'
     onMouseOver={over} onMouseLeave={leave}
    style={style}
+   zIndex={1}
     shadow="md"
     pos="absolute"
     w="100%"

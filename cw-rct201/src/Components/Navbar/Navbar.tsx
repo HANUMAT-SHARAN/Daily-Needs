@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-
+import {Link} from "react-router-dom"
 import {
   Box,
   HStack,
   Image,
-  Link,
+  
   Menu,
   MenuList,
   MenuItem,
@@ -60,6 +60,8 @@ const Navbar = () => {
   const nav = useNavigate();
   const { isAuth } = useSelector((store: STORE) => store.authManager);
 
+  const navigate=useNavigate()
+  
   const [myAccountOpen, setMyAccountOpen] = React.useState<boolean>(false);
   const cancelRef = React.useRef<any>();
 
@@ -70,6 +72,8 @@ const Navbar = () => {
   const [style4, setstyle4] = useState({ display: "none" });
   const [style5, setstyle5] = useState({ display: "none" });
   const [style6, setstyle6] = useState({ display: "none" });
+  
+
   return (
     <>
       <HStack
@@ -89,11 +93,12 @@ const Navbar = () => {
             <GiHamburgerMenu style={{ width: "100%", height: "100%" }} />
           </Box>
         </Show>
-        <Box h="60%" w={{ base: "30%", sm: "10%", lg: "10%" }}>
-          <Image
-            w="90%"
+        <Box h="100%" w={{ base: "30%", sm: "10%", lg: "10%" }}>
+          
+          <Image onClick={()=>navigate("/")}
+            w="100%"
             h="100%"
-            src="https://images.dailyobjects.com/marche/icons/logo_named.png?tr=cm-pad_resize,v-2,w-135,h-27,dpr-1"
+            src="https://i.ibb.co/GvD6M4H/Daily-Needs-modified.png"
           />
         </Box>
         <Show above="901px">
@@ -111,7 +116,7 @@ const Navbar = () => {
               onMouseLeave={() => setstyle({ display: "none" })}
               _hover={{ color: "#20a87e" }}
             >
-              <Link style={{ textDecoration: "none" }}>NEW ARRIVALS</Link>
+              <Link to={""}  >NEW ARRIVALS</Link>
             </Box>
 
             <Box
@@ -121,7 +126,7 @@ const Navbar = () => {
               onMouseLeave={() => setstyle1({ display: "none" })}
               _hover={{ color: "#20a87e" }}
             >
-              <Link style={{ textDecoration: "none" }}>CASES & SLEEVES </Link>
+              <Link to={""}  >CASES & SLEEVES </Link>
             </Box>
             <Box
               h="90px"
@@ -130,7 +135,7 @@ const Navbar = () => {
               onMouseLeave={() => setstyle2({ display: "none" })}
               _hover={{ color: "#20a87e" }}
             >
-              <Link style={{ textDecoration: "none" }}>ACCESSORIES</Link>
+              <Link to={""} >ACCESSORIES</Link>
             </Box>
             <Box h="90px" pt="32px" cursor="pointer" color="#eb8f7f">
               SALE
@@ -142,7 +147,7 @@ const Navbar = () => {
               onMouseLeave={() => setstyle3({ display: "none" })}
               _hover={{ color: "#20a87e" }}
             >
-              <Link style={{ textDecoration: "none" }}>BAGS & WALLETS</Link>
+              <Link to={""} >BAGS & WALLETS</Link>
             </Box>
             <Box
               h="90px"
@@ -151,7 +156,7 @@ const Navbar = () => {
               onMouseLeave={() => setstyle4({ display: "none" })}
               _hover={{ color: "#20a87e" }}
             >
-              <Link style={{ textDecoration: "none" }}> HOME OFFICE</Link>
+              <Link to={""} > HOME OFFICE</Link>
             </Box>
             <Box
               h="90px"
@@ -160,7 +165,7 @@ const Navbar = () => {
               onMouseLeave={() => setstyle5({ display: "none" })}
               _hover={{ color: "#20a87e" }}
             >
-              <Link style={{ textDecoration: "none" }}>COLLECTIONS</Link>
+              <Link to={""}  >COLLECTIONS</Link>
             </Box>
             <Box
               h="90px"
@@ -169,7 +174,7 @@ const Navbar = () => {
               onMouseLeave={() => setstyle6({ display: "none" })}
               _hover={{ color: "#20a87e" }}
             >
-              <Link style={{ textDecoration: "none" }}> GIFTING</Link>
+              <Link to={""}  > GIFTING</Link>
             </Box>
           </HStack>
         </Show>
@@ -178,7 +183,7 @@ const Navbar = () => {
           h="auto"
           w={{ sm: "20%", lg: "15%" }}
         >
-          <BsBagCheckFill size="25px" />
+         <Link to="/cart"><BsBagCheckFill size="25px" /> </Link> 
           <Menu>
             <MenuButton>
               <BsFillPersonFill size="30px" />
@@ -281,28 +286,28 @@ const Navbar = () => {
           <DrawerHeader borderBottomWidth="1px">Categories</DrawerHeader>
           <DrawerBody>
             <Box p="10px" borderBottom="1px solid teal">
-              <Link textDecoration={"none"}> NEW ARRIVALS</Link>
+              <Link to={""}> NEW ARRIVALS</Link>
             </Box>
             <Box p="10px" borderBottom="1px solid teal">
-              <Link textDecoration={"none"}>CASES & SLEEVES</Link>{" "}
+              <Link to={""} >CASES & SLEEVES</Link>{" "}
             </Box>
             <Box p="10px" borderBottom="1px solid teal">
-              <Link textDecoration={"none"}> ACCESSORIES</Link>
+              <Link to={""} > ACCESSORIES</Link>
             </Box>
             <Box p="10px" borderBottom="1px solid teal">
-              <Link textDecoration={"none"}> SALE</Link>
+              <Link to={""}> SALE</Link>
             </Box>
             <Box p="10px" borderBottom="1px solid teal">
-              <Link textDecoration={"none"}>BAGS & WALLETS</Link>{" "}
+              <Link to={""}>BAGS & WALLETS</Link>{" "}
             </Box>
             <Box p="10px" borderBottom="1px solid teal">
-              <Link textDecoration={"none"}>HOME OFFICE</Link>{" "}
+              <Link to={""}>HOME OFFICE</Link>{" "}
             </Box>
             <Box p="10px" borderBottom="1px solid teal">
-              <Link textDecoration={"none"}>COLLECTIONS</Link>{" "}
+              <Link to={""}>COLLECTIONS</Link>{" "}
             </Box>
             <Box p="10px" borderBottom="1px solid teal">
-              <Link textDecoration={"none"}>GIFTING</Link>{" "}
+              <Link to={""}>GIFTING</Link>{" "}
             </Box>
           </DrawerBody>
         </DrawerContent>

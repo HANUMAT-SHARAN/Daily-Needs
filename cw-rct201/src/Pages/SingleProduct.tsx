@@ -1,7 +1,10 @@
+import {store} from "../Redux/store"
+import { useSelector } from "react-redux";
 import React, { useEffect, useState } from "react";
 import { BiLeftArrowAlt, BiRightArrowAlt } from "react-icons/bi";
 import { MdLocalShipping } from "react-icons/md";
 import Slider from "react-slick";
+
 import {
   Box,
   Container,
@@ -65,7 +68,10 @@ export default function SingleProduct() {
   const top = useBreakpointValue({ base: "90%", md: "50%" });
   const side = useBreakpointValue({ base: "30%", md: "10px" });
   const {id}=useParams()
+  const {currentUser}=useSelector((store:any)=>store.authManager)
+// console.log(71,currentUser)
   const [data, setdata] = useState<prod>(obj);
+  const [userData,setUserData]=useState([])
   const {
     image1,
     image2,
@@ -82,7 +88,7 @@ export default function SingleProduct() {
 
   const getdata = async () => {
     try {
-      let r = await fetch(`https://test-api-9m2w.onrender.com/iphone/${id}`);
+      let r = await fetch(`http://localhost:4040/products/${id}`);
       let d = await r.json();
       setdata(d);
     } catch (error) {
@@ -92,7 +98,41 @@ export default function SingleProduct() {
   // console.log(id)
   useEffect(() => {
     getdata();
+
+  getUserData()
   }, []);
+
+  const getUserData = async () => {
+    try {
+      let r = await fetch(`http://localhost:4040/users/${currentUser.id}`);
+      let d = await r.json();
+      // console.log(d.cart)
+      setUserData(d.cart);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  // console.log(userData)
+
+  const cartDetails=async()=>{
+    try {
+      let r=await fetch(`http://localhost:4040/users/${currentUser.id}`,{
+      method:"PATCH",
+      body : JSON.stringify({
+        cart:[...userData,
+          {image1,cost,name,quantity:1}
+        ]
+      }),
+      headers:{
+        "Content-Type":"application/json"
+      }
+      })
+      let d=await r.json()
+      console.log(d)
+    } catch (error) {
+      console.log(error)
+    }
+  }
 
   return (
     <>
@@ -248,8 +288,8 @@ export default function SingleProduct() {
                 </List>
               </Box>
             </Stack>
-
-            <Button
+            
+            <Button onClick={cartDetails}
               rounded={"none"}
               w={"full"}
               mt={8}
@@ -265,6 +305,8 @@ export default function SingleProduct() {
             >
               Add to cart
             </Button>
+            
+           
 
             <Stack
               direction="row"
