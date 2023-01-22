@@ -1,55 +1,22 @@
 {
   "users": [
     {
-      "name": "Hanumat ",
+      "name": "Hanumat",
       "lastname": "Sharan",
       "email": "deotadayal27@gmail.com",
       "password": "Hanumat@12",
+      "role": "admin",
       "cart": [],
       "id": 1
     },
     {
-      "name": "Shivam",
-      "lastname": "Sharan",
-      "email": "deotadayal27@gmail.com",
-      "password": "Hanumat@123",
+      "name": "Rohan",
+      "lastname": "Shd",
+      "email": "D@gmail.com",
+      "password": "Hanumat@12",
+      "role": "admin",
       "cart": [],
       "id": 2
-    },
-    {
-      "name": "Abhishek ",
-      "lastname": "Pal",
-      "email": "abhishek@gmail.com",
-      "password": "Abhishek@12",
-      "cart": [],
-      "id": 3
-    },
-    {
-      "name": "HANUMAT-SHARAN",
-      "lastname": "Sheldfdf",
-      "email": "gamer@gmail.com",
-      "password": "Hanumat@12",
-      "role": "user",
-      "cart": [],
-      "id": 4
-    },
-    {
-      "name": "roshan",
-      "lastname": "d",
-      "email": "r@gmail.com.com",
-      "password": "Hanumat@12",
-      "role": "user",
-      "cart": [],
-      "id": 5
-    },
-    {
-      "name": "hanumat",
-      "lastname": "d",
-      "email": "!@gmail.com",
-      "password": "Hanumat@12",
-      "role": "user",
-      "cart": [],
-      "id": 6
     }
   ],
   "products": [
@@ -315,7 +282,8 @@
       "description": "White Bird Stride 2.0 Case Cover For iPhone 14 Pro Max",
       "name": "Apple",
       "catogery": "iphone14promax",
-      "id": 24
+      "id": 24,
+      "category": "Mobile"
     },
     {
       "image1": "https://images.dailyobjects.com/marche/product-images/1101/dailyobjects-down-the-street-stride-2-0-case-cover-for-iphone-14-pro-max-images/DailyObjects-Down-The-Street-Stride-2-0-Case-Cover-For-iPhone-14-Pro-Max.png?tr=cm-pad_resize,v-2,w-640,h-519,dpr-1",
