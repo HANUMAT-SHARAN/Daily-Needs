@@ -9,6 +9,7 @@ import {
   SimpleGrid,
   Box,
 } from "@chakra-ui/react";
+import Loader from "../Components/Loader";
 import SearchCard from "../Components/SearchCard";
 import { Search2Icon } from "@chakra-ui/icons";
 import axios from "axios";
@@ -36,7 +37,7 @@ const SearchPage = () => {
   };
   return (
     <>
-      <Stack spacing={4}>
+      <Stack border="5 px solid red" spacing={4}>
         <InputGroup>
           <InputLeftElement
             pointerEvents="none"
@@ -54,11 +55,12 @@ const SearchPage = () => {
 
       <SimpleGrid columns={[2,3,3,4]} spacing={[5,10,10]}>
         {data.map((el) => (
+
         <Box onClick={()=>nav(`/product/${el.id}`)}>
 
-<SearchCard   key={el.id} {...el} />
+     <SearchCard   key={el.id} {...el} />
         </Box>
-        ))}
+))}
       </SimpleGrid>
     </>
   );

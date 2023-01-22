@@ -83,6 +83,7 @@ setCheckUsers(allLoginUsers)
    data.role="user"
     await axios.post(`http://localhost:4040/users`, data);
     successAccount()
+    nav('/login') 
     setData(user);
   };
 
