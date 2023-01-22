@@ -7,6 +7,7 @@ import Login from "../Pages/Login";
 import SearchPage from "../Pages/SearchPage";
 import SingleProduct from "../Pages/SingleProduct";
 import MobileProducts from "../Pages/MobileProducts";
+import Admin from "../Pages/Admin";
 
 import Cart from "../Components/Cart/Cart";
 import LaptopProductPage from "../Pages/LaptopProductpage";
@@ -26,9 +27,13 @@ const AllRoutes = () => {
         <Route element={<MobileProducts />} path="/mobileproducts" />
         <Route element={<SingleProduct />} path="/product/:id" />
 
+        <Route element={<Admin/>} path="/admin"/>
+
+
         <Route element={<Cart />} path="/cart" />
         <Route element={<LaptopProductPage/>} path="/laptopproductpage"></Route>
         <Route element={<HomeProductPage/>} path="/homeproductpage"></Route>
+
 
       </Routes>
     </div>

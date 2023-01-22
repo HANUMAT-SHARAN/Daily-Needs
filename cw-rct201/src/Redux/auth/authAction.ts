@@ -1,7 +1,8 @@
 import { loginApi, userobj } from "./authApi";
 import { GET_USERS_DATA, LOGOUT_USER, SET_CURRENT_USER } from "./authActionType";
+import { Dispatch } from "redux";
 
-export const getUsersData = () => async (dispatch: any) => {
+export const getUsersData = () => async (dispatch:Dispatch) => {
   try {
     let response = await loginApi();
     console.log(response,"res")

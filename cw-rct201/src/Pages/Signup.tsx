@@ -15,16 +15,21 @@ import {
   useColorModeValue,
   
 } from "@chakra-ui/react";
+import React from 'react'
+
 import { useState } from "react";
 import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
-import { Link } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
+import { loginApi } from "../Redux/auth/authApi";
+import { toast } from "react-toastify";
 
 export type userobj = {
   name: string;
   lastname: string;
   email: string;
   password: string;
-  cart?:[]
+  cart?:[],
+  role?:string;
 };
 
 let user = {
@@ -32,31 +37,58 @@ let user = {
   lastname: "",
   email: "",
   password: "",
+  role:""
 
 };
+
+
+
 export default function Signup() {
   const [showPassword, setShowPassword] = useState<boolean>(false);
   const [data, setData] = useState<userobj>(user);
-
   const [buttonDisable,setButtonDisable]=useState<boolean>(true)
 
+  const nav=useNavigate()
+
+  const successAccount=()=>{toast.success("Account Created Successfully",{theme:"colored"})}
+  const errorsignup=()=>{toast.error("User already Exist",{theme:"colored"})}
+
+
+  const [checkUser,setCheckUsers]=useState<userobj[]>([])
+const getData=async()=>{
+let allLoginUsers=await loginApi()
+
+setCheckUsers(allLoginUsers)
+}
 
   const makeDisable=()=>{
-      if(data.password.length>=7&&(data.password.includes("$")||data.password.includes("@"))){
+      if(data.password.length>7&&(data.password.includes("$")||data.password.includes("@"))){
           setButtonDisable(false)
       }else{
         setButtonDisable(true)
       }
   }
-  console.log(data)
+ 
 
   const sendData = async () => {
-
+    for(let i=0;i<=checkUser.length-1;i++){
+      if(data.email===checkUser[i].email){
+      errorsignup()
+        setData(user);
+        nav('/login') 
+        return 
+      }
+    }
    data.cart=[]
+   data.role="user"
     await axios.post(`http://localhost:4040/users`, data);
+    successAccount()
     setData(user);
   };
 
+  React.useEffect(()=>{
+    getData()
+  },[])
   return (
     <Flex
       minH={"100vh"}

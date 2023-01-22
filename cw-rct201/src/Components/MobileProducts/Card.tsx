@@ -8,11 +8,21 @@ export type CardProps={
     image3?:string
     image4?:string
     description:string
-    catogery:string
+    category:string
     Rating:number
     cost:number
    
 }
+
+
+const Card:React.FC<CardProps>= ({image1,description,category,cost,Rating,id}) => {
+  return (
+        <div key={id}>
+         <img src={image1} alt={category}/>
+          <p>{description}</p>
+          <p>{category}</p>
+          <p>{Rating}</p>
+          <h1>{cost}</h1>
 
 const Card:React.FC<CardProps>= ({image1,description,catogery,cost,Rating,id}) => {
  
@@ -23,6 +33,7 @@ const Card:React.FC<CardProps>= ({image1,description,catogery,cost,Rating,id}) =
           <h3>catogery:-{catogery}</h3>
           <h4> <span>⭐</span>{Rating}</h4>
           <h1>₹{cost}</h1>
+
        </div>
   )
 }

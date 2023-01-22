@@ -9,17 +9,20 @@ import {
   InputGroup,
   InputRightElement,
   Stack,
+  Text,
   useColorModeValue,
 } from "@chakra-ui/react";
-import { store } from "../Redux/store";
+import { STORE, store } from "../Redux/store";
 import { useDispatch, useSelector } from "react-redux";
 import React from "react";
 
 import { userobj } from "./Signup";
-import { loginApi } from "../api/LoginApi";
+import { loginApi } from "../Redux/auth/authApi";
 import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
 import { getUsersData,setCurrentUser } from "../Redux/auth/authAction";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import { sendDataToRedux } from "../Redux/admin/adminAction";
 
 type loginuser = {
   password: string;
@@ -31,9 +34,10 @@ const initlogindata = {
   password: "",
 };
 export default function Login(): JSX.Element {
-  const { loginUsersData } = useSelector((store: any) => store.authManager);
-  console.log(loginUsersData);
+  const { loginUsersData } = useSelector((store:any) => store.authManager);
 
+const loginSucess=()=>{toast.success("Logged In Successfully",{theme:"colored"})}
+const error=()=>{toast.error("Please Check Your  Password Or Email",{theme:"colored"} )}
 
   const [showPassword, setShowPassword] = React.useState<boolean>(false);
 
@@ -47,7 +51,12 @@ export default function Login(): JSX.Element {
  
   const nav=useNavigate()
   React.useEffect(() => {
+   
+     dispatch(sendDataToRedux());
+  }, []);
+  React.useEffect(() => {
     dispatch(getUsersData())
+    
   }, []);
 
   const checkUser = () => {
@@ -56,14 +65,14 @@ export default function Login(): JSX.Element {
         userLoginData.email === loginUsersData[i].email &&
         userLoginData.password === loginUsersData[i].password
       ) {
-        alert("login Succesffule");
+        loginSucess()
         nav('/')
         dispatch(setCurrentUser(loginUsersData[i]))
         setUserLoginData(initlogindata);
         return;
       }
     }
-    alert("SomeThing Is wrong");
+    error()
     setUserLoginData(initlogindata);
     return;
   };
@@ -126,14 +135,29 @@ export default function Login(): JSX.Element {
         <Stack spacing={6}>
           <Button
             onClick={checkUser}
+            bg={"green.400"}
+            color={"white"}
+            _hover={{
+              bg: "green.500",
+            }}
+          >
+            Submit
+          </Button>
+          <Text
+          onClick={()=>nav('/signup')}
+          fontSize={"13px"}
+          p={2}
+          fontWeight="bold"
+          textAlign="center"
+           borderRadius="0.4rem"
             bg={"blue.400"}
             color={"white"}
             _hover={{
               bg: "blue.500",
             }}
           >
-            Submit
-          </Button>
+            Dont Have Account Signup Now?
+          </Text>
           <Button onClick={() => loginWithRedirect()}>Login with google</Button>
         </Stack>
       </Stack>
