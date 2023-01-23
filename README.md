@@ -5,6 +5,8 @@ DailyObjects is a design-obsessed lifestyle accessories brand committed to makin
 
 You can look forward to a carefully-crafted range of products, made from long-lasting materials, with designs that stand out and make your life easy. With DailyObjects, let your lifestyle reflect your sensibilities as you go on to make your every day #lessordinary.
 
+<img src="https://github.com/HANUMAT-SHARAN/bright-noise-2667/blob/master/cw-rct201/src/Pages/image.png" width="90%"> </img>
+
 
 # Tech-Stack
  --Front-end---> React+chakraUI+Typescript+Redux<br/>
