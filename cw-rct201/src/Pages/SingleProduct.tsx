@@ -1,5 +1,5 @@
 import {store} from "../Redux/store"
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import React, { useEffect, useState } from "react";
 import { BiLeftArrowAlt, BiRightArrowAlt } from "react-icons/bi";
 import { MdLocalShipping } from "react-icons/md";
@@ -24,6 +24,7 @@ import {
   IconButton,
 } from "@chakra-ui/react";
 import { useParams } from "react-router-dom";
+import { getUsersData } from "../Redux/auth/authAction";
 
 const settings = {
   dots: true,
@@ -64,6 +65,7 @@ let obj = {
 };
 
 export default function SingleProduct() {
+  const dispatch:any = useDispatch()
   const [slider, setSlider] = React.useState<Slider | null>(null);
   const top = useBreakpointValue({ base: "90%", md: "50%" });
   const side = useBreakpointValue({ base: "30%", md: "10px" });
@@ -72,6 +74,7 @@ export default function SingleProduct() {
 // console.log(71,currentUser)
   const [data, setdata] = useState<prod>(obj);
   const [userData,setUserData]=useState([])
+
   const {
     image1,
     image2,
@@ -120,7 +123,7 @@ export default function SingleProduct() {
       method:"PATCH",
       body : JSON.stringify({
         cart:[...userData,
-          {image1,cost,name,quantity:1}
+          {image1,cost,name,quantity:1,orderId:Date.now()}
         ]
       }),
       headers:{
@@ -132,8 +135,12 @@ export default function SingleProduct() {
     } catch (error) {
       console.log(error)
     }
+    setTimeout(()=>{
+      dispatch(getUsersData())
+    },1500)
   }
 
+  
   return (
     <>
       <Container maxW={"7xl"}>
@@ -469,4 +476,8 @@ export default function SingleProduct() {
       </Container>
     </>
   );
+}
+
+function dispatch(arg0: (dispatch: any) => Promise<void>) {
+  throw new Error("Function not implemented.");
 }

@@ -1,5 +1,5 @@
 import { loginApi, userobj } from "./authApi";
-import { GET_USERS_DATA, LOGOUT_USER, SET_CURRENT_USER } from "./authActionType";
+import { GET_USERS_DATA, LOGOUT_USER, SET_CURRENT_USER, UPDATE_CART_TOTAL } from "./authActionType";
 import { Dispatch } from "redux";
 
 export const getUsersData = () => async (dispatch:Dispatch) => {
@@ -19,4 +19,7 @@ export const setCurrentUser=(userdata:userobj)=>async(dispatch:any)=>{
 
 export const makeUserLogout=()=>(dispatch:any)=>{
     dispatch({type:LOGOUT_USER})
+}
+export const updateUserCart=(total:number)=>(dispatch:any)=>{
+  dispatch({type:UPDATE_CART_TOTAL,payload:total})
 }

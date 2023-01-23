@@ -119,7 +119,7 @@ const Admin = () => {
             <Flex
             boxShadow={"rgba(0, 0, 0, 0.24) 0px 3px 8px;"}
              borderRadius={"1rem"}
-            style={currentPortion=="dashboard"?{backgroundColor:"blue"}:{backgroundColor:""}}
+          
             // This is The Dashboard Icon Div
             onClick={()=>setCurrentPortion("dashboard")}
             mt={5}
@@ -137,10 +137,11 @@ const Admin = () => {
                 </Text>
               </Box>
             </Flex>
-            <Flex
+            <Flex 
+            
               boxShadow={"rgba(0, 0, 0, 0.24) 0px 3px 8px;"}
             borderRadius={"1rem"}
-             style={currentPortion=="products"?{backgroundColor:"blue"}:{backgroundColor:""}}
+             
             // This is The Products Icon Div
             onClick={()=>setCurrentPortion("products")}
             mt={5}
@@ -159,9 +160,10 @@ const Admin = () => {
               </Box>
             </Flex>
             <Flex
+              
               boxShadow={"rgba(0, 0, 0, 0.24) 0px 3px 8px;"}
              borderRadius={"1rem"}
-            style={currentPortion=="addproduct"?{backgroundColor:"blue"}:{backgroundColor:""}}
+            
             // This is The Dashboard Icon Div
             onClick={()=>setCurrentPortion("addproduct")}
             mt={5}
@@ -180,9 +182,10 @@ const Admin = () => {
               </Box>
             </Flex>
             <Flex
+              
               boxShadow={"rgba(0, 0, 0, 0.24) 0px 3px 8px;"}
              borderRadius={"1rem"}
-            style={currentPortion=="manageusers"?{backgroundColor:"blue"}:{backgroundColor:""}}
+           
             // This is The Dashboard Icon Div
             onClick={()=>setCurrentPortion("manageusers")}
             mt={5}
