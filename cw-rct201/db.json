@@ -5,7 +5,7 @@
       "lastname": "Pal",
       "email": "palabhi017@gmail.com",
       "password": "abhi@1234",
-      "role": "user",
+      "role": "admin",
       "cart": [
         {
           "image1": "https://images.dailyobjects.com/marche/product-images/1101/dailyobjects-symbolic-zebra-stride-2-0-case-cover-for-iphone-13-images/DailyObjects-Symbolic-Zebra-Stride-2-0-Case-Cover-For-iPhone-13.png?tr=cm-pad_resize,v-2,w-640,h-519,dpr-1",
@@ -27,6 +27,20 @@
           "name": "Apple",
           "quantity": 1,
           "orderId": 1674451715504
+        },
+        {
+          "image1": "https://m.media-amazon.com/images/I/71iI2wTW56L._AC_UY218_.jpg",
+          "cost": 50999,
+          "name": "lenovo ZA3",
+          "quantity": 1,
+          "orderId": 1674452830248
+        },
+        {
+          "image1": "https://images.dailyobjects.com/marche/product-images/1101/dailyobjects-another-one-stride-2-0-case-cover-for-iphone-13-images/DailyObjects-Another-One-Stride-2-0-Case-Cover-For-iPhone-13.png?tr=cm-pad_resize,v-2,w-640,h-519,dpr-1",
+          "cost": 1199,
+          "name": "Apple",
+          "quantity": 1,
+          "orderId": 1674453922832
         }
       ],
       "id": 1
@@ -42,7 +56,8 @@
       "description": "Vulcan Case Cover For iPhone 13",
       "name": "Apple",
       "catogery": "iphone13",
-      "id": 1
+      "id": 1,
+      "category": "mobile"
     },
     {
       "image1": "https://images.dailyobjects.com/marche/product-images/1101/dailyobjects-black-flekt-silicone-case-cover-for-iphone-13-images/DailyObjects-Black-Fluid-Case-Cover-For-iPhone-13.png?tr=cm-pad_resize,v-2,w-640,h-519,dpr-1",
