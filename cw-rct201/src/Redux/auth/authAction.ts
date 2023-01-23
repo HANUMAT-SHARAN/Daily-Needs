@@ -1,7 +1,8 @@
 import { loginApi, userobj } from "./authApi";
-import { GET_USERS_DATA, LOGOUT_USER, SET_CURRENT_USER } from "./authActionType";
-import { UPDATE_CART_TOTAL } from "./authActionType";
-export const getUsersData = () => async (dispatch: any) => {
+import { GET_USERS_DATA, LOGOUT_USER, SET_CURRENT_USER, UPDATE_CART_TOTAL } from "./authActionType";
+import { Dispatch } from "redux";
+
+export const getUsersData = () => async (dispatch:Dispatch) => {
   try {
     let response = await loginApi();
     console.log(response,"res")
@@ -19,6 +20,6 @@ export const setCurrentUser=(userdata:userobj)=>async(dispatch:any)=>{
 export const makeUserLogout=()=>(dispatch:any)=>{
     dispatch({type:LOGOUT_USER})
 }
-export const setNewCartPrice=(ele:number)=>(dispatch:any)=>{
-  dispatch({type:UPDATE_CART_TOTAL,payload:ele})
+export const updateUserCart=(total:number)=>(dispatch:any)=>{
+  dispatch({type:UPDATE_CART_TOTAL,payload:total})
 }

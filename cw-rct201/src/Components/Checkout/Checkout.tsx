@@ -1,13 +1,9 @@
 import React from "react";
-import "../Checkout/Checkout.css";
-import { useToast } from "@chakra-ui/react";
-import { useSelector } from "react-redux";
+import { useToast } from '@chakra-ui/react'
+import "./Checkout.css";
 const Checkout = () => {
-  const {totalPrice}=useSelector((store:any)=>store.authManager)
-  
-  const toast = useToast()
-
-   return (
+    const toast = useToast()
+  return (
     <div className="screen flex-center">
       <form className="popup flex p-lg">
         <div className="close-btn pointer flex-center p-sm">
@@ -202,11 +198,10 @@ const Checkout = () => {
             </div>
           </div>
           <div className="action flex-center">
-            <button  className="b-main-color pointer" onClick={() =>
+            <button  className="b-main-color pointer"  onClick={() =>
         toast({
-          position:'top',
-          title: 'Payment successful',
-          description: "Your payment has been successfully done",
+          title: 'Successful',
+          description: "Your payment has been done successfully.",
           status: 'success',
           duration: 4000,
           isClosable: true,
@@ -314,7 +309,7 @@ const Checkout = () => {
                 You have to Pay
               </div>
               <div>
-                <strong>{totalPrice}</strong>
+                <strong>549</strong>
                 
               </div>
             </div>
@@ -322,7 +317,6 @@ const Checkout = () => {
           </div>
         </div>
       </form>
-      
     </div>
   );
 };

@@ -48,7 +48,7 @@ import Gifting from "./Gifting";
 import { Modal } from "flowbite";
 import UserInfo from "../UserInfo";
 
-import { store } from "../../Redux/store";
+import { STORE, store } from "../../Redux/store";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 export interface Display {
@@ -58,8 +58,10 @@ const Navbar = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   const nav = useNavigate();
-  const { isAuth } = useSelector((store: any) => store.authManager);
+  const { isAuth } = useSelector((store: STORE) => store.authManager);
 
+  const navigate=useNavigate()
+  
   const [myAccountOpen, setMyAccountOpen] = React.useState<boolean>(false);
   const cancelRef = React.useRef<any>();
 
@@ -70,6 +72,8 @@ const Navbar = () => {
   const [style4, setstyle4] = useState({ display: "none" });
   const [style5, setstyle5] = useState({ display: "none" });
   const [style6, setstyle6] = useState({ display: "none" });
+  
+
   return (
     <>
       <HStack
@@ -90,7 +94,8 @@ const Navbar = () => {
           </Box>
         </Show>
         <Box h="100%" w={{ base: "30%", sm: "10%", lg: "10%" }}>
-          <Image
+          
+          <Image onClick={()=>navigate("/")}
             w="100%"
             h="100%"
             src="https://i.ibb.co/GvD6M4H/Daily-Needs-modified.png"
@@ -162,7 +167,7 @@ const Navbar = () => {
               onMouseLeave={() => setstyle5({ display: "none" })}
               _hover={{ color: "#20a87e" }}
             >
-              <Link to={""}  >COLLECTIONS</Link>
+              <Link to={"/mobileproducts"}  >COLLECTIONS</Link>
             </Box>
             <Box
               h="90px"
@@ -193,20 +198,22 @@ const Navbar = () => {
                   </Button>
                   <MenuItem>Orders</MenuItem>
                   <MenuItem>Address</MenuItem>
+                  <Button onClick={()=>nav('/admin')}>Admin</Button>
                 </>
               )}
               {!isAuth ? (
                 <>
                   {" "}
-                  <MenuItem>
+                 <MenuList>
                     <Button onClick={() => nav("/signup")}>Signup</Button>
-                  </MenuItem>{" "}
+                  {" "}
                
-                    <MenuItem>
+                   
                       {" "}
                       <Button onClick={() => nav("/login")}>Login</Button>
-                    </MenuItem>
-             
+                      <Button onClick={()=>nav('/admin')}>Admin</Button>
+                    
+                      </MenuList>
                 </>
               ) : null}
             </MenuList>

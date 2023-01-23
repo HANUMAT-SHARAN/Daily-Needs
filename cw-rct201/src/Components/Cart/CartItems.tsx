@@ -1,25 +1,25 @@
-import React, { useState } from 'react'
+import React, { useState,useEffect } from 'react'
 import {Heading,Stack,Text,Divider,Button,Box,HStack,Image} from "@chakra-ui/react"
 import { Card, CardBody, CardFooter } from '@chakra-ui/react'
-import { useSelector } from "react-redux";
-import { useDispatch } from 'react-redux';
-import { setNewCartPrice } from '../../Redux/auth/authAction';
+import { useDispatch, useSelector } from "react-redux";
+import { updateUserCart } from '../../Redux/auth/authAction';
 interface cartItems{
     image1:string,
     name:string,
     cost: string
     quantity:number
-    orderId:string
+    orderId:any
 }
 
 
 
 const CartItems = ({image1,name,cost,quantity,orderId}:cartItems) => {
   const {currentUser}=useSelector((store:any)=>store.authManager)
-  const {loginUserData}=useSelector((store:any)=>store.authManager)
- const [total,settotal] =useState<number>(0)
+  const {loginUsersData}=useSelector((store:any)=>store.authManager)
+  const dispatch:any = useDispatch()
   const [count,setcount] = useState<number>(1)
   const [cartdata,setcartdata] = useState([])
+  const [total,settotal] = useState(0)
   const getUserData = async () => {
     try {
       let r = await fetch(`http://localhost:4040/users/${currentUser.id}`);
@@ -30,7 +30,7 @@ const CartItems = ({image1,name,cost,quantity,orderId}:cartItems) => {
       console.log(error);
     }
   };
-  const dispatch:any = useDispatch()
+ 
   const handledelete=async(orderId:string)=>{
     getUserData()
     try {
@@ -50,23 +50,53 @@ const CartItems = ({image1,name,cost,quantity,orderId}:cartItems) => {
       console.log(error)
     }
   }
-const updateQuantity = (orderId:string)=>{
+  
+  console.log(orderId,"fsdfa")
+  let sum=total;
+  const updateTotal = (orderId:string)=>{
+    // console.log(orderId)
+    if(sum==0){
+      for(let i=0;i<loginUsersData.length;i++){
+        // sum= sum+(currentUser.cart[i].cost)
+        if(loginUsersData[i].id===currentUser.id){
+                for(let j=0;j<loginUsersData[i].cart.length;j++){
+                   sum=sum+(loginUsersData[i].cart[j].cost)
+                }
+        }
+  }
+    }
+   
     
-    let sum=0
-    for(let i=0;i<currentUser.cart.length;i++){
-      sum=sum+(currentUser.cart[i].cost)
-} 
-console.log(sum)
-settotal(sum)
-dispatch(setNewCartPrice(total))
-    for(let i=0;i<currentUser.cart.length;i++){
-          if(currentUser.cart[i].orderId===orderId){
-                sum=sum+(currentUser.cart[i].cost*count)
-          }
-    } 
     settotal(sum)
-dispatch(setNewCartPrice(total))
+    // console.log(total)
+    // console.log(count)
+    // console.log(total)
+    // console.log(orderId)
+    // console.log(currentUser.cart)
+    dispatch(updateUserCart(total))
+    for(let i=0;i<loginUsersData.length;i++){
+      // sum= sum+(currentUser.cart[i].cost)
+      if(loginUsersData[i].id===currentUser.id){
+              for(let j=0;j<loginUsersData[i].cart.length;j++){
+                //  sum=sum+(loginUsersData[i].cart[j].cost)
+                console.log(loginUsersData[i].cart[j].orderId)
+                if(loginUsersData[i].cart[j].orderId===orderId){
+                 sum=sum+(loginUsersData[i].cart[j].cost*count)
+                  
+                     console.log(orderId)
+                }
+              }
+      }
 }
+
+    settotal(sum)
+    console.log(total)
+    dispatch(updateUserCart(total))
+  }
+
+  useEffect(()=>{
+    updateTotal(orderId)
+  },[])
   return (
     <Card h="auto" >
     <CardBody>
@@ -90,9 +120,9 @@ dispatch(setNewCartPrice(total))
           Remove
         </Button>
         <HStack>
-        <Button isDisabled={count===1}  bgColor='#3182ce' w="10px" color="white" onClick={()=>[setcount(count-1)]} variant='ghost' colorScheme='blue'>-</Button>
+        <Button isDisabled={count===1}  bgColor='#3182ce' w="10px" color="white" onClick={()=>setcount(count-1)} variant='ghost' colorScheme='blue'>-</Button>
         <Box>{count}</Box>
-        <Button bgColor='#3182ce' w="10px" color="white" onClick={()=>[setcount(count+1),updateQuantity(orderId)]} variant='ghost' colorScheme='blue'>+</Button>
+        <Button bgColor='#3182ce' w="10px" color="white" onClick={()=>[setcount(count+1),updateTotal(orderId)]} variant='ghost' colorScheme='blue'>+</Button>
         </HStack>
       </HStack>
        

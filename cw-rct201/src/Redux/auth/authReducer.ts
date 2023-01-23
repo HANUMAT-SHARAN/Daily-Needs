@@ -1,18 +1,18 @@
 import { userobj } from "./authApi";
-import { GET_USERS_DATA, LOGOUT_USER, SET_CURRENT_USER } from "./authActionType";
-import { UPDATE_CART_TOTAL } from "./authActionType";
+import { GET_USERS_DATA, LOGOUT_USER, SET_CURRENT_USER, UPDATE_CART_TOTAL } from "./authActionType";
+
 type authState = {
   loginUsersData: userobj[];
   currentUser: userobj;
   isAuth:boolean
-  totalPrice:number
+  totalprice:number
 };
 
 const initialState: authState = {
   currentUser: { name: "", lastname: "", email: "", password: "" },
   loginUsersData: [],
   isAuth:false,
-  totalPrice: 0
+  totalprice:0
 };
 type authAction = {
   type: string;
@@ -30,17 +30,18 @@ export const authReducer = (
         loginUsersData: action.payload,
       };
     }
-    case UPDATE_CART_TOTAL:{
-      return {
-        ...state,totalPrice : action.payload
-      }
-    }
+   
     case SET_CURRENT_USER:{
         return {
             ...state,
             isAuth:true,
             currentUser:action.payload
         }
+    }
+    case UPDATE_CART_TOTAL:{
+      return {
+        ...state, totalprice: action.payload
+      }
     }
     case LOGOUT_USER:{
         return {

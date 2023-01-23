@@ -13,6 +13,9 @@ import {
 import { BiLeftArrowAlt, BiRightArrowAlt } from 'react-icons/bi';
 // And react-slick as our Carousel Lib
 import Slider from 'react-slick';
+import { getcategory } from '../../../Redux/categorysorting/category.action';
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 // Settings for the slider
 const settings = {
@@ -29,6 +32,9 @@ const settings = {
 
 
 export default function ProductCategory() {
+  
+  const dispatch : any=useDispatch()
+  const navigate=useNavigate()
   // As we have used custom buttons, we need a reference variable to
   // change the state
   const [slider, setSlider] = useState<Slider | null>(null);
@@ -64,6 +70,26 @@ export default function ProductCategory() {
 
   ];
 
+  const sendtopage1=(value:string)=>{
+    console.log(value)
+    dispatch(getcategory("cases"))
+    navigate("/homeproductpage")
+  }
+  const sendtopage2=(value:string)=>{
+    console.log(value)
+    dispatch(getcategory("bag"))
+    navigate("/homeproductpage")
+  }
+  const sendtopage3=(value:string)=>{
+    console.log(value)
+    dispatch(getcategory("Asus"))
+    navigate("/homeproductpage")
+  }
+  const sendtopage4=(value:string)=>{
+    console.log(value)
+    dispatch(getcategory("tote bag"))
+    navigate("/homeproductpage")
+  }
   return (
     <Box padding={"2%"}
       position={'relative'}
@@ -117,19 +143,19 @@ export default function ProductCategory() {
           <Grid    width="100%" key={index}  >
             <GridItem display={"flex"} justifyContent="space-evenly"   >
               <Box className="grow_img">
-                  <Image   src={card.image} w={[50,100, 200]}  alt={card.title} onClick={()=>console.log("1")}/>
+                  <Image   src={card.image} w={[50,100, 200]}  alt={card.title} onClick={()=>sendtopage1(card.title)}/>
                   <Text color={"black"} fontSize={{ base: '10px', md: '10px', lg: '15px' }}>{card.title}</Text>
               </Box>
               <Box className="grow_img">
-                  <Image src={card.image2} w={[50,100, 200]} alt={card.title} onClick={()=>console.log("1")} />
+                  <Image src={card.image2} w={[50,100, 200]} alt={card.title} onClick={()=>sendtopage2(card.title2)} />
                   <Text color={"black"} fontSize={{ base: '10px', md: '10px', lg: '15px' }}>{card.title2}</Text>
               </Box>
-              <Box className="grow_img">
-                 <Image src={card.image3} w={[50,100, 200]} alt={card.title} onClick={()=>console.log("1")}/>
+              <Box className="grow_img" >
+                 <Image src={card.image3} w={[50,100, 200]} alt={card.title} onClick={()=>sendtopage3(card.title3)}/>
                  <Text color={"black"} fontSize={{ base: '10px', md: '10px', lg: '15px' }}>{card.title3}</Text>
               </Box>
               <Box className="grow_img">
-                 <Image src={card.image4} w={[50,100, 200]} alt={card.title} onClick={()=>console.log("1")}/>
+                 <Image src={card.image4} w={[50,100, 200]} alt={card.title} onClick={()=>sendtopage4(card.title4)}/>
                   <Text color={"black"} fontSize={{ base: '10px', md: '10px', lg: '15px' }}>{card.title4}</Text>
               </Box>
             </GridItem>          

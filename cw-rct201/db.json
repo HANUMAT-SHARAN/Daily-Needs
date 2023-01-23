@@ -4,9 +4,30 @@
       "name": "Abhishek",
       "lastname": "Pal",
       "email": "palabhi017@gmail.com",
-      "password": "abhi@123",
+      "password": "abhi@1234",
+      "role": "user",
       "cart": [
-        
+        {
+          "image1": "https://images.dailyobjects.com/marche/product-images/1101/dailyobjects-symbolic-zebra-stride-2-0-case-cover-for-iphone-13-images/DailyObjects-Symbolic-Zebra-Stride-2-0-Case-Cover-For-iPhone-13.png?tr=cm-pad_resize,v-2,w-640,h-519,dpr-1",
+          "cost": 1199,
+          "name": "Apple",
+          "quantity": 1,
+          "orderId": 1674451081232
+        },
+        {
+          "image1": "https://images.dailyobjects.com/marche/product-images/1101/dailyobjects-symbolic-zebra-stride-2-0-case-cover-for-iphone-13-images/DailyObjects-Symbolic-Zebra-Stride-2-0-Case-Cover-For-iPhone-13.png?tr=cm-pad_resize,v-2,w-640,h-519,dpr-1",
+          "cost": 1199,
+          "name": "Apple",
+          "quantity": 1,
+          "orderId": 1674451293602
+        },
+        {
+          "image1": "https://images.dailyobjects.com/marche/product-images/1101/dailyobjects-symbolic-zebra-stride-2-0-case-cover-for-iphone-13-images/DailyObjects-Symbolic-Zebra-Stride-2-0-Case-Cover-For-iPhone-13.png?tr=cm-pad_resize,v-2,w-640,h-519,dpr-1",
+          "cost": 1199,
+          "name": "Apple",
+          "quantity": 1,
+          "orderId": 1674451715504
+        }
       ],
       "id": 1
     }
@@ -142,6 +163,7 @@
       "description": "Green Hybrid Clear Case Cover for iPhone 13",
       "name": "Apple",
       "catogery": "iphone13",
+      "category": "cases",
       "id": 12
     },
     {
@@ -153,6 +175,7 @@
       "description": "Blue Hybrid Clear Case Cover for iPhone 13",
       "name": "Apple",
       "catogery": "iphone13",
+      "category": "cases",
       "id": 13
     },
     {
@@ -164,6 +187,7 @@
       "description": "Stride 2.0 Clear Case Cover For iPhone 13",
       "name": "Apple",
       "catogery": "iphone13",
+      "category": "cases",
       "id": 14
     },
     {
@@ -186,6 +210,7 @@
       "description": "Nimbus Phone Case Cover For iPhone 14",
       "name": "Apple",
       "catogery": "iphone14",
+      "category": "cases",
       "id": 16
     },
     {
@@ -219,6 +244,7 @@
       "description": "Vulcan Case Cover For iPhone 14",
       "name": "Apple",
       "catogery": "iphone14",
+      "category": "cases",
       "id": 19
     },
     {
@@ -241,6 +267,7 @@
       "description": "MagSafe Flekt Silicone Case Cover For iPhone 14 Pro Max",
       "name": "Apple",
       "catogery": "iphone14promax",
+      "category": "cases",
       "id": 21
     },
     {
@@ -263,6 +290,7 @@
       "description": "Jet Ranger Stride 2.0 Case Cover For iPhone 14 Pro Max",
       "name": "Apple",
       "catogery": "iphone14promax",
+      "category": "cases",
       "id": 23
     },
     {
@@ -285,6 +313,7 @@
       "description": "Down The Street Stride 2.0 Case Cover For iPhone 14 Pro Max",
       "name": "Apple",
       "catogery": "iphone14promax",
+      "category": "cases",
       "id": 25
     },
     {
@@ -296,6 +325,7 @@
       "description": "Tested Stride 2.0 Case Cover For iPhone 14 Pro Max",
       "name": "Apple",
       "catogery": "iphone14promax",
+      "category": "cases",
       "id": 26
     },
     {
@@ -597,6 +627,66 @@
       "Rating": 3.8,
       "name": "Dell gaming",
       "id": 46
+    },
+    {
+      "image1": "https://images.dailyobjects.com/marche/product-images/1204/langoor-idyll-tote-images/White-Idyll-Tote.png?tr=cm-pad_resize,v-2,w-683,h-573,dpr-1",
+      "image2": "https://m.media-amazon.com/images/I/61nawdTwbuL._SX679_.jpg",
+      "cost": 15999,
+      "description": "Idyll is an extra large Tote to keep up with the overpacker in you",
+      "category": "tote bag",
+      "Rating": 3.8,
+      "name": "Langoor Idyll Tote",
+      "id": 47
+    },
+    {
+      "image1": "https://images.dailyobjects.com/marche/product-images/1204/all-navy-all-time-tote-images/All-Navy-All-Time-Tote.png?tr=cm-pad_resize,v-2,w-683,h-573,dpr-1",
+      "image2": "https://images.dailyobjects.com/marche/product-images/1204/all-navy-all-time-tote-images/All-Navy-All-Time-Tote-9t.jpg?tr=cm-pad_crop,v-2,w-683,h-573,dpr-1",
+      "cost": 24999,
+      "description": "All Navy All Time Tote",
+      "category": "tote bag",
+      "Rating": 3.8,
+      "name": "All Navy All Time Tote",
+      "id": 48
+    },
+    {
+      "image1": "https://images.dailyobjects.com/marche/product-images/1201/all-beige-pedal-daypack-images/All-Beige-Pedal-Daypack-vw.png?tr=cm-pad_resize,v-2,w-683,h-573,dpr-1",
+      "image2": "https://images.dailyobjects.com/marche/product-images/1201/all-beige-pedal-daypack-images/All-Beige-Pedal-Daypack-vw.png?tr=cm-pad_resize,v-2,w-683,h-573,dpr-1",
+      "cost": 24999,
+      "description": "All Beige Pedal Daypack",
+      "category": "bag",
+      "Rating": 3.8,
+      "name": "All Beige Pedal Daypack",
+      "id": 49
+    },
+    {
+      "image1": "https://images.dailyobjects.com/marche/product-images/1801/grey-pull-tab-nylon-weave-apple-watchband-42-44-45-49mm-images/Grey-Pull-Tab-Nylon-Weave-Apple-WatchBand.png?tr=cm-pad_resize,v-2,w-683,h-573,dpr-1",
+      "image2": "https://images.dailyobjects.com/marche/product-images/1801/grey-pull-tab-nylon-weave-apple-watchband-42-44-45-49mm-images/Grey-Pull-Tab-Nylon-Weave-Apple-WatchBand.png?tr=cm-pad_resize,v-2,w-683,h-573,dpr-1",
+      "cost": 24999,
+      "description": "Grey Pull Tab Nylon Weave Apple WatchBand (42/44/45/49mm)",
+      "category": "watchband",
+      "Rating": 3.8,
+      "name": "Nylon Weave Apple WatchBand",
+      "id": 50
+    },
+    {
+      "image1": "https://images.dailyobjects.com/marche/product-images/1801/blue-plunge-apple-watchband-42-44-45-49mm-images/Blue-Plunge-Apple-WatchBand.png?tr=cm-pad_resize,v-2,w-537,h-573,dpr-1",
+      "image2": "https://images.dailyobjects.com/marche/product-images/1801/blue-plunge-apple-watchband-42-44-45-49mm-images/Blue-Plunge-Apple-WatchBand.png?tr=cm-pad_resize,v-2,w-537,h-573,dpr-1",
+      "cost": 6999,
+      "description": "Blue Plunge Apple WatchBand ",
+      "category": "watchband",
+      "Rating": 3.8,
+      "name": "Blue Plunge Apple WatchBand ",
+      "id": 51
+    },
+    {
+      "image1": "https://images.dailyobjects.com/marche/product-images/1801/pink-plunge-apple-watchband-42-44-45-49mm-images/Pink-Plunge-Apple-WatchBand.png?tr=cm-pad_resize,v-2,w-537,h-573,dpr-1",
+      "image2": "https://images.dailyobjects.com/marche/product-images/1801/pink-plunge-apple-watchband-42-44-45-49mm-images/Pink-Plunge-Apple-WatchBand.png?tr=cm-pad_resize,v-2,w-537,h-573,dpr-1",
+      "cost": 5999,
+      "description": "Pink Plunge Apple WatchBand ",
+      "category": "watchband",
+      "Rating": 3.8,
+      "name": "Pink Plunge Apple WatchBand ",
+      "id": 51
     }
   ]
 }

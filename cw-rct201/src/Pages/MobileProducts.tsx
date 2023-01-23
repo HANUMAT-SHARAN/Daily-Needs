@@ -13,7 +13,12 @@ export interface Data {
   description: string;
   id: number;
   Rating: number;
+
+  category: string;
+  name:string,
+
   cat: string;
+
 }
 
 const MobileProducts = () => {
@@ -73,7 +78,9 @@ const MobileProducts = () => {
                 id={el.id}
                 image1={el.image1}
                 description={el.description}
-                catogery={el.cat}
+
+                category={el.category}
+
                 cost={el.cost}
                 Rating={el.Rating}
               />

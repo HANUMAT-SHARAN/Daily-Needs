@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import "../App.css"
+import {Link} from "react-router-dom"
 import {
   Input,
   Stack,
@@ -18,7 +19,6 @@ import {
 import SearchCard from "../Components/SearchCard";
 import { Search2Icon } from "@chakra-ui/icons";
 import axios from "axios";
-import { Link } from "react-router-dom";
 export type proCardProps = {
   name?: string;
   description?: string;
@@ -69,21 +69,24 @@ const LaptopProductPage = () => {
     <Center w="100vw">
           <Grid className="laptop_grid" padding={"30px"} >
             {data.map((el)=>{
-                return  <GridItem className='shrink_img'  >
+                return  (
+                    <Link to={`/product/${el.id}`}>
+                    <GridItem className='shrink_img'  >      
                     <Box className="productpage" height={"300px"} >
-                         <Image    src={el.image1}  />
-                  
+                         <Image    src={el.image1}  />                
                     </Box>
                     <Text marginLeft={"20px"} >{el.name}</Text>
-                    <Text marginLeft={"20px"}  fontWeight={"bold"}>Rs. {el.cost}</Text>
-                    
-                    <Button colorScheme='facebook' borderRadius={"0%"} backgroundColor={"black"} width={"100%"} >Add To Cart</Button>
+                    <Text marginLeft={"20px"}  fontWeight={"bold"}>Rs. {el.cost}</Text>                 
+                    <Button colorScheme='facebook' borderRadius={"0%"} backgroundColor={"black"} width={"100%"} >Add To Cart</Button>  
                 </GridItem>
+                    </Link>
+                    
+                )
             })}
          
           </Grid>
         </Center>
-    
+        
     </>
   );
 };
