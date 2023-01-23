@@ -151,6 +151,285 @@ const imageUpdate=()=>{
     },1500)
   }
   return (
+    <>
+      <Drawer
+                  isOpen={nameDrawerOpen}
+                  placement="top"
+                  onClose={() => setNameDrawerOpen(false)}
+                >
+                  <DrawerOverlay />
+                  <DrawerContent>
+                    <DrawerCloseButton />
+                    <DrawerHeader>  Current name : {name} <br /> Enter New Name For the Product </DrawerHeader>
+
+                    <DrawerBody>
+                      <Input
+                        onChange={(e) => setnewName(e.target.value)}
+                        placeholder="Type here..."
+                      />
+                    </DrawerBody>
+
+                    <DrawerFooter>
+                      <Button variant="outline" mr={3} onClick={() => setNameDrawerOpen(false)}>
+                        Cancel
+                      </Button>
+                      <Button
+                        onClick={() => updateName(id)}
+                        colorScheme="blue"
+                      >
+                        Save
+                      </Button>
+                    </DrawerFooter>
+                  </DrawerContent>
+                </Drawer>
+                <Drawer
+                  isOpen={priceDrawerOpen}
+                  placement="top"
+                  onClose={() => setPriceDrawerOpen(false)}
+                >
+                  <DrawerOverlay />
+                  <DrawerContent>
+                    <DrawerCloseButton />
+                    <DrawerHeader>  Current price :  ₹ {cost}<br /> Enter New Price For the Product </DrawerHeader>
+
+                    <DrawerBody>
+                      <Input
+                        type="number"
+                        onChange={(e) => setNewPrice(e.target.value)}
+                        placeholder="Type here..."
+                      />
+                    </DrawerBody>
+
+                    <DrawerFooter>
+                      <Button variant="outline" mr={3} onClick={()=>setPriceDrawerOpen(false)}>
+                        Cancel
+                      </Button>
+                      <Button
+                        onClick={() => updatePrice(id)}
+                        colorScheme="blue"
+                      >
+                        Save
+                      </Button>
+                    </DrawerFooter>
+                  </DrawerContent>
+                </Drawer>
+                <Drawer
+                  isOpen={image1DrawerOpen}
+                  placement="top"
+                  onClose={() => setImage1DrawerOpen(false)}
+                >
+                  <DrawerOverlay />
+                  <DrawerContent>
+                    <DrawerCloseButton />
+                    <DrawerHeader>  Enter New Image Url For the Product </DrawerHeader>
+
+                    <DrawerBody>
+                      <Input
+                        onChange={(e) => setNewImage(e.target.value)}
+                        placeholder="Type here..."
+                      />
+                    </DrawerBody>
+
+                    <DrawerFooter>
+                      <Button variant="outline" mr={3} onClick={() => setImage1DrawerOpen(false)}>
+                        Cancel
+                      </Button>
+                      <Button
+                        onClick={() => updateImage(id)}
+                        colorScheme="blue"
+                      >
+                        Save
+                      </Button>
+                    </DrawerFooter>
+                  </DrawerContent>
+                </Drawer>
+                <AlertDialog
+        isOpen={alertDeleteOpen}
+        leastDestructiveRef={cancelRef}
+        onClose={()=>setDeleteOpen(false)}
+      >
+        <AlertDialogOverlay>
+          <AlertDialogContent>
+            <AlertDialogHeader fontSize='lg' fontWeight='bold'>
+              Delete Product
+            </AlertDialogHeader>
+
+            <AlertDialogBody>
+              Are you sure? You can't undo this action afterwards.
+            </AlertDialogBody>
+
+            <AlertDialogFooter>
+              <Button ref={cancelRef} onClick={()=>setDeleteOpen(false)}>
+                Cancel
+              </Button>
+              <Button  colorScheme='red' onClick={()=>deleteproduct(id)} ml={3}>
+                Delete
+              </Button>
+            </AlertDialogFooter>
+          </AlertDialogContent>
+        </AlertDialogOverlay>
+      </AlertDialog>
+      <AlertDialog
+        
+      
+        isOpen={updateOpen}
+        leastDestructiveRef={cancelRef}
+        onClose={() => setUpdateOpen(false)}
+      >
+        <AlertDialogOverlay>
+          <AlertDialogContent  >
+            <AlertDialogHeader fontSize="lg" fontWeight="bold">
+              Update {name} Product Details
+            </AlertDialogHeader>
+
+            <AlertDialogBody >
+              <Flex  justifyContent={"space-between"}>
+                 <SimpleGrid alignItems={"center"}  margin="auto" textAlign="center" >
+              <Button
+              
+              width={"100%"}
+              mb={1}
+                colorScheme="teal"
+                onClick={() => setNameDrawerOpen(true)}
+              >
+                Update Name
+              </Button>
+              <br />
+              <Button
+              width={"100%"}
+               mb={1}
+                colorScheme="teal"
+                onClick={() => setCategoryDrawerOpen(true)}
+              >
+                Update Category
+              </Button>
+
+              <br />
+              <Button
+              width={"100%"}
+               mb={1}
+                colorScheme="teal"
+                onClick={() => setPriceDrawerOpen(true)}
+              >
+                Update Price
+              </Button>
+              <Button
+              width={"100%"}
+               mt={7}
+                colorScheme="teal"
+                onClick={() => setImage1DrawerOpen(true)}
+              >
+                Update Image
+              </Button>
+             
+              </SimpleGrid>
+             
+              <Box
+    p={"10px 10px 10px 10px"}
+    borderRadius={"1rem"}
+  
+    boxShadow={"rgba(0, 0, 0, 0.35) 0px 5px 15px;"}
+    textAlign={"center"}
+  >
+    <Box
+      margin={"auto"}
+     
+    
+    
+      borderRadius={"2rem"}
+    >
+      <Avatar size={"xl"} src={image1} />
+    </Box>
+    <Text mt={1} fontWeight={"bold"} fontSize={"16px"}>
+      {" "}
+      Name : {name}
+    </Text>
+    <Text mt={1} fontWeight={"bold"} fontSize={"16px"}>
+      {" "}
+      Category : {category}
+    </Text>
+   
+    <Text mt={1} fontWeight={"bold"} fontSize={"16px"}>
+      Price : ₹ {cost}
+    </Text>
+    </Box>
+              </Flex>
+              {/* <SimpleGrid  alignItems={"center"} border="1px solid red" margin="auto" textAlign="center" columns={2}>
+              <Button
+              mb={5}
+                colorScheme="teal"
+                onClick={() => setNameDrawerOpen(true)}
+              >
+                Update Name
+              </Button>
+              <br />
+              <Button
+               mb={5}
+                colorScheme="teal"
+                onClick={() => setCategoryDrawerOpen(true)}
+              >
+                Update Category
+              </Button>
+
+              <br />
+              <Button
+               mb={5}
+                colorScheme="teal"
+                onClick={() => setPriceDrawerOpen(true)}
+              >
+                Update Price
+              </Button>
+              </SimpleGrid> */}
+             
+              {/* This Drawer is for the Name Updation */}
+            
+              {/* This Drawer is For the Price Updateion */}
+         
+              {/* this Drawer is for the image updation */}
+             
+            </AlertDialogBody>
+
+            <AlertDialogFooter>
+              <Button
+                colorScheme="red"
+                ref={cancelRef}
+                onClick={() => setUpdateOpen(false)}
+              >
+                Cancel
+              </Button>
+              {/* <Button colorScheme="red" onClick={() => setUpdateOpen(false)} ml={3}>
+                Delete
+              </Button> */}
+
+              {/* Here is the categoruyl updation concept */}
+               <Drawer
+               
+      isOpen={categoryDrawerOpen}
+      placement='top'
+      onClose={()=>setCategoryDrawerOpen(false)}
+
+    >
+      <DrawerOverlay />
+      <DrawerContent>
+        <DrawerCloseButton />
+        <DrawerHeader>  Current category :  {category} <br /> Enter New Category For the Product </DrawerHeader>
+
+        <DrawerBody>
+          <Input onChange={(e)=>setNewCat(e.target.value)} placeholder='Type here...' />
+        </DrawerBody>
+
+        <DrawerFooter>
+          <Button variant='outline' mr={3} onClick={()=>setCategoryDrawerOpen(false)}>
+            Cancel
+          </Button>
+          <Button onClick={()=>updateCategory(id)} colorScheme='blue'>Save</Button>
+        </DrawerFooter>
+      </DrawerContent>
+    </Drawer>
+            </AlertDialogFooter>
+          </AlertDialogContent>
+        </AlertDialogOverlay>
+      </AlertDialog>
     <Box
       p={"10px 0px 10px 0px"}
       borderRadius={"1rem"}
@@ -191,285 +470,13 @@ const imageUpdate=()=>{
       <>
    
 {/* This Is The Delete Part oF the admin Product */}
-      <AlertDialog
-        isOpen={alertDeleteOpen}
-        leastDestructiveRef={cancelRef}
-        onClose={()=>setDeleteOpen(false)}
-      >
-        <AlertDialogOverlay>
-          <AlertDialogContent>
-            <AlertDialogHeader fontSize='lg' fontWeight='bold'>
-              Delete Product
-            </AlertDialogHeader>
-
-            <AlertDialogBody>
-              Are you sure? You can't undo this action afterwards.
-            </AlertDialogBody>
-
-            <AlertDialogFooter>
-              <Button ref={cancelRef} onClick={()=>setDeleteOpen(false)}>
-                Cancel
-              </Button>
-              <Button  colorScheme='red' onClick={()=>deleteproduct(id)} ml={3}>
-                Delete
-              </Button>
-            </AlertDialogFooter>
-          </AlertDialogContent>
-        </AlertDialogOverlay>
-      </AlertDialog>
+     
 
       {/* This is wehre we give users an option to do update name,price,category */}
-        <AlertDialog
-        
-      
-          isOpen={updateOpen}
-          leastDestructiveRef={cancelRef}
-          onClose={() => setUpdateOpen(false)}
-        >
-          <AlertDialogOverlay>
-            <AlertDialogContent  >
-              <AlertDialogHeader fontSize="lg" fontWeight="bold">
-                Update {name} Product Details
-              </AlertDialogHeader>
-
-              <AlertDialogBody >
-                <Flex  justifyContent={"space-between"}>
-                   <SimpleGrid alignItems={"center"}  margin="auto" textAlign="center" >
-                <Button
-                
-                width={"100%"}
-                mb={1}
-                  colorScheme="teal"
-                  onClick={() => setNameDrawerOpen(true)}
-                >
-                  Update Name
-                </Button>
-                <br />
-                <Button
-                width={"100%"}
-                 mb={1}
-                  colorScheme="teal"
-                  onClick={() => setCategoryDrawerOpen(true)}
-                >
-                  Update Category
-                </Button>
-
-                <br />
-                <Button
-                width={"100%"}
-                 mb={1}
-                  colorScheme="teal"
-                  onClick={() => setPriceDrawerOpen(true)}
-                >
-                  Update Price
-                </Button>
-                <Button
-                width={"100%"}
-                 mt={7}
-                  colorScheme="teal"
-                  onClick={() => setImage1DrawerOpen(true)}
-                >
-                  Update Image
-                </Button>
-               
-                </SimpleGrid>
-               
-                <Box
-      p={"10px 10px 10px 10px"}
-      borderRadius={"1rem"}
-    
-      boxShadow={"rgba(0, 0, 0, 0.35) 0px 5px 15px;"}
-      textAlign={"center"}
-    >
-      <Box
-        margin={"auto"}
        
-      
-      
-        borderRadius={"2rem"}
-      >
-        <Avatar size={"xl"} src={image1} />
-      </Box>
-      <Text mt={1} fontWeight={"bold"} fontSize={"16px"}>
-        {" "}
-        Name : {name}
-      </Text>
-      <Text mt={1} fontWeight={"bold"} fontSize={"16px"}>
-        {" "}
-        Category : {category}
-      </Text>
-     
-      <Text mt={1} fontWeight={"bold"} fontSize={"16px"}>
-        Price : ₹ {cost}
-      </Text>
-      </Box>
-                </Flex>
-                {/* <SimpleGrid  alignItems={"center"} border="1px solid red" margin="auto" textAlign="center" columns={2}>
-                <Button
-                mb={5}
-                  colorScheme="teal"
-                  onClick={() => setNameDrawerOpen(true)}
-                >
-                  Update Name
-                </Button>
-                <br />
-                <Button
-                 mb={5}
-                  colorScheme="teal"
-                  onClick={() => setCategoryDrawerOpen(true)}
-                >
-                  Update Category
-                </Button>
-
-                <br />
-                <Button
-                 mb={5}
-                  colorScheme="teal"
-                  onClick={() => setPriceDrawerOpen(true)}
-                >
-                  Update Price
-                </Button>
-                </SimpleGrid> */}
-               
-                {/* This Drawer is for the Name Updation */}
-                <Drawer
-                  isOpen={nameDrawerOpen}
-                  placement="top"
-                  onClose={() => setNameDrawerOpen(false)}
-                >
-                  <DrawerOverlay />
-                  <DrawerContent>
-                    <DrawerCloseButton />
-                    <DrawerHeader>  Current name : {name} <br /> Enter New Name For the Product </DrawerHeader>
-
-                    <DrawerBody>
-                      <Input
-                        onChange={(e) => setnewName(e.target.value)}
-                        placeholder="Type here..."
-                      />
-                    </DrawerBody>
-
-                    <DrawerFooter>
-                      <Button variant="outline" mr={3} onClick={() => setNameDrawerOpen(false)}>
-                        Cancel
-                      </Button>
-                      <Button
-                        onClick={() => updateName(id)}
-                        colorScheme="blue"
-                      >
-                        Save
-                      </Button>
-                    </DrawerFooter>
-                  </DrawerContent>
-                </Drawer>
-                {/* This Drawer is For the Price Updateion */}
-                <Drawer
-                  isOpen={priceDrawerOpen}
-                  placement="top"
-                  onClose={() => setPriceDrawerOpen(false)}
-                >
-                  <DrawerOverlay />
-                  <DrawerContent>
-                    <DrawerCloseButton />
-                    <DrawerHeader>  Current price :  ₹ {cost}<br /> Enter New Price For the Product </DrawerHeader>
-
-                    <DrawerBody>
-                      <Input
-                        type="number"
-                        onChange={(e) => setNewPrice(e.target.value)}
-                        placeholder="Type here..."
-                      />
-                    </DrawerBody>
-
-                    <DrawerFooter>
-                      <Button variant="outline" mr={3} onClick={()=>setPriceDrawerOpen(false)}>
-                        Cancel
-                      </Button>
-                      <Button
-                        onClick={() => updatePrice(id)}
-                        colorScheme="blue"
-                      >
-                        Save
-                      </Button>
-                    </DrawerFooter>
-                  </DrawerContent>
-                </Drawer>
-                {/* this Drawer is for the image updation */}
-                <Drawer
-                  isOpen={image1DrawerOpen}
-                  placement="top"
-                  onClose={() => setImage1DrawerOpen(false)}
-                >
-                  <DrawerOverlay />
-                  <DrawerContent>
-                    <DrawerCloseButton />
-                    <DrawerHeader>  Enter New Image Url For the Product </DrawerHeader>
-
-                    <DrawerBody>
-                      <Input
-                        onChange={(e) => setNewImage(e.target.value)}
-                        placeholder="Type here..."
-                      />
-                    </DrawerBody>
-
-                    <DrawerFooter>
-                      <Button variant="outline" mr={3} onClick={() => setImage1DrawerOpen(false)}>
-                        Cancel
-                      </Button>
-                      <Button
-                        onClick={() => updateImage(id)}
-                        colorScheme="blue"
-                      >
-                        Save
-                      </Button>
-                    </DrawerFooter>
-                  </DrawerContent>
-                </Drawer>
-              </AlertDialogBody>
-
-              <AlertDialogFooter>
-                <Button
-                  colorScheme="red"
-                  ref={cancelRef}
-                  onClick={() => setUpdateOpen(false)}
-                >
-                  Cancel
-                </Button>
-                {/* <Button colorScheme="red" onClick={() => setUpdateOpen(false)} ml={3}>
-                  Delete
-                </Button> */}
-
-                {/* Here is the categoruyl updation concept */}
-                 <Drawer
-                 
-        isOpen={categoryDrawerOpen}
-        placement='top'
-        onClose={()=>setCategoryDrawerOpen(false)}
-  
-      >
-        <DrawerOverlay />
-        <DrawerContent>
-          <DrawerCloseButton />
-          <DrawerHeader>  Current category :  {category} <br /> Enter New Category For the Product </DrawerHeader>
-
-          <DrawerBody>
-            <Input onChange={(e)=>setNewCat(e.target.value)} placeholder='Type here...' />
-          </DrawerBody>
-
-          <DrawerFooter>
-            <Button variant='outline' mr={3} onClick={()=>setCategoryDrawerOpen(false)}>
-              Cancel
-            </Button>
-            <Button onClick={()=>updateCategory(id)} colorScheme='blue'>Save</Button>
-          </DrawerFooter>
-        </DrawerContent>
-      </Drawer>
-              </AlertDialogFooter>
-            </AlertDialogContent>
-          </AlertDialogOverlay>
-        </AlertDialog>
       </>
     </Box>
+    </>
   );
 };
 
