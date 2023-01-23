@@ -44,6 +44,33 @@
         }
       ],
       "id": 1
+    },
+    {
+      "name": "Hanumat Sharan",
+      "lastname": "dfdsfsdfsdf",
+      "email": "hello@gmail.com",
+      "password": "Hello@123",
+      "role": "user",
+      "cart": [],
+      "id": 2
+    },
+    {
+      "name": "Hanumat Sharan",
+      "lastname": "Helolo",
+      "email": "gamer@gmail.com",
+      "password": "Hello@123",
+      "role": "user",
+      "cart": [],
+      "id": 3
+    },
+    {
+      "name": "Devta",
+      "lastname": "Dayal",
+      "email": "devta@gmail.com",
+      "password": "Hanumat@12",
+      "role": "user",
+      "cart": [],
+      "id": 4
     }
   ],
   "products": [
