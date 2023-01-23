@@ -6,11 +6,12 @@ import {
     Text,
     Stack,
     Button,
-    Link,
+    
     Badge,
     useColorModeValue,
   } from '@chakra-ui/react';
 import { useSelector,useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { makeUserLogout } from '../Redux/auth/authAction';
   import {store} from "../Redux/store"
 
@@ -96,6 +97,7 @@ import { makeUserLogout } from '../Redux/auth/authAction';
               }}>
               Shop More
             </Button>
+            <Link to="/">
             <Button
               flex={1}
               fontSize={'sm'}
@@ -114,6 +116,8 @@ import { makeUserLogout } from '../Redux/auth/authAction';
               }}>
               Logout
             </Button>
+            </Link>
+           
           </Stack>
         </Box>
       </Center>

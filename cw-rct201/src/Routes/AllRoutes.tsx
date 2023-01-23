@@ -12,6 +12,7 @@ import Admin from "../Pages/Admin";
 import Cart from "../Components/Cart/Cart";
 import LaptopProductPage from "../Pages/LaptopProductpage";
 import HomeProductPage from "../Pages/Homeproductpage";
+import Checkout from "../Components/Checkout/Checkout";
 
 
 const AllRoutes = () => {
@@ -28,7 +29,8 @@ const AllRoutes = () => {
         <Route element={<SingleProduct />} path="/product/:id" />
 
         <Route element={<Admin/>} path="/admin"/>
-
+        <Route element={<Checkout/>} path="/checkout"/>
+        
 
         <Route element={<Cart />} path="/cart" />
         <Route element={<LaptopProductPage/>} path="/laptopproductpage"></Route>
