@@ -1,44 +1,6 @@
 {
   "users": [
     {
-      "name": "Hanumat",
-      "lastname": "Sharan",
-      "email": "deotadayal27@gmail.com",
-      "password": "Hanumat@12",
-      "role": "admin",
-      "cart": [],
-      "id": 1
-    },
-    {
-      "name": "Rohan",
-      "lastname": "Shd",
-      "email": "D@gmail.com",
-      "password": "Hanumat@12",
-      "role": "admin",
-      "cart": [],
-      "id": 2
-    }
-  ],
-  "products": [
-    {
-      "image1": "https://m.media-amazon.com/images/I/71TPda7cwUL._SX679_.jpg",
-      "image2": "https://m.media-amazon.com/images/I/71yCKaQXv+L._SX679_.jpg",
-      "image3": "https://m.media-amazon.com/images/I/71U-3BfjvjL._SX679_.jpg",
-      "image4": "https://m.media-amazon.com/images/I/61stcFwi0vL._SX679_.jpg",
-      "cost": 17999,
-      "description": "2020 Apple MacBook Air Laptop: Apple M1 chip, 13.3-inch/33.74 cm Retina Display, 8GB RAM, 256GB SSD",
-      "category": "Apple",
-      "Rating": 2.2,
-      "name": "Macbook",
-      "id": 22
-    },
-    {
-      "image1": "https://m.media-amazon.com/images/I/61Y30DpqRVL._SX679_.jpg",
-      "image2": "https://m.media-amazon.com/images/I/716QjdQOR+L._SX679_.jpg",
-      "image3": "https://m.media-amazon.com/images/I/81fM4olBVWL._SX679_.jpg",
-      "image4": "https://m.media-amazon.com/images/I/81b4e7f9SnL._SX679_.jpg",
-      "cost": 18999,
-      "description": "2021 Apple MacBook Pro (16-inch/41.05 cm, Apple M1 Max chip with 10‑core CPU and 32‑core GPU,",
       "category": "Apple",
       "Rating": 2.2,
       "name": "Macbook Pro",
@@ -53,7 +15,6 @@
       "description": "2022 Apple MacBook Air Laptop with M2 chip: 34.46 cm",
       "category": "Apple",
       "Rating": 2.2,
-      "name": "Macbook Air",
       "id": 24
     },
     {
