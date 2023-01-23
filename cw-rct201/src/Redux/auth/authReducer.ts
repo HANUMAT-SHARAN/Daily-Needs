@@ -12,7 +12,7 @@ const initialState: authState = {
   currentUser: { name: "", lastname: "", email: "", password: "" },
   loginUsersData: [],
   isAuth:false,
-  totalprice:0
+  totalprice:1199
 };
 type authAction = {
   type: string;
