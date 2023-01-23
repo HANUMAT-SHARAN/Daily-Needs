@@ -9,3 +9,14 @@ You can look forward to a carefully-crafted range of products, made from long-la
 # Tech-Stack
  --Front-end---> React+chakraUI+Typescript+Redux<br/>
  --Back-end----> Render </br>
+
+# Features
+Product catalog: An ecommerce website typically includes a catalog of products that customers can browse and purchase.
+
+Shopping cart: A feature that allows customers to add items to their cart and proceed to checkout.
+
+Payment processing: Ecommerce websites must have the ability to process payments securely and efficiently.
+
+Order management: A feature that allows website administrators to manage and track customer orders.
+
+Customer account management: Ecommerce websites often include a feature that allows customers to create and manage their own accounts, such as viewing order history and saving shipping information.
