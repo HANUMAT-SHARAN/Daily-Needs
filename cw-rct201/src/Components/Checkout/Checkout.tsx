@@ -200,6 +200,7 @@ const Checkout = () => {
           <div className="action flex-center">
             <button  className="b-main-color pointer"  onClick={() =>
         toast({
+          position:"top",
           title: 'Successful',
           description: "Your payment has been done successfully.",
           status: 'success',
