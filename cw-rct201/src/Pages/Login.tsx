@@ -50,10 +50,7 @@ const error=()=>{toast.error("Please Check Your  Password Or Email",{theme:"colo
 
  
   const nav=useNavigate()
-  React.useEffect(() => {
-   
-     dispatch(sendDataToRedux());
-  }, []);
+
   React.useEffect(() => {
     dispatch(getUsersData())
     
