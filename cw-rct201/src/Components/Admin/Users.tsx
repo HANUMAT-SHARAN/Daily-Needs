@@ -38,9 +38,11 @@ const Users = () => {
     toast.success("User Updated Successfully", { theme: "colored" });
   };
 
-  const deleteUser = (id: number) => {
+  const deleteUser = async(id: number) => {
     try {
-      axios.delete(`http://localhost:4040/users/${id}`);
+     let res=await fetch(`https://backendsirver-for-daily-needs.vercel.app/users/${id}`,{
+      method:"DELETE"
+     });
 
       setTimeout(() => {
         dispatch(getUsersData());
@@ -57,7 +59,7 @@ const Users = () => {
       role: role === "user" ? "admin" : "user",
     };
     try {
-      axios.patch(`http://localhost:4040/users/${id}`, obj);
+      axios.patch(`https://backendsirver-for-daily-needs.vercel.app/users/${id}`, obj);
 
       setTimeout(() => {
         dispatch(getUsersData());

@@ -33,6 +33,7 @@ import {
   AlertDialogCloseButton,
   AlertDialogBody,
   AlertDialogFooter,
+  Heading,
 } from "@chakra-ui/react";
 import { BiSearch } from "react-icons/bi";
 import { BsFillPersonFill } from "react-icons/bs";
@@ -51,6 +52,7 @@ import UserInfo from "../UserInfo";
 import { STORE, store } from "../../Redux/store";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { setCurrentUser } from "../../Redux/auth/authAction";
 export interface Display {
   display: string;
 }
@@ -58,9 +60,10 @@ const Navbar = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   const nav = useNavigate();
-  const { isAuth } = useSelector((store: STORE) => store.authManager);
+  const { isAuth,currentUser } = useSelector((store: STORE) => store.authManager);
 
   const navigate=useNavigate()
+  const {name}=currentUser
   
   const [myAccountOpen, setMyAccountOpen] = React.useState<boolean>(false);
   const cancelRef = React.useRef<any>();
@@ -188,7 +191,7 @@ const Navbar = () => {
          <Link to="/cart"><BsBagCheckFill size="25px" /> </Link> 
           <Menu>
             <MenuButton>
-              <BsFillPersonFill size="30px" />
+             {isAuth? <Heading borderRadius={"1rem"} p={3} bg={"red"} fontSize={"20px"}>{name[0]}</Heading>: <BsFillPersonFill size="30px" />}
             </MenuButton>
             <MenuList>
               {isAuth && (
@@ -288,10 +291,10 @@ const Navbar = () => {
           <DrawerHeader borderBottomWidth="1px">Categories</DrawerHeader>
           <DrawerBody>
             <Box p="10px" borderBottom="1px solid teal">
-              <Link to={""}> NEW ARRIVALS</Link>
+            <Link to={"/mobileproducts"} >MOBILES</Link>
             </Box>
             <Box p="10px" borderBottom="1px solid teal">
-              <Link to={""} >CASES & SLEEVES</Link>{" "}
+            <Link to={"/laptopproductpage"}  >LAPTOPS</Link>
             </Box>
             <Box p="10px" borderBottom="1px solid teal">
               <Link to={""} > ACCESSORIES</Link>

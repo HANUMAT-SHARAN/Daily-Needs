@@ -82,7 +82,7 @@ const imageUpdate=()=>{
       name: newName,
     };
 
-    axios.patch(`http://localhost:4040/products/${id}`, obj);
+    axios.patch(`https://backendsirver-for-daily-needs.vercel.app/products/${id}`, obj);
 
     setUpdateOpen(false);
     setNameDrawerOpen(false);
@@ -97,7 +97,7 @@ const imageUpdate=()=>{
     let obj = {
       cost: +newPrice,
     };
-    axios.patch(`http://localhost:4040/products/${id}`, obj);
+    axios.patch(`https://backendsirver-for-daily-needs.vercel.app/products/${id}`, obj);
 
    
     setPriceDrawerOpen(false);
@@ -110,7 +110,7 @@ const imageUpdate=()=>{
     
   };
   const deleteproduct=(id:number)=>{
-    axios.delete(`http://localhost:4040/products/${id}`);
+    axios.delete(`https://backendsirver-for-daily-needs.vercel.app/products/${id}`);
     setDeleteOpen(false)
     setUpdateOpen(false);
     setTimeout(()=>{
@@ -125,7 +125,7 @@ const imageUpdate=()=>{
       id,
       category:newCat
     }
-    axios.patch(`http://localhost:4040/products/${id}`,obj)
+    axios.patch(`https://backendsirver-for-daily-needs.vercel.app/products/${id}`,obj)
     setCategoryDrawerOpen(false)
     setUpdateOpen(false);
     setTimeout(()=>{
@@ -141,7 +141,7 @@ const imageUpdate=()=>{
     let obj={
       image1:newImage
     }
-    axios.patch(`http://localhost:4040/products/${id}`,obj)
+    axios.patch(`https://backendsirver-for-daily-needs.vercel.app/products/${id}`,obj)
     setImage1DrawerOpen(false)
     setUpdateOpen(false);
     setTimeout(()=>{

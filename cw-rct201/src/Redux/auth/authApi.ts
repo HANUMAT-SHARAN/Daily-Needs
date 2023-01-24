@@ -13,6 +13,6 @@ export type userobj = {
   
 
 export const loginApi=async()=>{
- let response:AxiosResponse<userobj[]>=await axios.get(`http://localhost:4040/users`)
+ let response:AxiosResponse<userobj[]>=await axios.get(`https://backendsirver-for-daily-needs.vercel.app/users`)
   return response.data
 }

@@ -6,6 +6,6 @@ import { Data } from '../Pages/MobileProducts'
 
 
 export const productsApi=async()=>{
- let response:AxiosResponse<Data[]>=await axios.get(`http://localhost:4040/products`)
+ let response:AxiosResponse<Data[]>=await axios.get(`https://backendsirver-for-daily-needs.vercel.app/products`)
   return response.data
 }

@@ -39,7 +39,7 @@ const success=()=>{
     const sendData=()=>{
         data.cost=+data.cost
         console.log(data)
-         axios.post(`http://localhost:4040/products`,data)
+         axios.post(`https://backendsirver-for-daily-needs.vercel.app/products`,data)
         setData(iObj)
         success()
 

@@ -91,7 +91,7 @@ export default function SingleProduct() {
 
   const getdata = async () => {
     try {
-      let r = await fetch(`http://localhost:4040/products/${id}`);
+      let r = await fetch(`https://backendsirver-for-daily-needs.vercel.app/products/${id}`);
       let d = await r.json();
       setdata(d);
     } catch (error) {

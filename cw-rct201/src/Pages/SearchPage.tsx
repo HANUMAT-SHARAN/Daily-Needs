@@ -31,7 +31,7 @@ const SearchPage = () => {
   const searchData = async (searchText: string) => {
     console.log(searchText);
     let response = await axios.get(
-      `http://localhost:4040/products?q=${searchText}`
+      `https://backendsirver-for-daily-needs.vercel.app/products?q=${searchText}`
     );
     setData(response.data);
   };

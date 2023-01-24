@@ -2,6 +2,7 @@ import { Image, Text ,Box, Flex} from '@chakra-ui/react'
 import React from 'react'
 import { useDispatch } from 'react-redux'
 import { Link, useNavigate } from 'react-router-dom'
+import { getUsersData } from '../../Redux/auth/authAction'
 import { getcategory } from '../../Redux/categorysorting/category.action'
 import ProductCategory from './category/CoroselCategory'
 import Collection2 from './Collections/Collection2'
@@ -10,6 +11,7 @@ import NewArrival from './New Arrival/NewArrival'
 import Story from './our Story/Story'
 import Collection from './studiocollection/Collection'
 const Homepage = () => {
+  
 
   const dispatch:any=useDispatch()
   const navigate=useNavigate()
@@ -24,6 +26,10 @@ const Homepage = () => {
     navigate("/homeproductpage")
     
   }
+  React.useEffect(() => {
+    dispatch(getUsersData())
+    
+  }, []);
   return (
     <div >
         <div>

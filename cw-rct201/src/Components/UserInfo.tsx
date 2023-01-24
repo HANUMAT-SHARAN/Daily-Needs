@@ -11,13 +11,13 @@ import {
     useColorModeValue,
   } from '@chakra-ui/react';
 import { useSelector,useDispatch } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { makeUserLogout } from '../Redux/auth/authAction';
   import {store} from "../Redux/store"
 
 
   export default function UserInfo() {
-
+const nav=useNavigate()
     const dispatch:any=useDispatch()
     const {currentUser,isAuth}=useSelector((store:any)=>store.authManager)
     return (
@@ -104,7 +104,7 @@ import { makeUserLogout } from '../Redux/auth/authAction';
               rounded={'full'}
               bg={'blue.400'}
               color={'white'}
-              onClick={()=>dispatch(makeUserLogout())}
+              onClick={()=>[dispatch(makeUserLogout()),window.location.reload(),nav('/')]}
               boxShadow={
                 '0px 1px 25px -5px rgb(66 153 225 / 48%), 0 10px 10px -5px rgb(66 153 225 / 43%)'
               }
