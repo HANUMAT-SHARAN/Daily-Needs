@@ -12,7 +12,7 @@ const Cart = () => {
   console.log(totalprice,"fsadf")
   const getUserData = async () => {
     try {
-      let r = await fetch(`http://localhost:4040/users/${currentUser.id}`);
+      let r = await fetch(`https://backendsirver-for-daily-needs.vercel.app/users/${currentUser.id}`);
       let d = await r.json();
       // console.log(d.cart)
       setcartdata(d.cart);

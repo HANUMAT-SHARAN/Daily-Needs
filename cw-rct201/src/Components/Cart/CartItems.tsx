@@ -22,7 +22,7 @@ const CartItems = ({image1,name,cost,quantity,orderId}:cartItems) => {
   const [total,settotal] = useState(0)
   const getUserData = async () => {
     try {
-      let r = await fetch(`http://localhost:4040/users/${currentUser.id}`);
+      let r = await fetch(`https://backendsirver-for-daily-needs.vercel.app/users/${currentUser.id}`);
       let d = await r.json();
       // console.log(d.cart)
       setcartdata(d.cart);
@@ -34,7 +34,7 @@ const CartItems = ({image1,name,cost,quantity,orderId}:cartItems) => {
   const handledelete=async(orderId:string)=>{
     getUserData()
     try {
-      let r=await fetch(`http://localhost:4040/users/${currentUser.id}`,{
+      let r=await fetch(`https://backendsirver-for-daily-needs.vercel.app/users/${currentUser.id}`,{
       method:"PATCH",
       body : JSON.stringify({
         cart:[cartdata.filter((item:cartItems) => item.orderId !== orderId)
