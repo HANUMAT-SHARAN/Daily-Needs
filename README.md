@@ -27,14 +27,16 @@ Daily Needs is a Lifestyle Accessories Brand that curates stunning designs and p
     <p>Follow the given steps:</p>
     <ul>
         <li>Clone our respository <a href="https://github.com/HANUMAT-SHARAN/bright-noise-2667">https://github.com/HANUMAT-SHARAN/bright-noise-2667</a></li>
-        <li>Open our code in VS code</li>
-        <li>Initialize the server by writing 'npm run start' on Terminal</li>
+        <li>Open our code in VS code </li>
+ <li>Then do npm install</li>
+        <li>Then Initialize the server by writing 'npm run start' on Terminal</li>
+ <li>Congrats !  you have successfully sarted the application.</li>
     </ul>
         <h1>Built with</h1>
     <ul>
         <li>HTML</li>
         <li>CSS</li>
-        <li>Javascript (ES6)</li>
+        <li>Type Script</li>
         <li>Chakra UI </li>
   <li>React.js</li>
   <li>React Routing</li>
@@ -43,6 +45,10 @@ Daily Needs is a Lifestyle Accessories Brand that curates stunning designs and p
         <h1>Creators</h1>
     <ul>
         <li><a href="https://github.com/HANUMAT-SHARAN">@Hanumat Sharan</a></li>
+   <li><a href="https://github.com/codersudhir">@Sudhir Nandane</a></li>
+   <li><a href="https://github.com/palabhi017">@Abhishek Pal</a></li>
+   <li><a href="https://github.com/sonu25122000">@Sonu Kumar</a></li>
+   <li><a href="https://github.com/raviwed">@illuri raviteja reddy</a></li>
         
         
         
