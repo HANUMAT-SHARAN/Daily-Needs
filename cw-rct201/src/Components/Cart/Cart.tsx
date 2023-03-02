@@ -6,20 +6,97 @@ import { BsBagCheckFill } from "react-icons/bs";
 import { BiLockAlt } from "react-icons/bi";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import axios from "axios";
+interface cartItems {
+  image1: string,
+  name: string,
+  cost: number
+  quantity: number
+  orderId: any
+}
+
+
 const Cart = () => {
-  const [cartdata, setcartdata] = useState([]);
+ 
+ 
+  // const { totalprice } = useSelector((store: any) => store.authManager)
+  const [total,settotal] = useState<number>(0)
+  const [cartdata, setcartdata] = useState<cartItems[]>([])
   const { currentUser, isAuth } = useSelector(
     (store: any) => store.authManager
   );
   const erroralert = () => {
     toast.error("Please Login To See the Cart", { theme: "colored" });
   };
+console.log(currentUser)
+  const handletotal = ()=>{
+    var temp = cartdata
+      let sum:number =0
+      
+        for(let i=0;i<temp.length;i++){
+    
+          sum+=temp[i].cost*temp[i].quantity
+          
+        }
+        console.log(sum)
+        settotal(sum)
+  }
+  const getUserData = async () => {
+    try {
+      
+      let r = await axios.get(`https://backendsirver-for-daily-needs.vercel.app/users/${currentUser.id}`);
+      let d = r.data;
+      setcartdata(d.cart)
+      console.log(d.cart)
+      handletotal()
+    
+    } catch (error) {
+      console.log(error);
+    }
+    
+  };
+
+  const handledelete = async (orderId: string) => {
+    try {
+      let r = await axios.patch(`https://backendsirver-for-daily-needs.vercel.app/users/${currentUser.id}`, { cart: cartdata.filter((item: cartItems) => item.orderId !== orderId) })
+      
+      setcartdata(r.data)
+      getUserData()
+      
+     } catch (error) {
+       console.log(error)
+     }
+   }
+   const handlequant = async (orderId: string,num:number) => {
+      
+    let temp = cartdata
+     
+
+    for(let i=0;i<cartdata.length;i++){
+   
+      if(temp[i].orderId==orderId){
+            temp[i].quantity+=num
+        }
+      }
+  
+  try {
+    let r = await axios.patch(`https://backendsirver-for-daily-needs.vercel.app/users/${currentUser.id}`, { cart: temp })
+    
+    setcartdata(r.data)
+    getUserData()
+   } catch (error) {
+     console.log(error)
+   }
+ }
+  setTimeout(()=>{
+  handletotal()
+ },100)
+
   useEffect(() => {
     getUserData();
   }, []);
-  const { totalprice } = useSelector((store: any) => store.authManager);
-  console.log(totalprice, "fsadf");
-  const nav = useNavigate();
+  
+
 
 
   if (!isAuth) {
@@ -34,80 +111,30 @@ const Cart = () => {
   }
    
   
-  const getUserData = async () => {
-    try {
-      let r = await fetch(
-        `https://backendsirver-for-daily-needs.vercel.app/users/${currentUser.id}`
-      );
-      let d = await r.json();
-      // console.log(d.cart)
-      setcartdata(d.cart);
-    } catch (error) {
-      console.log(error);
-    }
-  };
+ 
 
   return (
+
     <Box>
-      <HStack
-        h="60px"
-        w="100%"
-        p="10px 30px"
-        justify="center"
-        borderBottom={"2px solid #999"}
-        alignItems="center"
-      >
-        <Box>
-          <BsBagCheckFill style={{ color: "#161636" }} size="35px" />
-        </Box>
-        <Text color="#161636" fontWeight={"bold"} fontSize="20px">
-          SHOPING BAG
-        </Text>
-        {/* <Button bgColor="#161636" color="white">Procede to checkout</Button> */}
+      <HStack h="60px" w="100%" p="10px 30px" justify="center" borderBottom={"2px solid #999"} alignItems="center">
+        <Box ><BsBagCheckFill style={{ color: "#161636" }} size="35px" /></Box>
+        <Text color="#161636" fontWeight={"bold"} fontSize="20px">SHOPING BAG</Text>
+
       </HStack>
 
-      <HStack
-        justifyContent={"space-between"}
-        p="10px 30px"
-        mt="20px"
-        w="100%"
-        h="auto"
-      >
-        <Grid
-          w="60%"
-          h="auto"
-          p="10px 40px"
-          templateColumns={"repeat(2,40%)"}
-          gap="40px"
-          border="1px solid #999"
-        >
-          {cartdata.map((e: any) => (
-            <CartItems {...e} />
-          ))}
+      <HStack justifyContent={"space-between"} p="10px 30px" mt="20px" w="100%" h="auto">
+        <Grid w="60%" h="auto" p="10px 40px" templateColumns={"repeat(2,40%)"} gap="40px" border="1px solid #999" >
+          {cartdata && cartdata.length > 0 && cartdata.map((e: any) => <CartItems objProp={e} funcProp={handledelete} funcquant={handlequant} />)}
+
         </Grid>
-        <VStack
-          borderRadius={"5px"}
-          boxShadow="rgba(0, 0, 0, 0.24) 0px 3px 8px"
-          border="1px solid #161636"
-          gap="20px"
-          h="200px"
-          w="30%"
-        >
-          <Text color="#161636" fontWeight={"bold"} fontSize="20px" mt="10%">
-            Total price :- {"    "}
-            {totalprice}{" "}
-          </Text>
-          <Link to="/checkout">
-            {" "}
-            <Button bgColor="#161636" w="70%" color="white">
-              <BiLockAlt size="20px" />
-              CHECKOUT
-            </Button>
-          </Link>
+        <VStack borderRadius={"5px"} boxShadow="rgba(0, 0, 0, 0.24) 0px 3px 8px" border="1px solid #161636" gap="20px" h="200px" w="30%">
+          <Text color="#161636" fontWeight={"bold"} fontSize="20px" mt="10%">Total price :- {"    "}{total} </Text>
+          <Link to="/checkout"> <Button bgColor="#161636" w="70%" color="white"><BiLockAlt size="20px" />CHECKOUT</Button></Link>
         </VStack>
       </HStack>
+
     </Box>
-  );
+  )
 };
 
 export default Cart;

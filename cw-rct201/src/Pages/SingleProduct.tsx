@@ -104,7 +104,7 @@ export default function SingleProduct() {
 
   getUserData()
   }, []);
-
+console.log(currentUser.id)
   const getUserData = async () => {
     try {
       let r = await fetch(`https://backendsirver-for-daily-needs.vercel.app/users/${currentUser.id}`);
@@ -121,14 +121,15 @@ export default function SingleProduct() {
     try {
       let r=await fetch(`https://backendsirver-for-daily-needs.vercel.app/users/${currentUser.id}`,{
       method:"PATCH",
+      headers:{
+        "Content-Type":"application/json"
+      },
       body : JSON.stringify({
         cart:[...userData,
           {image1,cost,name,quantity:1,orderId:Date.now()}
         ]
       }),
-      headers:{
-        "Content-Type":"application/json"
-      }
+     
       })
       let d=await r.json()
       console.log(d)

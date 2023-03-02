@@ -28,7 +28,11 @@ const MobileProducts = () => {
   const getData = async (category: string, rating: string) => {
     return await axios
       .get(
+<<<<<<< HEAD
         `https://ravi-api.onrender.com/iphone?cat=${category}&_sort=cost&_order=${rating}`
+=======
+        `https://koti-api.onrender.com/iphone?cat=${category}&_sort=cost&_order=${rating}`
+>>>>>>> master
       )
       .then((res) => setIphone(res.data));
   };
