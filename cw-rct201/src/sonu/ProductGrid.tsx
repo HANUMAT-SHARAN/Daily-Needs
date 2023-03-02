@@ -8,7 +8,7 @@ export const ProductGrid = (props: SimpleGridProps) => {
       base: Math.min(2, count),
       md: Math.min(3, count),
       lg: Math.min(4, count),
-      xl: Math.min(5, count),
+      xl: Math.min(4, count),
     }
   }, [props.children])
 
