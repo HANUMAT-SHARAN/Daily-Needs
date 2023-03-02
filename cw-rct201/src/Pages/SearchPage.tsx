@@ -29,9 +29,9 @@ const SearchPage = () => {
   const [data, setData] = React.useState<proCardProps[]>([]);
 
   const searchData = async (searchText: string) => {
-    console.log(searchText);
+
     let response = await axios.get(
-      `https://backendsirver-for-daily-needs.vercel.app/products?q=${searchText}`
+      `https://backendsirver-for-daily-needs.vercel.app/products?q=${searchText}&_limit=5`
     );
     setData(response.data);
   };
@@ -53,7 +53,7 @@ const SearchPage = () => {
       </Stack>
      
 
-      <SimpleGrid columns={[2,3,3,4]} spacing={[5,10,10]}>
+      <SimpleGrid columns={[1,2,3,4]} spacing={[5,10,10]}>
         {data.map((el) => (
 
         <Box onClick={()=>nav(`/product/${el.id}`)}>

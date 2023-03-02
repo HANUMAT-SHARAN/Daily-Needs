@@ -34,12 +34,10 @@ const HomeProductPage = () => {
   const [loading, setloading] = useState(false);
   const { category } = useSelector((store: any) => store.CatManager);
 
-  console.log(category);
   const [searchText, setSearchText] = React.useState<string>(category);
   const [data, setData] = React.useState<proCardProps[]>([]);
 
   const searchData = async (searchText: string) => {
-    console.log(searchText);
     setloading(true);
     let response = await fetch(
       `https://backendsirver-for-daily-needs.vercel.app/products?category=${category}`

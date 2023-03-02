@@ -74,41 +74,34 @@ export default function Signup() {
     }
   };
 
-        const sendData = async () => {
-          for (let i = 0; i <= checkUser.length - 1; i++) {
-            if (data.email === checkUser[i].email) {
-              errorsignup();
-              setData(user);
-              nav("/login");
-              return;
-            }
-          }
+  const sendData = async () => {
+    for (let i = 0; i <= checkUser.length - 1; i++) {
+      if (data.email === checkUser[i].email) {
+        errorsignup();
+        setData(user);
+        nav("/login");
+        return;
+      }
+    }
 
+    data.cart = [];
+    data.role = "user";
+    let resdata = await fetch(
+      `https://backendsirver-for-daily-needs.vercel.app/users`,
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      }
+    );
 
-          data.cart = [];
-          data.role = "user";
-          let resdata=await fetch(`https://backendsirver-for-daily-needs.vercel.app/users`,{
-            method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(data)
-          })
-          console.log(resdata)
-          // let res = await axios.post(
-          //   `https://backendsirver-for-daily-needs.vercel.app/users`,
-          //   {...data}
-          // );
-          // console.log(resdata);
-     
-            setTimeout(() => {
-              
-              dispatch(getUsersData());
-              successAccount();
-              nav("/login");
-              setData(user);
-            }, 1000);
-         
-
-          
-
-        };
+    setTimeout(() => {
+      dispatch(getUsersData());
+      successAccount();
+      nav("/login");
+      setData(user);
+    }, 1000);
+  };
 
   React.useEffect(() => {
     getData();

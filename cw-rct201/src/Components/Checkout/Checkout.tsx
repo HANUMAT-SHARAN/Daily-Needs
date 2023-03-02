@@ -1,8 +1,8 @@
 import React from "react";
-import { useToast } from '@chakra-ui/react'
+import { useToast } from "@chakra-ui/react";
 import "./Checkout.css";
 const Checkout = () => {
-    const toast = useToast()
+  const toast = useToast();
   return (
     <div className="screen flex-center">
       <form className="popup flex p-lg">
@@ -20,13 +20,6 @@ const Checkout = () => {
                 <span>Object</span>
               </span>
             </div>
-            {/* <div className="timer" data-id="timer">
-              <span>0</span>
-              <span>5</span>
-              <em>:</em>
-              <span>0</span>
-              <span>0</span>
-            </div> */}
           </div>
           <div className="card-data flex-fill flex-vertical">
             {/* Card Number */}
@@ -198,16 +191,19 @@ const Checkout = () => {
             </div>
           </div>
           <div className="action flex-center">
-            <button  className="b-main-color pointer"  onClick={() =>
-        toast({
-          position:"top",
-          title: 'Successful',
-          description: "Your payment has been done successfully.",
-          status: 'success',
-          duration: 4000,
-          isClosable: true,
-        })
-      }>
+            <button
+              className="b-main-color pointer"
+              onClick={() =>
+                toast({
+                  position: "top",
+                  title: "Successful",
+                  description: "Your payment has been done successfully.",
+                  status: "success",
+                  duration: 4000,
+                  isClosable: true,
+                })
+              }
+            >
               Pay Now
             </button>
           </div>
@@ -311,7 +307,6 @@ const Checkout = () => {
               </div>
               <div>
                 <strong>549</strong>
-                
               </div>
             </div>
             <i className="ai-coin size-lg"></i>

@@ -10,7 +10,7 @@ dispatch({type:GET_PRODUCTS_DATA,payload:response})
 
 
   } catch (error) {
-    console.log("error ", error);
+  
   }
 };
 type objType={
@@ -19,6 +19,6 @@ type objType={
 }
 
 export const updateTodoFromDom=(obj:objType)=>(dispatch:any)=>{
-  console.log(obj)
+ 
   dispatch({type:UPDATE_PRODUCT,payload:obj})
 }

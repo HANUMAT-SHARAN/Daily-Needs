@@ -48,7 +48,7 @@ setLoader(false)
   
  
   React.useEffect(() => {
-    //  dispatch(sendDataToRedux());
+
 getData()
   }, [data]);
 

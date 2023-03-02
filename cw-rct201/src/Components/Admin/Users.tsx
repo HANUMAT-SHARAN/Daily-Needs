@@ -27,7 +27,7 @@ type loginUser = {
 const Users = () => {
   const dispatch: any = useDispatch();
   const { loginUsersData } = useSelector((store: any) => store.authManager);
-  console.log(loginUsersData);
+ 
 
   const [users, setUsers] = React.useState(loginUsersData);
 
@@ -50,10 +50,10 @@ const Users = () => {
       }, 1500);
       deleteSuccess();
     } catch (error) {
-      console.log("error ", error);
+     
     }
   };
-  console.log(users, "users arr");
+
   const updateUser = (id: number, role: string) => {
     let obj = {
       role: role === "user" ? "admin" : "user",
@@ -67,7 +67,7 @@ const Users = () => {
       }, 1500);
       updateSuccess()
     } catch (error) {
-      console.log("error ", error);
+    
     }
   };
   React.useEffect(() => {

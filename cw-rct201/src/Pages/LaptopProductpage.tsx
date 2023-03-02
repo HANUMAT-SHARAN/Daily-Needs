@@ -32,7 +32,7 @@ const LaptopProductPage = () => {
   const [data, setData] = React.useState<proCardProps[]>([]);
 
   const searchData = async (searchText: string) => {
-    console.log(searchText);
+  
     let response = await axios.get(
       `https://backendsirver-for-daily-needs.vercel.app/products?category=${searchText}`
     );

@@ -19,7 +19,7 @@ import React from "react";
 import { userobj } from "./Signup";
 import { loginApi } from "../Redux/auth/authApi";
 import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
-import { getUsersData,setCurrentUser } from "../Redux/auth/authAction";
+import { getUsersData, setCurrentUser } from "../Redux/auth/authAction";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { sendDataToRedux } from "../Redux/admin/adminAction";
@@ -34,28 +34,29 @@ const initlogindata = {
   password: "",
 };
 export default function Login(): JSX.Element {
-  const { loginUsersData } = useSelector((store:any) => store.authManager);
+  const { loginUsersData } = useSelector((store: any) => store.authManager);
 
-const loginSucess=()=>{toast.success("Logged In Successfully",{theme:"colored"})}
-const error=()=>{toast.error("Please Check Your  Password Or Email",{theme:"colored"} )}
+  const loginSucess = () => {
+    toast.success("Logged In Successfully", { theme: "colored" });
+  };
+  const error = () => {
+    toast.error("Please Check Your  Password Or Email", { theme: "colored" });
+  };
 
   const [showPassword, setShowPassword] = React.useState<boolean>(false);
 
   const [userLoginData, setUserLoginData] =
     React.useState<loginuser>(initlogindata);
 
-  const dispatch:any = useDispatch();
+  const dispatch: any = useDispatch();
 
   const { loginWithRedirect } = useAuth0();
 
- 
-  const nav=useNavigate()
+  const nav = useNavigate();
 
   React.useEffect(() => {
-    dispatch(getUsersData())
-    
+    dispatch(getUsersData());
   }, []);
-  
 
   const checkUser = () => {
     for (let i = 0; i <= loginUsersData.length - 1; i++) {
@@ -63,14 +64,14 @@ const error=()=>{toast.error("Please Check Your  Password Or Email",{theme:"colo
         userLoginData.email === loginUsersData[i].email &&
         userLoginData.password === loginUsersData[i].password
       ) {
-        loginSucess()
-        nav('/')
-        dispatch(setCurrentUser(loginUsersData[i]))
+        loginSucess();
+        nav("/");
+        dispatch(setCurrentUser(loginUsersData[i]));
         setUserLoginData(initlogindata);
         return;
       }
     }
-    error()
+    error();
     setUserLoginData(initlogindata);
     return;
   };
@@ -142,12 +143,12 @@ const error=()=>{toast.error("Please Check Your  Password Or Email",{theme:"colo
             Submit
           </Button>
           <Text
-          onClick={()=>nav('/signup')}
-          fontSize={"13px"}
-          p={2}
-          fontWeight="bold"
-          textAlign="center"
-           borderRadius="0.4rem"
+            onClick={() => nav("/signup")}
+            fontSize={"13px"}
+            p={2}
+            fontWeight="bold"
+            textAlign="center"
+            borderRadius="0.4rem"
             bg={"blue.400"}
             color={"white"}
             _hover={{

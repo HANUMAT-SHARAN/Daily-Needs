@@ -1,4 +1,4 @@
-import {store} from "../Redux/store"
+import { store } from "../Redux/store";
 import { useDispatch, useSelector } from "react-redux";
 import React, { useEffect, useState } from "react";
 import { BiLeftArrowAlt, BiRightArrowAlt } from "react-icons/bi";
@@ -25,6 +25,7 @@ import {
 } from "@chakra-ui/react";
 import { useParams } from "react-router-dom";
 import { getUsersData } from "../Redux/auth/authAction";
+import { toast } from "react-toastify";
 
 const settings = {
   dots: true,
@@ -53,27 +54,35 @@ type prod = {
 
 let obj = {
   id: 1,
-  image1:"",
-  image2:"",
-  image3:"",
-  image4:"",
+  image1: "",
+  image2: "",
+  image3: "",
+  image4: "",
   cost: 0,
-  description:"",
+  description: "",
   cat: "",
-  Rating:0,
+  Rating: 0,
   name: "",
 };
 
 export default function SingleProduct() {
-  const dispatch:any = useDispatch()
+  const productAdded = () => {
+    toast.success("Product Added In Cart Sucessfully", { theme: "colored" });
+  };
+  const loginNow = () => {
+    toast.error("Login Now To Add The Product", { theme: "colored" });
+  };
+  const dispatch: any = useDispatch();
   const [slider, setSlider] = React.useState<Slider | null>(null);
   const top = useBreakpointValue({ base: "90%", md: "50%" });
   const side = useBreakpointValue({ base: "30%", md: "10px" });
-  const {id}=useParams()
-  const {currentUser}=useSelector((store:any)=>store.authManager)
-// console.log(71,currentUser)
+  const { id } = useParams();
+  const { isAuth, currentUser } = useSelector(
+    (store: any) => store.authManager
+  );
+
   const [data, setdata] = useState<prod>(obj);
-  const [userData,setUserData]=useState([])
+  const [userData, setUserData] = useState([]);
 
   const {
     image1,
@@ -91,61 +100,64 @@ export default function SingleProduct() {
 
   const getdata = async () => {
     try {
-      let r = await fetch(`https://backendsirver-for-daily-needs.vercel.app/products/${id}`);
+      let r = await fetch(
+        `https://backendsirver-for-daily-needs.vercel.app/products/${id}`
+      );
       let d = await r.json();
       setdata(d);
-    } catch (error) {
-      console.log(error);
-    }
+    } catch (error) {}
   };
-  // console.log(id)
+
   useEffect(() => {
     getdata();
 
-  getUserData()
+    getUserData();
   }, []);
-console.log(currentUser.id)
+
   const getUserData = async () => {
     try {
-      let r = await fetch(`https://backendsirver-for-daily-needs.vercel.app/users/${currentUser.id}`);
+      let r = await fetch(
+        `https://backendsirver-for-daily-needs.vercel.app/users/${currentUser.id}`
+      );
       let d = await r.json();
-      // console.log(d.cart)
+
       setUserData(d.cart);
-    } catch (error) {
-      console.log(error);
-    }
+    } catch (error) {}
   };
-  // console.log(userData)
 
-  const cartDetails=async()=>{
-    try {
-      let r=await fetch(`https://backendsirver-for-daily-needs.vercel.app/users/${currentUser.id}`,{
-      method:"PATCH",
-      headers:{
-        "Content-Type":"application/json"
-      },
-      body : JSON.stringify({
-        cart:[...userData,
-          {image1,cost,name,quantity:1,orderId:Date.now()}
-        ]
-      }),
-     
-      })
-      let d=await r.json()
-      console.log(d)
-    } catch (error) {
-      console.log(error)
+  const cartDetails = async () => {
+    if (!isAuth) {
+      loginNow();
+      return;
     }
-    setTimeout(()=>{
-      dispatch(getUsersData())
-    },1500)
-  }
+    try {
+      let r = await fetch(
+        `https://backendsirver-for-daily-needs.vercel.app/users/${currentUser.id}`,
+        {
+          method: "PATCH",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            cart: [
+              ...userData,
+              { image1, cost, name, quantity: 1, orderId: Date.now() },
+            ],
+          }),
+        }
+      );
+      let d = await r.json();
+    } catch (error) {}
+    setTimeout(() => {
+      dispatch(getUsersData());
+    }, 1500);
+    productAdded();
+  };
 
-  
   return (
     <>
       <Container maxW={"7xl"}>
-        <SimpleGrid 
+        <SimpleGrid
           columns={{ base: 1, lg: 2 }}
           spacing={{ base: 8, md: 10 }}
           py={{ base: 18, md: 24 }}
@@ -296,8 +308,9 @@ console.log(currentUser.id)
                 </List>
               </Box>
             </Stack>
-            
-            <Button onClick={cartDetails}
+
+            <Button
+              onClick={cartDetails}
               rounded={"none"}
               w={"full"}
               mt={8}
@@ -313,8 +326,6 @@ console.log(currentUser.id)
             >
               Add to cart
             </Button>
-            
-           
 
             <Stack
               direction="row"
@@ -350,9 +361,7 @@ console.log(currentUser.id)
               nonumy eirmod tempor invidunt ut labore
             </Text>
           </Stack>
-          <Flex
-           background={"lightgray"}
-          >
+          <Flex background={"lightgray"}>
             <Image
               rounded={"md"}
               alt={"feature image"}
@@ -362,14 +371,12 @@ console.log(currentUser.id)
           </Flex>
         </SimpleGrid>
       </Container>
-            
+
       <Container maxW={"7xl"} py={12}>
         <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10}>
-        <Flex marginTop={"-13%"}
-           background={"lightgray"}
-          >
+          <Flex marginTop={"-13%"} background={"lightgray"}>
             <Image
-            marginTop={""}
+              marginTop={""}
               rounded={"md"}
               alt={"feature image"}
               src={image2}
@@ -396,10 +403,8 @@ console.log(currentUser.id)
               nonumy eirmod tempor invidunt ut labore
             </Text>
           </Stack>
-          
         </SimpleGrid>
       </Container>
-
 
       <Container maxW={"7xl"} py={12}>
         <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10}>
@@ -423,28 +428,23 @@ console.log(currentUser.id)
               nonumy eirmod tempor invidunt ut labore
             </Text>
           </Stack>
-          <Flex marginTop={"-13%"}
-           background={"lightgray"}
-          >
+          <Flex marginTop={"-13%"} background={"lightgray"}>
             <Image
-            marginTop={""}
+              marginTop={""}
               rounded={"md"}
               alt={"feature image"}
               src={image3}
               objectFit={"cover"}
             />
           </Flex>
-          
         </SimpleGrid>
       </Container>
 
       <Container maxW={"7xl"} py={12}>
         <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10}>
-        <Flex marginTop={"-13%"}
-           background={"lightgray"}
-          >
+          <Flex marginTop={"-13%"} background={"lightgray"}>
             <Image
-            marginTop={""}
+              marginTop={""}
               rounded={"md"}
               alt={"feature image"}
               src={image4}
@@ -471,8 +471,6 @@ console.log(currentUser.id)
               nonumy eirmod tempor invidunt ut labore
             </Text>
           </Stack>
-          
-          
         </SimpleGrid>
       </Container>
     </>
