@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 import {
   Heading,
@@ -27,6 +28,82 @@ const CartItems = ({ objProp, funcProp,funcquant }:Props) => {
   const {orderId,name,cost,quantity,image1} = objProp;
  
   
+=======
+import React, { useState,useEffect } from 'react'
+import {Heading,Stack,Text,Divider,Button,Box,HStack,Image} from "@chakra-ui/react"
+import { Card, CardBody, CardFooter } from '@chakra-ui/react'
+import { useDispatch, useSelector } from "react-redux";
+import { updateUserCart } from '../../Redux/auth/authAction';
+interface cartItems{
+    image1:string,
+    name:string,
+    cost: string
+    quantity:number
+    orderId:any
+    
+}
+type Props = {
+  objProp:cartItems,
+  funcProp:(orderId:string)=>void
+  funcquant:(orderId:string,num:number)=>void
+}
+
+
+const CartItems = ({ objProp, funcProp,funcquant }:Props) => {
+  const {orderId,name,cost,quantity,image1} = objProp;
+  const {currentUser}=useSelector((store:any)=>store.authManager)
+  const {loginUsersData}=useSelector((store:any)=>store.authManager)
+  const dispatch:any = useDispatch()
+  const [count,setcount] = useState<number>(1)
+ 
+  const [total,settotal] = useState(0)
+  
+ 
+ 
+  
+//   console.log(quantity,"q")
+//   let sum=total;
+//   const updateTotal = (orderId:string)=>{
+   
+//     if(sum===0){
+//       for(let i=0;i<loginUsersData.length;i++){
+       
+//         if(loginUsersData[i].id===currentUser.id){
+//                 for(let j=0;j<loginUsersData[i].cart.length;j++){
+//                    sum=sum+(loginUsersData[i].cart[j].cost)
+//                 }
+//         }
+//   }
+//     }
+   
+    
+//     settotal(sum)
+   
+//     dispatch(updateUserCart(total))
+//     for(let i=0;i<loginUsersData.length;i++){
+//       // sum= sum+(currentUser.cart[i].cost)
+//       if(loginUsersData[i].id===currentUser.id){
+//               for(let j=0;j<loginUsersData[i].cart.length;j++){
+//                 //  sum=sum+(loginUsersData[i].cart[j].cost)
+//                 // console.log(loginUsersData[i].cart[j].orderId)
+//                 if(loginUsersData[i].cart[j].orderId===orderId){
+//                  sum=sum+(loginUsersData[i].cart[j].cost*count)
+                  
+//                     //  console.log(orderId)
+//                 }
+//               }
+//       }
+// }
+
+//     settotal(sum)
+//     // console.log(total)
+//     dispatch(updateUserCart(total))
+//   }
+
+  // useEffect(()=>{
+  //   updateTotal(orderId)
+  // },[])
+>>>>>>> master
   return (
     <Card h="auto" >
     <CardBody>
@@ -64,4 +141,10 @@ const CartItems = ({ objProp, funcProp,funcquant }:Props) => {
   )
 };
 
+<<<<<<< HEAD
 export default CartItems;
+=======
+export default CartItems
+
+
+>>>>>>> master
