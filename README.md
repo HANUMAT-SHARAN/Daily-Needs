@@ -1,7 +1,7 @@
 # Daily Needs 
 Daily Needs is a Lifestyle Accessories Brand that curates stunning designs and prints it on a wide range of personal accessories. We vision to bring the things you love on the things you use.
 
-<h3>Live Demo Link https://daily-needs-hanumat-sharan.vercel.app/ </h3>
+<h3>Live Demo Link https://daily-needs-96-git-master-hanumat-sharan.vercel.app/</h3>
 
 
 
