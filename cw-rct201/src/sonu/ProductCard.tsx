@@ -16,7 +16,7 @@ import {
   export const ProductCard = (props:any) => {
     console.log(props);
     const { product, rootProps } = props;
-    const { name, image4, cost, Rating } = product;
+    const { name, image1, cost, Rating } = product;
     return (
       <Stack borderWidth="1px"
       rounded="lg"
@@ -31,7 +31,7 @@ import {
         <Box position="relative" >
           <AspectRatio ratio={4 / 3}>
             <Image
-              src={image4}
+              src={image1}
               alt={name}
               draggable="false"
               fallback={<Skeleton />}
@@ -61,13 +61,13 @@ import {
           <HStack>
             <RatingCom defaultValue={Rating} size="md" />
             <Text fontSize="sm" color={useColorModeValue("gray.600", "gray.400")}>
-              12 Reviews
+              112 Reviews
             </Text>
           </HStack>
         </Stack>
         <Stack align="center">
           <Button colorScheme="blue" width="full">
-            Add to cart
+            Buy Now
           </Button>
           <Link
             textDecoration="underline"
