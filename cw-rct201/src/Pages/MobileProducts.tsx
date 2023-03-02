@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import "../Components/MobileProducts/Card.css";
-import { Button, Image } from "@chakra-ui/react";
+import { Image } from "@chakra-ui/react";
 import Card from "../Components/MobileProducts/Card";
 import { Link } from "react-router-dom";
 export interface Data {
@@ -16,7 +16,7 @@ export interface Data {
 
   category: string;
   name: string;
-
+  
   cat: string;
 }
 

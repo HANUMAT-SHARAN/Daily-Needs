@@ -12,18 +12,26 @@ import {
   Text,
   useColorModeValue,
 } from "@chakra-ui/react";
-import { STORE, store } from "../Redux/store";
+// import {  store } from "../Redux/store";
 import { useDispatch, useSelector } from "react-redux";
-import React from "react";
+import React, { useState } from "react";
 
-import { userobj } from "./Signup";
-import { loginApi } from "../Redux/auth/authApi";
+// import { userobj } from "./Signup";
+// import { loginApi } from "../Redux/auth/authApi";
 import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
 import { getUsersData, setCurrentUser } from "../Redux/auth/authAction";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import { sendDataToRedux } from "../Redux/admin/adminAction";
+// import { sendDataToRedux } from "../Redux/admin/adminAction";
 
+export type userobj = {
+  name: string;
+  lastname: string;
+  email: string;
+  password: string;
+  cart?: [];
+  role?: string;
+};
 type loginuser = {
   password: string;
   email: string;
@@ -35,7 +43,7 @@ const initlogindata = {
 };
 export default function Login(): JSX.Element {
   const { loginUsersData } = useSelector((store: any) => store.authManager);
-
+  const [forgotpass,setforgotemail]=useState("")
   const loginSucess = () => {
     toast.success("Logged In Successfully", { theme: "colored" });
   };
@@ -44,7 +52,6 @@ export default function Login(): JSX.Element {
   };
 
   const [showPassword, setShowPassword] = React.useState<boolean>(false);
-
   const [userLoginData, setUserLoginData] =
     React.useState<loginuser>(initlogindata);
 
@@ -56,7 +63,29 @@ export default function Login(): JSX.Element {
 
   React.useEffect(() => {
     dispatch(getUsersData());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+  
+  const forgot=async()=>{
+    if(forgotpass===""){
+      alert("please fill the email field")
+    }
+    try {
+      let r=await fetch("https://backendsirver-for-daily-needs.vercel.app/users")
+      let d=await r.json()
+      console.log(d)
+      let res = d.filter((el:any)=>el.email===forgotpass)
+      if(res.length>0){
+        toast.success(`Your password is ${res[0].password}`, { theme: "colored" });
+      }else{
+        toast.error(`Please enter correct email`, { theme: "colored" });
+      }
+      } catch (error) {
+        console.log(error)
+      }
+    }
+
+
 
   const checkUser = () => {
     for (let i = 0; i <= loginUsersData.length - 1; i++) {
@@ -101,7 +130,8 @@ export default function Login(): JSX.Element {
           <Input
             value={userLoginData.email}
             onChange={(e) =>
-              setUserLoginData({ ...userLoginData, email: e.target.value })
+              {setforgotemail(e.target.value)
+              setUserLoginData({ ...userLoginData, email: e.target.value })}
             }
             name="email"
             placeholder="your-email@example.com"
@@ -141,6 +171,16 @@ export default function Login(): JSX.Element {
             }}
           >
             Submit
+          </Button>
+          <Button
+            onClick={forgot}
+            bg={"green.400"}
+            color={"white"}
+            _hover={{
+              bg: "green.500",
+            }}
+          >
+            forgot password
           </Button>
           <Text
             onClick={() => nav("/signup")}

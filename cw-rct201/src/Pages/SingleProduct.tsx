@@ -1,4 +1,4 @@
-import { store } from "../Redux/store";
+// import { store } from "../Redux/store";
 import { useDispatch, useSelector } from "react-redux";
 import React, { useEffect, useState } from "react";
 import { BiLeftArrowAlt, BiRightArrowAlt } from "react-icons/bi";
@@ -80,6 +80,7 @@ export default function SingleProduct() {
   const { isAuth, currentUser } = useSelector(
     (store: any) => store.authManager
   );
+  console.log(currentUser)
 
   const [data, setdata] = useState<prod>(obj);
   const [userData, setUserData] = useState([]);
@@ -110,8 +111,8 @@ export default function SingleProduct() {
 
   useEffect(() => {
     getdata();
-
     getUserData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const getUserData = async () => {
@@ -131,10 +132,10 @@ export default function SingleProduct() {
       return;
     }
     try {
-      let r = await fetch(
+       await fetch(
         `https://backendsirver-for-daily-needs.vercel.app/users/${currentUser.id}`,
         {
-          method: "PATCH",
+          method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
@@ -146,7 +147,7 @@ export default function SingleProduct() {
           }),
         }
       );
-      let d = await r.json();
+      // let d = await r.json();
     } catch (error) {}
     setTimeout(() => {
       dispatch(getUsersData());
@@ -477,6 +478,6 @@ export default function SingleProduct() {
   );
 }
 
-function dispatch(arg0: (dispatch: any) => Promise<void>) {
-  throw new Error("Function not implemented.");
-}
+// function dispatch(arg0: (dispatch: any) => Promise<void>) {
+//   throw new Error("Function not implemented.");
+// }

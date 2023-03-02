@@ -73,7 +73,7 @@ export default function Signup() {
       setButtonDisable(true);
     }
   };
-
+  console.log(data)
   const sendData = async () => {
     for (let i = 0; i <= checkUser.length - 1; i++) {
       if (data.email === checkUser[i].email) {
