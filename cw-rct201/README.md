@@ -1,46 +1,58 @@
-# Getting Started with Create React App
+# Daily Needs 
+Daily Needs is a Lifestyle Accessories Brand that curates stunning designs and prints it on a wide range of personal accessories. We vision to bring the things you love on the things you use.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<h3>Live Demo Link https://daily-needs-hanumat-sharan.vercel.app/ </h3>
 
-## Available Scripts
 
-In the project directory, you can run:
 
-### `npm start`
+ <h1>Home Page</h1>
+    <img src="https://i.postimg.cc/fb41zvP9/Screenshot-from-2023-01-30-20-50-48.png" alt="">
+  <h1>Laptops Page</h1>
+    <img src="https://i.postimg.cc/8zfqgYZG/Screenshot-from-2023-01-30-20-51-28.png" alt="">
+     <h1>SingleProduct-Page</h1>
+    <img src="https://i.postimg.cc/vHBJ3T9c/Screenshot-from-2023-01-30-20-53-09.png" alt="">
+     <h1>Mobiles-Page</h1>
+    <img src="https://i.postimg.cc/HshfKm43/Screenshot-from-2023-01-30-20-52-23.png" alt="">
+     <h1>Signup-Page</h1>
+    <img src="https://i.postimg.cc/63fk1GYG/Screenshot-from-2023-01-30-20-50-23.png" alt="">
+     <h1>Cart-Page</h1>
+    <img src="https://i.postimg.cc/yxWLXJ5K/Screenshot-from-2023-01-30-20-54-14.png" alt="">
+    <h1>Admin-Page</h1>
+    <img src="https://i.postimg.cc/g0qtYbRC/Screenshot-from-2023-01-30-20-55-01.png" alt="">
+    <h1>Search-Page</h1>
+    <img src="https://i.postimg.cc/9XN8XpRQ/Screenshot-from-2023-01-30-20-56-53.png" alt="">
+    <h1>Checkout Page</h1>
+    <img src="https://i.postimg.cc/MG8r2pc0/Screenshot-from-2023-01-30-20-54-22.png">
+    <h1>[Getting Started]</h1>
+    <h3>Execution</h3>
+    <p>If you want to run our project in your local machine</p>
+    <p>Follow the given steps:</p>
+    <ul>
+        <li>Clone our respository <a href="https://github.com/HANUMAT-SHARAN/bright-noise-2667">https://github.com/HANUMAT-SHARAN/bright-noise-2667</a></li>
+        <li>Open our code in VS code </li>
+ <li>Then do npm install</li>
+        <li>Then Initialize the server by writing 'npm run start' on Terminal</li>
+ <li>Congrats !  you have successfully sarted the application.</li>
+    </ul>
+        <h1>Built with</h1>
+    <ul>
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>Type Script</li>
+        <li>Chakra UI </li>
+  <li>React.js</li>
+  <li>React Routing</li>
+        <li>node js</li>
+    </ul>
+        <h1>Creators</h1>
+    <ul>
+        <li><a href="https://github.com/HANUMAT-SHARAN">@Hanumat Sharan</a></li>
+   <li><a href="https://github.com/codersudhir">@Sudhir Nandane</a></li>
+   <li><a href="https://github.com/palabhi017">@Abhishek Pal</a></li>
+   <li><a href="https://github.com/sonu25122000">@Sonu Kumar</a></li>
+   <li><a href="https://github.com/raviwed">@illuri raviteja reddy</a></li>
+        
+        
+        
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
