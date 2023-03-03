@@ -135,7 +135,7 @@ export default function SingleProduct() {
        await fetch(
         `https://backendsirver-for-daily-needs.vercel.app/users/${currentUser.id}`,
         {
-          method: "POST",
+          method: "PATCH",
           headers: {
             "Content-Type": "application/json",
           },

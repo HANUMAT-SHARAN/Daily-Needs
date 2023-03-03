@@ -59,7 +59,7 @@ import {
             <PriceTag price={cost}  currency="USD" />
           </Stack>
           <HStack>
-            <RatingCom defaultValue={Rating} size="md" />
+            <RatingCom defaultValue={3.5} size="md" />
             <Text fontSize="sm" color={useColorModeValue("gray.600", "gray.400")}>
               112 Reviews
             </Text>
