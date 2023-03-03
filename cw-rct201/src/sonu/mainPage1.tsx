@@ -47,7 +47,7 @@ const MainPage1 = () => {
   const getData = async (category: string, rating: string) => {
     return await axios
       .get(
-        `https://koti-api.onrender.com/iphone?cat=${category}&_sort=cost&_order=${rating}`
+        `https://backendsirver-for-daily-needs.vercel.app/products?cat=${category}&_sort=cost&_order=${rating}`
       )
       .then((res) => setIphone(res.data));
   };
@@ -67,7 +67,7 @@ const MainPage1 = () => {
           paddingTop={"3%"}
           bg={"#ECF2FF"}
           h={"85vh"}
-          zIndex="2"
+          // zIndex="2"
           position="relative"
         >
           {/* <button onClick={()=>setcategory("Apple")}>Apple</button>
