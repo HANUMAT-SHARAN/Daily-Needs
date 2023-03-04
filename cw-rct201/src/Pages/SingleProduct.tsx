@@ -80,7 +80,7 @@ export default function SingleProduct() {
   const { isAuth, currentUser } = useSelector(
     (store: any) => store.authManager
   );
-  console.log(currentUser)
+  // console.log(currentUser)
 
   const [data, setdata] = useState<prod>(obj);
   const [userData, setUserData] = useState([]);

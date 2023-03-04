@@ -5,9 +5,9 @@ export const ProductGrid = (props: SimpleGridProps) => {
   const columns = useMemo(() => {
     const count = Children.toArray(props.children).filter(isValidElement).length
     return {
-      base: Math.min(2, count),
-      md: Math.min(3, count),
-      lg: Math.min(4, count),
+      base: Math.min(1, count),
+      md: Math.min(2, count),
+      lg: Math.min(3, count),
       xl: Math.min(4, count),
     }
   }, [props.children])
