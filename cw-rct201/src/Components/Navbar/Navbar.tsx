@@ -191,8 +191,8 @@ const Navbar = () => {
          <Link to="/cart"><BsBagCheckFill size="25px" /> </Link> 
           <Menu>
             <MenuButton>
-             {isAuth? <Heading borderRadius={"1rem"} p={3} bg={"red"} fontSize={"20px"}>{name[0]}</Heading>: <BsFillPersonFill size="30px" />}
-            </MenuButton>
+             {isAuth? <Heading color="white" borderRadius={"1rem"} p={3} bg={"red"} fontSize={"20px"}>{name[0]}</Heading>: <BsFillPersonFill size="30px" />}
+            </MenuButton>git add
             <MenuList>
               {isAuth && (
                 <>

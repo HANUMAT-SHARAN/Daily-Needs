@@ -207,25 +207,25 @@ const Admin = () => {
         <Box style={{ color: "white" }}>
           {/* Here First Dashbaord Started */}
           <SimpleGrid gap={10} columns={[2, 3, 3, 4]}>
-            <Box bgColor={"red.600"} p={7} borderRadius={"1rem"}>
+            <Box m={10} bgColor={"red.600"} p={7} borderRadius={"1rem"}>
               <Heading fontSize={"30px"}>Total Products</Heading>
               <Text fontWeight={"bold"} fontSize={"30px"}>
                 {productsData.length}
               </Text>
             </Box>
-            <Box p={7} bgColor={"yellow.600"} borderRadius={"1rem"}>
+            <Box m={10} p={7} bgColor={"yellow.600"} borderRadius={"1rem"}>
               <Heading fontSize={"30px"}>Total Users</Heading>
               <Text fontWeight={"bold"} fontSize={"30px"}>
                 {loginUsersData.length}
               </Text>
             </Box>
-            <Box p={7} bgColor={"green.800"} borderRadius={"1rem"}>
+            <Box m={10} p={7} bgColor={"green.800"} borderRadius={"1rem"}>
               <Heading fontSize={"30px"}>Total Sales </Heading>
               <Text fontWeight={"bold"} fontSize={"30px"}>
                 ₹ 4000
               </Text>
             </Box>
-            <Box p={7} bgColor={"blue.600"} borderRadius={"1rem"}>
+            <Box m={10} p={7} bgColor={"blue.600"} borderRadius={"1rem"}>
               <Heading fontSize={"30px"}>Total Orders</Heading>
               <Text fontWeight={"bold"} fontSize={"30px"}>
                 10
