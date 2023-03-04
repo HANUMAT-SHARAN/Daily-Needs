@@ -125,29 +125,31 @@ export default function SingleProduct() {
       setUserData(d.cart);
     } catch (error) {}
   };
+  console.log(userData, { image1, cost, name, quantity: 1, orderId: Date.now() })
 
   const cartDetails = async () => {
     if (!isAuth) {
       loginNow();
       return;
     }
+    console.log(currentUser.id)
     try {
        await fetch(
         `https://backendsirver-for-daily-needs.vercel.app/users/${currentUser.id}`,
         {
-          method: "POST",
+          method: "PATCH",
           headers: {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
             cart: [
-              ...userData,
+            ...userData,
               { image1, cost, name, quantity: 1, orderId: Date.now() },
             ],
           }),
         }
       );
-      // let d = await r.json();
+      // let d = await r.json();~
     } catch (error) {}
     setTimeout(() => {
       dispatch(getUsersData());
