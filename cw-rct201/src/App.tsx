@@ -9,14 +9,16 @@ import Navbar from "./Components/Navbar/Navbar";
 import AllRoutes from "./Routes/AllRoutes";
 
 function App() {
-  return <>
-    <div className="App">
-      <Navbar />
-      <AllRoutes />
-      <ToastContainer />
-      <Footer />
-    </div>
+  return (
+    <>
+      <div className="App">
+        <Navbar />
+        <AllRoutes />
+        <ToastContainer />
+        <Footer />
+      </div>
     </>
+  );
 }
 
 export default App;

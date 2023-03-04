@@ -101,18 +101,17 @@ export default function SingleProduct() {
 
   const getdata = async () => {
     try {
-      let r = await fetch(
+      let response = await fetch(
         `https://backendsirver-for-daily-needs.vercel.app/products/${id}`
       );
-      let d = await r.json();
-      setdata(d);
+      let data = await response.json();
+      setdata(data);
     } catch (error) {}
   };
 
   useEffect(() => {
     getdata();
-    getUserData();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    getUserData()  
   }, []);
 
   const getUserData = async () => {
@@ -125,14 +124,14 @@ export default function SingleProduct() {
       setUserData(d.cart);
     } catch (error) {}
   };
-  console.log(userData, { image1, cost, name, quantity: 1, orderId: Date.now() })
+
 
   const cartDetails = async () => {
     if (!isAuth) {
       loginNow();
       return;
     }
-    console.log(currentUser.id)
+   
     try {
        await fetch(
         `https://backendsirver-for-daily-needs.vercel.app/users/${currentUser.id}`,
@@ -149,7 +148,7 @@ export default function SingleProduct() {
           }),
         }
       );
-      // let d = await r.json();~
+      
     } catch (error) {}
     setTimeout(() => {
       dispatch(getUsersData());

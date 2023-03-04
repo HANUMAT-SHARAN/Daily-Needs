@@ -23,13 +23,15 @@ import SingleAdminProduct from "./SingleAdminProduct";
 const AdminSingleProduct = ({ image1, id, name, cost, category }: Data) => {
   const [updateOpen, setUpdateOpen] = React.useState<boolean>(false);
   const [alertDeleteOpen, setDeleteOpen] = React.useState<boolean>(false);
-  const cancelRef = React.useRef<any>();
 
+  const cancelRef = React.useRef<any>();
+  //user ref returns a object in which ther is mutuable value in form of current 
+//this upper cancelRef is used to make the Focus on Dailog box so that user know what is clear focus
+//s that it can be prevented the user to differentitate between the fouced and nonfocused one
   const updateName = (id: number, newName: string) => {
     let obj = {
       name: newName,
     };
-
     axios.patch(
       `https://backendsirver-for-daily-needs.vercel.app/products/${id}`,
       obj
@@ -80,7 +82,6 @@ const AdminSingleProduct = ({ image1, id, name, cost, category }: Data) => {
       categorySuccess();
     }, 1500);
   };
-
   const updateImage = (id: number, newImage: string) => {
     let obj = {
       image1: newImage,

@@ -63,7 +63,7 @@ export default function Signup() {
     setCheckUsers(allLoginUsers);
   };
 
-  const makeDisable = () => {
+  const makeButtonDisable = () => {
     if (
       data.password.length > 7 &&
       (data.password.includes("$") || data.password.includes("@"))
@@ -73,7 +73,7 @@ export default function Signup() {
       setButtonDisable(true);
     }
   };
-  console.log(data)
+  
   const sendData = async () => {
     for (let i = 0; i <= checkUser.length - 1; i++) {
       if (data.email === checkUser[i].email) {
@@ -106,6 +106,8 @@ export default function Signup() {
   React.useEffect(() => {
     getData();
   }, []);
+
+
   return (
     <Flex
       minH={"100vh"}
@@ -171,7 +173,7 @@ export default function Signup() {
                   value={data.password}
                   onChange={(e) => [
                     setData({ ...data, password: e.target.value }),
-                    makeDisable(),
+                    makeButtonDisable(),
                   ]}
                   name="password"
                   type={showPassword ? "text" : "password"}
