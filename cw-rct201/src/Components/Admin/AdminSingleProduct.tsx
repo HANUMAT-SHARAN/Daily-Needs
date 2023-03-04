@@ -1,25 +1,5 @@
-import {
-  Avatar,
-  Box,
-  Button,
-  Flex,
-  Heading,
-  Input,
-  SimpleGrid,
-  Text,
-  useDisclosure,
-} from "@chakra-ui/react";
 import axios from "axios";
 import React from "react";
-import {
-  Drawer,
-  DrawerBody,
-  DrawerFooter,
-  DrawerHeader,
-  DrawerOverlay,
-  DrawerContent,
-  DrawerCloseButton,
-} from "@chakra-ui/react";
 import {
   AlertDialog,
   AlertDialogBody,
@@ -27,62 +7,25 @@ import {
   AlertDialogHeader,
   AlertDialogContent,
   AlertDialogOverlay,
-} from "@chakra-ui/react";
-import {
-  Menu,
-  MenuButton,
-  MenuList,
-  MenuItem,
-  MenuItemOption,
-  MenuGroup,
-  MenuOptionGroup,
-  MenuDivider,
+  Button,
 } from "@chakra-ui/react";
 import { Data } from "../../Pages/MobileProducts";
-import { useDispatch } from "react-redux";
 import {
-  sendDataToRedux,
-  updateTodoFromDom,
-} from "../../Redux/admin/adminAction";
-import { Dispatch } from "redux";
-import { store } from "../../Redux/store";
-import { DeleteIcon, EditIcon } from "@chakra-ui/icons";
-import { toast } from "react-toastify";
+  nameSuccess,
+  categorySuccess,
+  priceSuccess,
+  imageUpdate,
+  deleteSuccess,
+} from "./ToastAlert";
+import UpdateAccordian from "./UpdateAccordian";
+import SingleAdminProduct from "./SingleAdminProduct";
 
 const AdminSingleProduct = ({ image1, id, name, cost, category }: Data) => {
-  const dispatch: any = useDispatch();
-
-  const [nameDrawerOpen, setNameDrawerOpen] = React.useState<boolean>(false);
-  const [priceDrawerOpen, setPriceDrawerOpen] = React.useState<boolean>(false);
   const [updateOpen, setUpdateOpen] = React.useState<boolean>(false);
   const [alertDeleteOpen, setDeleteOpen] = React.useState<boolean>(false);
-  const [newName, setnewName] = React.useState<string>("");
-  const [newCat, setNewCat] = React.useState<string>("");
-  const [newPrice, setNewPrice] = React.useState<any>();
-  const [categoryDrawerOpen, setCategoryDrawerOpen] =
-    React.useState<boolean>(false);
-
-  const [newImage, setNewImage] = React.useState<string>("");
-  const [image1DrawerOpen, setImage1DrawerOpen] =
-    React.useState<boolean>(false);
-
   const cancelRef = React.useRef<any>();
-  const nameSuccess = () => {
-    toast.success(" Name Updated Successfully", { theme: "colored" });
-  };
-  const categorySuccess = () => {
-    toast.success(" Category Updated Successfully", { theme: "colored" });
-  };
-  const priceSuccess = () => {
-    toast.success("Price Updated Successfully", { theme: "colored" });
-  };
-  const deleteSuccess = () => {
-    toast.error("Product Deleted Successfully", { theme: "colored" });
-  };
-  const imageUpdate = () => {
-    toast.success("Image Updated Successfully", { theme: "colored" });
-  };
-  const updateName = (id: number) => {
+
+  const updateName = (id: number, newName: string) => {
     let obj = {
       name: newName,
     };
@@ -93,22 +36,21 @@ const AdminSingleProduct = ({ image1, id, name, cost, category }: Data) => {
     );
 
     setUpdateOpen(false);
-    setNameDrawerOpen(false);
+
     setTimeout(() => {}, 1500);
 
     nameSuccess();
   };
-  const updatePrice = (id: number) => {
+  const updatePrice = (id: number, newprice: string) => {
     //this + sign will convert the string Price into Number and then post to the data base
     let obj = {
-      cost: +newPrice,
+      cost: +newprice,
     };
     axios.patch(
       `https://backendsirver-for-daily-needs.vercel.app/products/${id}`,
       obj
     );
 
-    setPriceDrawerOpen(false);
     setUpdateOpen(false);
     setTimeout(() => {
       priceSuccess();
@@ -124,7 +66,7 @@ const AdminSingleProduct = ({ image1, id, name, cost, category }: Data) => {
       deleteSuccess();
     }, 1500);
   };
-  const updateCategory = (id: number) => {
+  const updateCategory = (id: number, newCat: string) => {
     let obj = {
       id,
       category: newCat,
@@ -133,14 +75,13 @@ const AdminSingleProduct = ({ image1, id, name, cost, category }: Data) => {
       `https://backendsirver-for-daily-needs.vercel.app/products/${id}`,
       obj
     );
-    setCategoryDrawerOpen(false);
     setUpdateOpen(false);
     setTimeout(() => {
       categorySuccess();
     }, 1500);
   };
 
-  const updateImage = (id: number) => {
+  const updateImage = (id: number, newImage: string) => {
     let obj = {
       image1: newImage,
     };
@@ -148,7 +89,7 @@ const AdminSingleProduct = ({ image1, id, name, cost, category }: Data) => {
       `https://backendsirver-for-daily-needs.vercel.app/products/${id}`,
       obj
     );
-    setImage1DrawerOpen(false);
+
     setUpdateOpen(false);
     setTimeout(() => {
       imageUpdate();
@@ -156,107 +97,6 @@ const AdminSingleProduct = ({ image1, id, name, cost, category }: Data) => {
   };
   return (
     <>
-      <Drawer
-        isOpen={nameDrawerOpen}
-        placement="top"
-        onClose={() => setNameDrawerOpen(false)}
-      >
-        <DrawerOverlay />
-        <DrawerContent>
-          <DrawerCloseButton />
-          <DrawerHeader>
-            {" "}
-            Current name : {name} <br /> Enter New Name For the Product{" "}
-          </DrawerHeader>
-
-          <DrawerBody>
-            <Input
-              onChange={(e) => setnewName(e.target.value)}
-              placeholder="Type here..."
-            />
-          </DrawerBody>
-
-          <DrawerFooter>
-            <Button
-              variant="outline"
-              mr={3}
-              onClick={() => setNameDrawerOpen(false)}
-            >
-              Cancel
-            </Button>
-            <Button onClick={() => updateName(id)} colorScheme="blue">
-              Save
-            </Button>
-          </DrawerFooter>
-        </DrawerContent>
-      </Drawer>
-      <Drawer
-        isOpen={priceDrawerOpen}
-        placement="top"
-        onClose={() => setPriceDrawerOpen(false)}
-      >
-        <DrawerOverlay />
-        <DrawerContent>
-          <DrawerCloseButton />
-          <DrawerHeader>
-            {" "}
-            Current price : ₹ {cost}
-            <br /> Enter New Price For the Product{" "}
-          </DrawerHeader>
-
-          <DrawerBody>
-            <Input
-              type="number"
-              onChange={(e) => setNewPrice(e.target.value)}
-              placeholder="Type here..."
-            />
-          </DrawerBody>
-
-          <DrawerFooter>
-            <Button
-              variant="outline"
-              mr={3}
-              onClick={() => setPriceDrawerOpen(false)}
-            >
-              Cancel
-            </Button>
-            <Button onClick={() => updatePrice(id)} colorScheme="blue">
-              Save
-            </Button>
-          </DrawerFooter>
-        </DrawerContent>
-      </Drawer>
-      <Drawer
-        isOpen={image1DrawerOpen}
-        placement="top"
-        onClose={() => setImage1DrawerOpen(false)}
-      >
-        <DrawerOverlay />
-        <DrawerContent>
-          <DrawerCloseButton />
-          <DrawerHeader> Enter New Image Url For the Product </DrawerHeader>
-
-          <DrawerBody>
-            <Input
-              onChange={(e) => setNewImage(e.target.value)}
-              placeholder="Type here..."
-            />
-          </DrawerBody>
-
-          <DrawerFooter>
-            <Button
-              variant="outline"
-              mr={3}
-              onClick={() => setImage1DrawerOpen(false)}
-            >
-              Cancel
-            </Button>
-            <Button onClick={() => updateImage(id)} colorScheme="blue">
-              Save
-            </Button>
-          </DrawerFooter>
-        </DrawerContent>
-      </Drawer>
       <AlertDialog
         isOpen={alertDeleteOpen}
         leastDestructiveRef={cancelRef}
@@ -299,104 +139,13 @@ const AdminSingleProduct = ({ image1, id, name, cost, category }: Data) => {
             </AlertDialogHeader>
 
             <AlertDialogBody>
-              <Flex justifyContent={"space-between"}>
-                <SimpleGrid
-                  alignItems={"center"}
-                  margin="auto"
-                  textAlign="center"
-                >
-                  <Button
-                    width={"100%"}
-                    mb={1}
-                    colorScheme="teal"
-                    onClick={() => setNameDrawerOpen(true)}
-                  >
-                    Update Name
-                  </Button>
-                  <br />
-                  <Button
-                    width={"100%"}
-                    mb={1}
-                    colorScheme="teal"
-                    onClick={() => setCategoryDrawerOpen(true)}
-                  >
-                    Update Category
-                  </Button>
-
-                  <br />
-                  <Button
-                    width={"100%"}
-                    mb={1}
-                    colorScheme="teal"
-                    onClick={() => setPriceDrawerOpen(true)}
-                  >
-                    Update Price
-                  </Button>
-                  <Button
-                    width={"100%"}
-                    mt={7}
-                    colorScheme="teal"
-                    onClick={() => setImage1DrawerOpen(true)}
-                  >
-                    Update Image
-                  </Button>
-                </SimpleGrid>
-
-                <Box
-                  p={"10px 10px 10px 10px"}
-                  borderRadius={"1rem"}
-                  boxShadow={"rgba(0, 0, 0, 0.35) 0px 5px 15px;"}
-                  textAlign={"center"}
-                >
-                  <Box margin={"auto"} borderRadius={"2rem"}>
-                    <Avatar size={"xl"} src={image1} />
-                  </Box>
-                  <Text mt={1} fontWeight={"bold"} fontSize={"16px"}>
-                    {" "}
-                    Name : {name}
-                  </Text>
-                  <Text mt={1} fontWeight={"bold"} fontSize={"16px"}>
-                    {" "}
-                    Category : {category}
-                  </Text>
-
-                  <Text mt={1} fontWeight={"bold"} fontSize={"16px"}>
-                    Price : ₹ {cost}
-                  </Text>
-                </Box>
-              </Flex>
-              {/* <SimpleGrid  alignItems={"center"} border="1px solid red" margin="auto" textAlign="center" columns={2}>
-              <Button
-              mb={5}
-                colorScheme="teal"
-                onClick={() => setNameDrawerOpen(true)}
-              >
-                Update Name
-              </Button>
-              <br />
-              <Button
-               mb={5}
-                colorScheme="teal"
-                onClick={() => setCategoryDrawerOpen(true)}
-              >
-                Update Category
-              </Button>
-
-              <br />
-              <Button
-               mb={5}
-                colorScheme="teal"
-                onClick={() => setPriceDrawerOpen(true)}
-              >
-                Update Price
-              </Button>
-              </SimpleGrid> */}
-
-              {/* This Drawer is for the Name Updation */}
-
-              {/* This Drawer is For the Price Updateion */}
-
-              {/* this Drawer is for the image updation */}
+              <UpdateAccordian
+                id={id}
+                updateCategory={updateCategory}
+                updateName={updateName}
+                updatePrice={updatePrice}
+                updateImage={updateImage}
+              />
             </AlertDialogBody>
 
             <AlertDialogFooter>
@@ -405,101 +154,23 @@ const AdminSingleProduct = ({ image1, id, name, cost, category }: Data) => {
                 ref={cancelRef}
                 onClick={() => setUpdateOpen(false)}
               >
-                Cancel
+                Close
               </Button>
-              {/* <Button colorScheme="red" onClick={() => setUpdateOpen(false)} ml={3}>
-                Delete
-              </Button> */}
-
-              {/* Here is the categoruyl updation concept */}
-              <Drawer
-                isOpen={categoryDrawerOpen}
-                placement="top"
-                onClose={() => setCategoryDrawerOpen(false)}
-              >
-                <DrawerOverlay />
-                <DrawerContent>
-                  <DrawerCloseButton />
-                  <DrawerHeader>
-                    {" "}
-                    Current category : {category} <br /> Enter New Category For
-                    the Product{" "}
-                  </DrawerHeader>
-
-                  <DrawerBody>
-                    <Input
-                      onChange={(e) => setNewCat(e.target.value)}
-                      placeholder="Type here..."
-                    />
-                  </DrawerBody>
-
-                  <DrawerFooter>
-                    <Button
-                      variant="outline"
-                      mr={3}
-                      onClick={() => setCategoryDrawerOpen(false)}
-                    >
-                      Cancel
-                    </Button>
-                    <Button
-                      onClick={() => updateCategory(id)}
-                      colorScheme="blue"
-                    >
-                      Save
-                    </Button>
-                  </DrawerFooter>
-                </DrawerContent>
-              </Drawer>
             </AlertDialogFooter>
           </AlertDialogContent>
         </AlertDialogOverlay>
       </AlertDialog>
-      <Box
-        p={"10px 0px 10px 0px"}
-        borderRadius={"1rem"}
-        boxShadow={"rgba(0, 0, 0, 0.35) 0px 5px 15px;"}
-        textAlign={"center"}
-      >
-        <Box
-          margin={"auto"}
-          width={"40%"}
-          backgroundColor={"white"}
-          backdropFilter={"blur(20px)"}
-          borderRadius={"2rem"}
-        >
-          <Avatar size={"xl"} src={image1} />
-        </Box>
-        <Text mt={1} fontWeight={"bold"} fontSize={"16px"}>
-          {" "}
-          Name : {name}
-        </Text>
-        <Text mt={1} fontWeight={"bold"} fontSize={"16px"}>
-          {" "}
-          Category : {category}
-        </Text>
-        <Text mt={1} fontWeight={"bold"} fontSize={"16px"}>
-          Product Id : {id}
-        </Text>
-        <Text mt={1} fontWeight={"bold"} fontSize={"16px"}>
-          Price : ₹ {cost}
-        </Text>
-        <Flex mt={3} margin={"auto"} w={"60%"} justifyContent={"space-evenly"}>
-          <Button colorScheme="blue" onClick={() => setUpdateOpen(true)}>
-            <EditIcon />
-          </Button>
-          <Button onClick={() => setDeleteOpen(true)} colorScheme="blue">
-            <DeleteIcon />
-          </Button>
-        </Flex>
-        <>
-          {/* This Is The Delete Part oF the admin Product */}
-
-          {/* This is wehre we give users an option to do update name,price,category */}
-        </>
-      </Box>
+      <SingleAdminProduct
+        setUpdateOpen={setUpdateOpen}
+        setDeleteOpen={setDeleteOpen}
+        id={id}
+        image1={image1}
+        category={category}
+        name={name}
+        cost={cost}
+      />
     </>
   );
 };
 
 export default AdminSingleProduct;
-
