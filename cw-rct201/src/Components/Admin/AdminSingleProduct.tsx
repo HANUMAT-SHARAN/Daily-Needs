@@ -18,7 +18,7 @@ import {
   deleteSuccess,
 } from "./ToastAlert";
 import UpdateAccordian from "./UpdateAccordian";
-import SingleAdminProduct from "./SingleAdminProduct";
+import ProductAdminUi from "./ProductAdminUi";
 
 const AdminSingleProduct = ({ image1, id, name, cost, category }: Data) => {
   const [updateOpen, setUpdateOpen] = React.useState<boolean>(false);
@@ -161,7 +161,7 @@ const AdminSingleProduct = ({ image1, id, name, cost, category }: Data) => {
           </AlertDialogContent>
         </AlertDialogOverlay>
       </AlertDialog>
-      <SingleAdminProduct
+      <ProductAdminUi
         setUpdateOpen={setUpdateOpen}
         setDeleteOpen={setDeleteOpen}
         id={id}

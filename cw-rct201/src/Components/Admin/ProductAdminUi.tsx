@@ -3,7 +3,7 @@ import { Box, Text, Avatar, Flex, Button } from "@chakra-ui/react";
 import React from "react";
 import { SingleAdminPropsType } from "./AdminProps";
 
-const SingleAdminProduct = ({
+const ProductAdminUi = ({
   id,
   image1,
   name,
@@ -57,4 +57,4 @@ const SingleAdminProduct = ({
   );
 };
 
-export default SingleAdminProduct;
+export default ProductAdminUi;
