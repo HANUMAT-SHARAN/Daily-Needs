@@ -192,7 +192,7 @@ const Navbar = () => {
           <Menu>
             <MenuButton>
              {isAuth? <Heading color="white" borderRadius={"1rem"} p={3} bg={"red"} fontSize={"20px"}>{name[0]}</Heading>: <BsFillPersonFill size="30px" />}
-            </MenuButton>git add
+            </MenuButton>
             <MenuList>
               {isAuth && (
                 <>
