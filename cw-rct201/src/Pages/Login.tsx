@@ -73,7 +73,7 @@ export default function Login(): JSX.Element {
     try {
       let r=await fetch("https://backendsirver-for-daily-needs.vercel.app/users")
       let d=await r.json()
-      console.log(d)
+      // console.log(d)
       let res = d.filter((el:any)=>el.email===forgotpass)
       if(res.length>0){
         toast.success(`Your password is ${res[0].password}`, { theme: "colored" });
