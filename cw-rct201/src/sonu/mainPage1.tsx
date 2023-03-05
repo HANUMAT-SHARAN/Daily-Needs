@@ -1,10 +1,11 @@
 import { Box, Flex } from "@chakra-ui/react";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { ProductCard } from "./ProductCard";
 import { ProductGrid } from "./ProductGrid";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import SimpleSidebar from "./sidebar";
+import { Number } from "mongoose";
 export interface Data {
   image1: string;
   image2: string;
@@ -32,24 +33,53 @@ const MainPage1 = () => {
       .then((res) => setIphone(res.data));
   };
 
+  const [time, setTimer] = useState<number>(0);
+  const filter = [
+    "hp",
+    "cases",
+    "Asus",
+    "lenovo",
+    "tote bag",
+    "Dell",
+    "watchband",
+    "bag",
+  ];
+  useEffect(() => {
+    setInterval(() => {
+      setTimer((prevTime) => {
+        if (prevTime > filter.length-1) {
+          return 0;
+        }
+        return prevTime + 1;
+      });
+    }, 4000);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  useEffect(() => {
+    setcategory(filter[time]);
+  }, [time]);
+
   useEffect(() => {
     getData(category, rating);
   }, [category, rating]);
 
-  // console.log(category);
+  const setCurrentCat = (value: string) => {
+    setcategory(value);
+  };
+  const setOrder = (value: string) => {
+    setrating(value);
+  };
 
-  const setCurrentCat=(value:string)=>{
-    setcategory(value)
-  }
-  const setOrder=(value:string)=>{
-    setrating(value)
-  }
   return (
     <div>
-      <Flex
-       display={["block","grid"]}>
+      <Flex display={["block", "grid"]}>
         <Box>
-          <SimpleSidebar setOrder={setOrder} setCurrentCat={setCurrentCat}  children={undefined} />
+          <SimpleSidebar
+            setOrder={setOrder}
+            setCurrentCat={setCurrentCat}
+            children={undefined}
+          />
         </Box>
         <Box
           width={"80%"}
