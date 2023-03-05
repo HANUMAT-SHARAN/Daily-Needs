@@ -1,11 +1,10 @@
 import { Box, Flex } from "@chakra-ui/react";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { ProductCard } from "./ProductCard";
 import { ProductGrid } from "./ProductGrid";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import SimpleSidebar from "./sidebar";
-import { Number } from "mongoose";
 export interface Data {
   image1: string;
   image2: string;
@@ -58,6 +57,7 @@ const MainPage1 = () => {
 
   useEffect(() => {
     setcategory(filter[time]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [time]);
 
   useEffect(() => {
