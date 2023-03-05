@@ -1,4 +1,4 @@
-import { ReactNode, useState } from "react";
+import { ReactNode } from "react";
 import {
   IconButton,
   Box,
@@ -32,13 +32,14 @@ const LinkItems: Array<LinkItemProps> = [
 
 interface FilterItemProps {
   name: string;
+  value:string
 }
 const FilterItems: Array<FilterItemProps> = [
-  { name: "High-Low" },
-  { name: "Low-High" },
+  { name: "High-Low",value:"desc" },
+  { name: "Low-High" ,value:"asc" },
 ];
 
-export default function SimpleSidebar({setCurrentCat}:any,{ children }: { children: ReactNode }) {
+export default function SimpleSidebar({setCurrentCat,setOrder}:any,{ children }: { children: ReactNode }) {
   const setcategory=(value:string)=>{
     setCurrentCat(value)
   }
@@ -47,6 +48,7 @@ export default function SimpleSidebar({setCurrentCat}:any,{ children }: { childr
     <Box  bg={useColorModeValue("gray.100", "gray.900")}>
       <SidebarContent 
         onClose={() => onClose}
+        setOrder={setOrder}
         display={{ base: "none", md: "block" }} setcategory={setcategory}
       />
       <Drawer
@@ -59,7 +61,7 @@ export default function SimpleSidebar({setCurrentCat}:any,{ children }: { childr
         size="full"
       >
         <DrawerContent>
-          <SidebarContent setcategory={setcategory} onClose={onClose} />
+          <SidebarContent setOrder={setOrder} setcategory={setcategory} onClose={onClose} />
         </DrawerContent>
       </Drawer>
       {/* mobilenav */}
@@ -74,9 +76,10 @@ export default function SimpleSidebar({setCurrentCat}:any,{ children }: { childr
 interface SidebarProps extends BoxProps {
   onClose: () => void;
   setcategory:(value:string)=>void
+  setOrder:(value:string)=>void
 }
 
-const SidebarContent = ({ onClose,setcategory, ...rest }: SidebarProps) => {
+const SidebarContent = ({ onClose,setcategory,setOrder, ...rest }: SidebarProps) => {
   return (
     <Box
       bg={useColorModeValue("white", "gray.900")}
@@ -116,7 +119,7 @@ const SidebarContent = ({ onClose,setcategory, ...rest }: SidebarProps) => {
       </Flex>
       {FilterItems.map((link) => (
         <Stack paddingLeft={"40px"}>
-          <Checkbox key={link.name}>{link.name}</Checkbox>
+          <Checkbox onChange={(e)=>setOrder(link.value)} key={link.name}>{link.name}</Checkbox>
         </Stack>
       ))}
     </Box>

@@ -41,12 +41,15 @@ const MainPage1 = () => {
   const setCurrentCat=(value:string)=>{
     setcategory(value)
   }
+  const setOrder=(value:string)=>{
+    setrating(value)
+  }
   return (
     <div>
       <Flex
        display={["block","grid"]}>
         <Box>
-          <SimpleSidebar setCurrentCat={setCurrentCat}  children={undefined} />
+          <SimpleSidebar setOrder={setOrder} setCurrentCat={setCurrentCat}  children={undefined} />
         </Box>
         <Box
           width={"80%"}
