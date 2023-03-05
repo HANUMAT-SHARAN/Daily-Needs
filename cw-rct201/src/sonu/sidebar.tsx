@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { ReactNode, useState } from "react";
 import {
   IconButton,
   Box,
@@ -20,12 +20,14 @@ interface LinkItemProps {
   name: string;
 }
 const LinkItems: Array<LinkItemProps> = [
-  { name: "Apple" },
-  { name: "samsung" },
-  { name: "OnePlus" },
-  { name: "Oppo" },
-  { name: "Motorola" },
-  { name: "Google" },
+  { name: "hp" },
+  { name: "cases" },
+  { name: "Asus" },
+  { name: "Dell" },
+  { name: "lenovo" },
+  { name: "tote bag" },
+  { name: "watchband" },
+  { name: "bag" },
 ];
 
 interface FilterItemProps {
@@ -36,13 +38,16 @@ const FilterItems: Array<FilterItemProps> = [
   { name: "Low-High" },
 ];
 
-export default function SimpleSidebar({ children }: { children: ReactNode }) {
+export default function SimpleSidebar({setCurrentCat}:any,{ children }: { children: ReactNode }) {
+  const setcategory=(value:string)=>{
+    setCurrentCat(value)
+  }
   const { isOpen, onOpen, onClose } = useDisclosure();
   return (
-    <Box minH="90vh" bg={useColorModeValue("gray.100", "gray.900")}>
-      <SidebarContent
+    <Box  bg={useColorModeValue("gray.100", "gray.900")}>
+      <SidebarContent 
         onClose={() => onClose}
-        display={{ base: "none", md: "block" }}
+        display={{ base: "none", md: "block" }} setcategory={setcategory}
       />
       <Drawer
         autoFocus={false}
@@ -54,12 +59,12 @@ export default function SimpleSidebar({ children }: { children: ReactNode }) {
         size="full"
       >
         <DrawerContent>
-          <SidebarContent onClose={onClose} />
+          <SidebarContent setcategory={setcategory} onClose={onClose} />
         </DrawerContent>
       </Drawer>
       {/* mobilenav */}
       <MobileNav display={{ base: "flex", md: "none" }} onOpen={onOpen} />
-      <Box ml={{ base: 0, md: 60 }} p="4">
+      <Box ml={{ base: 0, md: 60 }} pr="6" >
         {children}
       </Box>
     </Box>
@@ -68,9 +73,10 @@ export default function SimpleSidebar({ children }: { children: ReactNode }) {
 
 interface SidebarProps extends BoxProps {
   onClose: () => void;
+  setcategory:(value:string)=>void
 }
 
-const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
+const SidebarContent = ({ onClose,setcategory, ...rest }: SidebarProps) => {
   return (
     <Box
       bg={useColorModeValue("white", "gray.900")}
@@ -94,7 +100,7 @@ const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
       </Flex>
       {LinkItems.map((link) => (
         <Stack paddingLeft={"40px"}>
-          <Checkbox key={link.name}>{link.name}</Checkbox>
+          <Checkbox onChange={(e)=>setcategory(e.target.value)} value={link.name} key={link.name}>{link.name}</Checkbox>
         </Stack>
       ))}
       <Flex h="20" alignItems="center" mx="8" justifyContent="space-between">

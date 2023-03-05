@@ -14,9 +14,8 @@ import {
   import { PriceTag } from "./PriceTag";
   import {RatingCom} from "./Rating"
   export const ProductCard = (props:any) => {
-    // console.log(props);
     const { product, rootProps } = props;
-    const { name, image1, cost, Rating } = product;
+    const { name, image1, cost } = product;
     return (
       <Stack borderWidth="1px"
       rounded="lg"
