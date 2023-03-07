@@ -46,7 +46,7 @@ Daily Needs is a Lifestyle Accessories Brand that curates stunning designs and p
     </ul>
         <h1>Creators</h1>
     <ul>
-        <li><a href="https://github.com/HANUMAT-SHARAN">@Hanumat Sharan</a></li>
+        <li><a href="https://github.com/HANUMAT-SHARAN">@Hanumat Sharan</a>  Team lead  </li>
    <li><a href="https://github.com/codersudhir">@Sudhir Nandane</a></li>
    <li><a href="https://github.com/palabhi017">@Abhishek Pal</a></li>
    <li><a href="https://github.com/sonu25122000">@Sonu Kumar</a></li>
